@@ -1376,6 +1376,125 @@
           width: 110px;
         }
       }
+      #toast {
+        position: fixed;
+        left: 50%;
+        bottom: 1.4rem;
+        transform: translate(-50%, 40px);
+        background: var(--s1);
+        border: 1px solid var(--or);
+        color: var(--tx);
+        padding: 0.7rem 1.3rem;
+        border-radius: 99px;
+        z-index: 96;
+        opacity: 0;
+        pointer-events: none;
+        font-weight: 600;
+      }
+      #toast.on {
+        animation: toast 3.2s ease forwards;
+      }
+      @keyframes toast {
+        10%,
+        85% {
+          opacity: 1;
+          transform: translate(-50%, 0);
+        }
+        100% {
+          opacity: 0;
+          transform: translate(-50%, 40px);
+        }
+      }
+      #btop {
+        position: fixed;
+        right: 1rem;
+        bottom: calc(1rem + env(safe-area-inset-bottom));
+        z-index: 60;
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(12px);
+        transition:
+          opacity 0.25s,
+          transform 0.25s;
+      }
+      #btop.on {
+        opacity: 1;
+        pointer-events: auto;
+        transform: none;
+      }
+      [data-mode="console"] #toast {
+        bottom: 5rem;
+      }
+      [data-mode="console"] #btop {
+        bottom: 5rem;
+      }
+      .pl2 {
+        list-style: none;
+        padding: 0;
+        margin: 0.8rem 0 0;
+        counter-reset: p;
+      }
+      .pl2 li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.7rem 1rem;
+        border-radius: 10px;
+        background: var(--s2);
+        margin: 0.4rem 0;
+        counter-increment: p;
+      }
+      .pl2 li::before {
+        content: counter(p);
+        width: 1.7rem;
+        height: 1.7rem;
+        border-radius: 50%;
+        background: var(--or);
+        color: #1a1206;
+        display: grid;
+        place-items: center;
+        font-weight: 800;
+        margin-right: 0.8rem;
+        flex: none;
+      }
+      .pl2 li a {
+        flex: 1;
+        text-decoration: none;
+        font-weight: 600;
+      }
+      .pl2 li.dn span {
+        color: var(--minor);
+      }
+      .pl2 li.dn a {
+        color: var(--mut);
+      }
+      .pl2 li span {
+        color: var(--mut);
+        font-size: 0.85rem;
+      }
+      .bdg {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+        margin: 0.8rem 0;
+      }
+      .bd {
+        font-size: 0.78rem;
+        padding: 0.2rem 0.7rem;
+        border-radius: 99px;
+        border: 1px dashed var(--ln);
+        color: var(--mut);
+      }
+      .bd.got {
+        border: 1px solid var(--or);
+        color: var(--or);
+        background: rgba(var(--glow), 0.12);
+      }
+      .xp {
+        font-size: 0.9rem;
+        color: var(--mut);
+        font-weight: 500;
+      }
       @media (max-width: 820px) {
         #vm {
           display: none;
@@ -1729,6 +1848,8 @@
   </head>
   <body>
     <canvas id="fx" aria-hidden="true"></canvas>
+    <div id="toast" role="status" aria-live="polite"></div>
+    <button class="ib" id="btop" aria-label="Back to top">Top</button>
     <a class="skip" href="#top">Skip to content</a>
     <noscript
       ><p style="padding: 2rem; text-align: center">
@@ -1794,6 +1915,48 @@
             ><span>Respectful</span><span>Log everything</span>
           </div>
         </div>
+        <h3 class="sub rv">What do you need to do?</h3>
+        <div class="grid">
+          <a class="card hc rv" style="--or: #ffd27f; --glow: 255, 210, 127" href="#/cheatsheet"
+            ><h3>Punish someone</h3>
+            <p>Find the next step on the ladder.</p></a
+          >
+          <a class="card hc rv" style="--or: #7fcfa8; --glow: 127, 207, 168" href="#/procedure" data-go="logf"
+            ><h3>Write a log</h3>
+            <p>Use the log builder and copy it.</p></a
+          >
+          <a class="card hc rv" style="--or: #ffa07a; --glow: 255, 160, 122" href="#/priority"
+            ><h3>Approve a priority</h3>
+            <p>Check it is allowed and safe.</p></a
+          >
+          <a class="card hc rv" style="--or: #7fd6f0; --glow: 127, 214, 240" href="#/questions"
+            ><h3>Answer a player</h3>
+            <p>Ready replies for common questions.</p></a
+          >
+          <a class="card hc rv" style="--or: #b0c4ff; --glow: 176, 196, 255" href="#/hints"
+            ><h3>Send a hint</h3>
+            <p>Build the :h and timer commands.</p></a
+          >
+          <a class="card hc rv" style="--or: #c5e08a; --glow: 197, 224, 138" href="#/training"
+            ><h3>Learn the basics</h3>
+            <p>R/A checklist and a quiz.</p></a
+          >
+        </div>
+        <h3 class="sub rv">Your path</h3>
+        <div class="card rv" id="path">
+          <p>Pick the one that fits you and work down the list. Finished steps are marked Done.</p>
+          <div class="cr">
+            <button class="opt" data-r="new">I am new to staff</button
+            ><button class="opt" data-r="trial">I am a trial mod</button
+            ><button class="opt" data-r="exp">I am experienced</button>
+          </div>
+          <div id="pathl"></div>
+        </div>
+        <div class="grid" style="margin-top: 1rem">
+          <div class="card rv" id="lvl"></div>
+          <div class="card rv" id="rotd"></div>
+        </div>
+        <h3 class="sub rv">All sections</h3>
         <div class="grid hcs">
           <a class="card hc rv" style="--or: #7db7ea; --glow: 125, 183, 234" href="#/conduct"
             ><h3>Staff conduct</h3>
@@ -3965,6 +4128,167 @@
       L("ck").addEventListener("change", () => {
         if (CK.every((_, i) => cs[i])) burst(innerWidth / 2, innerHeight / 3);
       });
+      /* fun and easy: progress, levels, badges, role path, rule of the day */
+      let prog = { v: {}, quiz: 0, perfect: 0, copies: 0, lookups: 0 },
+        ready = false;
+      try {
+        prog = Object.assign(prog, JSON.parse(localStorage.getItem("ccrp-prog") || "{}"));
+      } catch (_) {}
+      const LV = [
+        ["Rookie", 0],
+        ["Patroller", 60],
+        ["Veteran", 140],
+        ["Chief", 230],
+        ["Legend", 310],
+      ];
+      const BD = [
+        ["Explorer", "Visit every tab", () => VIEWS.slice(1).every((v) => prog.v[v])],
+        ["Quiz Whiz", "Score 100% on the scenario quiz", () => prog.perfect > 0],
+        ["Log Master", "Copy 5 logs from the Log builder", () => prog.copies >= 5],
+        ["Lookup Pro", "Use the punishment lookup 10 times", () => prog.lookups >= 10],
+        [
+          "Checklist Champ",
+          "Finish the R/A checklist",
+          () => document.querySelectorAll("#ck input:checked").length === CK.length,
+        ],
+      ];
+      const PATHS = {
+        new: ["conduct", "glossary", "punishments", "procedure", "training"],
+        trial: ["training", "punishments", "toolkit", "procedure", "questions"],
+        exp: ["cheatsheet", "priority", "hints", "appeals", "toolkit"],
+      };
+      let pth = "new";
+      try {
+        pth = localStorage.getItem("ccrp-path") || "new";
+      } catch (_) {}
+      let lastL = null,
+        lastB = null;
+      const xp = () =>
+        Object.keys(prog.v).length * 10 +
+        (prog.quiz ? 50 : 0) +
+        (prog.perfect ? 50 : 0) +
+        Math.min(prog.copies, 5) * 5 +
+        Math.min(prog.lookups, 10) * 2 +
+        document.querySelectorAll("#ck input:checked").length * 5;
+      const lvl = (x) => LV.reduce((a, l, k) => (x >= l[1] ? k : a), 0);
+      function save() {
+        try {
+          localStorage.setItem("ccrp-prog", JSON.stringify(prog));
+        } catch (_) {}
+      }
+      function toast(t) {
+        const e = L("toast");
+        e.textContent = t;
+        e.classList.remove("on");
+        void e.offsetWidth;
+        e.classList.add("on");
+      }
+      function pathl() {
+        document.querySelectorAll("#path .opt").forEach((b) => b.classList.toggle("ok", b.dataset.r === pth));
+        L("pathl").innerHTML =
+          '<ol class="pl2">' +
+          PATHS[pth]
+            .map(
+              (v) =>
+                `<li class="${prog.v[v] ? "dn" : ""}"><a href="#/${v}">${NAMES[v]}</a><span>${prog.v[v] ? "Done" : "Open"}</span></li>`,
+            )
+            .join("") +
+          "</ol>";
+      }
+      function paint() {
+        const x = xp(),
+          i = lvl(x),
+          nx = LV[i + 1],
+          bd = BD.map((b) => [b[0], b[1], b[2]()]);
+        if (lastL !== null && i > lastL) {
+          toast("Level up: " + LV[i][0]);
+          burst(innerWidth / 2, innerHeight / 3);
+        }
+        const got = bd.filter((b) => b[2]).map((b) => b[0]);
+        if (lastB !== null) {
+          const g = got.find((n) => !lastB.includes(n));
+          if (g) toast("Badge earned: " + g);
+        }
+        lastL = i;
+        lastB = got;
+        const pct = nx ? Math.round(((x - LV[i][1]) / (nx[1] - LV[i][1])) * 100) : 100;
+        L("lvl").innerHTML =
+          `<small>Your progress</small><h3>${LV[i][0]} <span class="xp">${x} XP</span></h3><div class="qp"><i style="width:${pct}%"></i></div><p>${nx ? nx[1] - x + " XP to " + nx[0] : "You reached the top level."}</p><div class="bdg">${bd.map((b) => `<span class="bd${b[2] ? " got" : ""}" title="${b[1]}">${b[0]}</span>`).join("")}</div><button class="cb" id="rst">Reset progress</button>`;
+        L("rst").onclick = () => {
+          prog = { v: {}, quiz: 0, perfect: 0, copies: 0, lookups: 0 };
+          save();
+          lastL = lastB = null;
+          paint();
+        };
+        pathl();
+      }
+      function award(k, v) {
+        if (!ready) return;
+        if (k === "quiz") {
+          prog.quiz = 1;
+          if (v === SC.length) prog.perfect = 1;
+        } else if (k === "copy") prog.copies++;
+        else if (k === "lookup") prog.lookups++;
+        save();
+        paint();
+      }
+      function rot() {
+        const d = new Date(),
+          k = Math.floor((d - new Date(d.getFullYear(), 0, 0)) / 864e5) % RULES.length,
+          r = RULES[k],
+          x = RX[r[0]];
+        L("rotd").innerHTML =
+          `<small>Rule of the day</small><h3>${r[0]}</h3><p>${r[2]}</p>${x ? `<p class="rp">Example: ${x[0]}</p>` : ""}<a class="btn" href="#/punishments" data-q="${r[0].replace(/"/g, "&quot;")}">See the ladder</a>`;
+      }
+      const route2 = route;
+      route = function (n) {
+        route2(n);
+        const r = document.documentElement.dataset.v || "home";
+        if (r !== "home" && !prog.v[r]) {
+          prog.v[r] = 1;
+          save();
+        }
+        ready = true;
+        paint();
+        rot();
+      };
+      L("path").onclick = (e) => {
+        const b = e.target.closest(".opt");
+        if (b) {
+          pth = b.dataset.r;
+          try {
+            localStorage.setItem("ccrp-path", pth);
+          } catch (_) {}
+          pathl();
+        }
+      };
+      L("lcopy").addEventListener("click", () => award("copy"));
+      L("cr").addEventListener("change", () => award("lookup"));
+      L("co").addEventListener("change", () => award("lookup"));
+      L("ck").addEventListener("change", () => {
+        if (ready) paint();
+      });
+      document.addEventListener("click", (e) => {
+        const g = e.target.closest && e.target.closest("[data-go]");
+        if (g)
+          setTimeout(() => {
+            const t = L(g.dataset.go);
+            if (t) t.scrollIntoView({ behavior: rm ? "auto" : "smooth", block: "center" });
+          }, 420);
+        const a = e.target.closest && e.target.closest("[data-q]");
+        if (a)
+          setTimeout(() => {
+            tabs.querySelector('[data-f="all"]').click();
+            q.value = a.dataset.q;
+            draw();
+            upQ();
+            const d = box.querySelector("details");
+            if (d) d.open = true;
+          }, 80);
+      });
+      const btop = L("btop");
+      addEventListener("scroll", () => btop.classList.toggle("on", scrollY > 700), { passive: true });
+      btop.onclick = () => scrollTo({ top: 0, behavior: rm ? "auto" : "smooth" });
       /* player questions: [category, question, what to do, reply] */
       const QA = [
         [
@@ -4335,6 +4659,63 @@
           "Good logs say how you got involved, where, what you saw, your evidence and what you did.",
         ],
       ];
+      SC.push(
+        [
+          "A player asks for a bank robbery while a priority timer is still running. What do you do?",
+          [
+            "Approve it anyway",
+            "Ask them to wait until the timer ends, then ask again",
+            "Ban them for asking",
+            "Ignore the !mod call",
+          ],
+          1,
+          "Only one priority can run at a time. Be polite and tell them to ask again when the timer ends.",
+        ],
+        [
+          "A banned player says sorry and shows they understand the rule. What is the best step?",
+          [
+            "Deny without reading it",
+            "Review the log and evidence, accept or reduce the ban if it fits, and reply politely",
+            "Unban them in chat right now",
+            "Tell them to make a new account",
+          ],
+          1,
+          "Appeals get a fair review of the log and evidence, a clear decision and a polite reply.",
+        ],
+        [
+          "Someone asks how to become a mod. What do you say?",
+          [
+            "Promise them a spot",
+            "Point them to the staff application and say staff are picked through applications",
+            "Tell them it is closed forever",
+            "Offer a spot for a favor",
+          ],
+          1,
+          "Never promise roles. Send them to the application and keep it friendly.",
+        ],
+        [
+          "Which :h hint is best for the start of a bank robbery priority?",
+          [
+            "Bank!!!",
+            "Priority started: Bank robbery. No new crimes or shootouts until the timer ends.",
+            "Everyone stop",
+            "Robbery lol",
+          ],
+          1,
+          "A good hint is short, clear and says what players must do. The Hint builder writes it for you.",
+        ],
+        [
+          "A player does 140 mph while police are really chasing them. Is that GTA driving?",
+          [
+            "Yes, always a ban",
+            "No, speeds over 100 are allowed during a real pursuit",
+            "Yes, give a kick",
+            "Only if they crash",
+          ],
+          1,
+          "The 100+ limit only applies when the player is not being chased. Check there really is a pursuit.",
+        ],
+      );
       let si = 0,
         pts = 0;
       function quiz() {
@@ -4342,6 +4723,7 @@
         if (si >= SC.length) {
           L("qp").style.width = "100%";
           if (pts === SC.length) burst(innerWidth / 2, innerHeight / 3);
+          award("quiz", pts);
           el.innerHTML = `<h3>Finished: ${pts} of ${SC.length} correct</h3><p class="fb">${pts >= SC.length - 1 ? "Great work. You know the handbook well." : "Review the Punishment Guide and Procedure tabs, then try again."}</p><button class="btn" id="qr" style="border:0;cursor:pointer">Try again</button>`;
           L("qr").onclick = () => {
             si = pts = 0;
