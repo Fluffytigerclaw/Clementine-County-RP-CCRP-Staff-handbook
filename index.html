@@ -1275,6 +1275,7 @@
         pointer-events: none;
       }
       .lw::after {
+        display: none;
         content: "";
         position: absolute;
         inset: -6%;
@@ -4852,19 +4853,6 @@
           const t = a.getAttribute("href").slice(2);
           if (IC[t]) a.insertAdjacentHTML("afterbegin", icon(IC[t]));
         });
-      [
-        ["hammer", "a"],
-        ["shield", "b"],
-        ["siren", "c"],
-        ["clipboard", "d"],
-      ].forEach(([n, c], i) => {
-        const sp = document.createElement("span");
-        sp.className = "oi " + c;
-        sp.style.animationDelay = i * 0.7 + "s";
-        sp.setAttribute("aria-hidden", "true");
-        sp.innerHTML = icon(n);
-        L("lw").appendChild(sp);
-      });
       /* player questions: [category, question, what to do, reply] */
       const QA = [
         [
