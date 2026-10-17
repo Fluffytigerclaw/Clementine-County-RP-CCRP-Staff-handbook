@@ -1666,6 +1666,41 @@
           animation: none;
         }
       }
+      [data-guide="community"] {
+        --or: #6fd6c0;
+        --glow: 111, 214, 192;
+      }
+      [data-guide="community"] #links a:not(.gc),
+      :root:not([data-guide="community"]) #links a.gc {
+        display: none;
+      }
+      #gs,
+      #gs2 {
+        background: var(--s1);
+        border: 1px solid var(--ln);
+        color: var(--tx);
+        font: 500 0.85rem Figtree;
+      }
+      #gs {
+        width: auto;
+        border-radius: 99px;
+        padding: 0.4rem 0.8rem;
+      }
+      #gs2 {
+        width: 100%;
+        border-radius: 12px;
+        padding: 0.7rem 1rem;
+        font-size: 1rem;
+        margin-bottom: 0.8rem;
+      }
+      @media (max-width: 820px) {
+        #gs {
+          display: none;
+        }
+      }
+      [data-mode="mobile"] #gs {
+        display: none;
+      }
       @media (max-width: 820px) {
         #vm {
           display: none;
@@ -2111,9 +2146,18 @@
           ><a href="#/toolkit">Mod Toolkit</a><a href="#/priority">Priority</a
           ><a href="#/hints">:h Commands</a><a href="#/questions">Player Questions</a
           ><a href="#/appeals">Appeals</a><a href="#/training">Training</a><a href="#/commands">Commands</a
-          ><a href="#/ranks">Ranks</a><a href="#/glossary">Glossary</a><a href="#/faq">FAQ</a>
+          ><a href="#/ranks">Ranks</a><a href="#/glossary">Glossary</a><a href="#/faq">FAQ</a
+          ><a class="gc" href="#/cwelcome">Welcome</a><a class="gc" href="#/cstart">Getting Started</a
+          ><a class="gc" href="#/crules">Player Rules</a><a class="gc" href="#/croleplay">Roleplay Guide</a
+          ><a class="gc" href="#/cdiscord">Discord Guide</a><a class="gc" href="#/chelp">Get Help</a
+          ><a class="gc" href="#/cteam">Join the Team</a><a class="gc" href="#/glossary">Glossary</a
+          ><a class="gc" href="#/cfaq">FAQ</a>
         </div>
         <div class="tools">
+          <select class="ib" id="gs" aria-label="Guide">
+            <option value="staff">Staff Handbook</option>
+            <option value="community">Community Guide</option>
+          </select>
           <select class="ib" id="vm" aria-label="View mode">
             <option value="auto">View: Auto</option>
             <option value="pc">PC</option>
@@ -2963,6 +3007,479 @@
         </div>
         <div class="gl" id="ql"></div>
       </section>
+      <section class="view" id="v-cwelcome">
+        <h2>Welcome to Clementine County RP</h2>
+        <p class="lead">
+          This is the community guide for our Discord and ER:LC server. Everything players and team members
+          need is here: how to join, the rules in plain words, roleplay tips, how to get help and how to join
+          the team.
+        </p>
+        <div class="grid">
+          <div class="card rv">
+            <h3>The server at a glance</h3>
+            <ul>
+              <li>Roleplay on ER:LC (Roblox) with a Discord community</li>
+              <li>Server code: [server code]</li>
+              <li>Session times: [sessions channel]</li>
+              <li>Questions: [support channel]</li>
+            </ul>
+          </div>
+          <div class="card rv">
+            <h3>Five golden rules</h3>
+            <ul>
+              <li>Roleplay realistically</li>
+              <li>No RDM or VDM</li>
+              <li>Respect everyone</li>
+              <li>Listen to staff</li>
+              <li>Not sure? Use !mod</li>
+            </ul>
+          </div>
+        </div>
+        <h3 class="sub rv">Where to next?</h3>
+        <div class="grid hcs">
+          <a class="card hc rv" style="--or: #6fd6c0; --glow: 111, 214, 192" href="#/cstart"
+            ><h3>Getting started</h3>
+            <p>Join in a few easy steps.</p></a
+          >
+          <a class="card hc rv" style="--or: #9ad1ff; --glow: 154, 209, 255" href="#/crules"
+            ><h3>Player rules</h3>
+            <p>Every rule explained with examples.</p></a
+          >
+          <a class="card hc rv" style="--or: #ffb37a; --glow: 255, 179, 122" href="#/croleplay"
+            ><h3>Roleplay guide</h3>
+            <p>Departments, driving, priorities and banned roleplays.</p></a
+          >
+          <a class="card hc rv" style="--or: #c8a2ff; --glow: 200, 162, 255" href="#/cdiscord"
+            ><h3>Discord guide</h3>
+            <p>Channels, roles, tickets and etiquette.</p></a
+          >
+          <a class="card hc rv" style="--or: #7fd6f0; --glow: 127, 214, 240" href="#/chelp"
+            ><h3>Get help</h3>
+            <p>!mod, reports and appeals.</p></a
+          >
+          <a class="card hc rv" style="--or: #e8c26e; --glow: 232, 194, 110" href="#/cteam"
+            ><h3>Join the team</h3>
+            <p>Staff and department applications.</p></a
+          >
+          <a class="card hc rv" style="--or: #ee98ac; --glow: 238, 152, 172" href="#/cfaq"
+            ><h3>FAQ</h3>
+            <p>Quick answers to common questions.</p></a
+          >
+        </div>
+      </section>
+      <section class="view" id="v-cstart">
+        <h2>Getting started</h2>
+        <p class="lead">New here? Follow these steps and you will be roleplaying in minutes.</p>
+        <div class="steps">
+          <div class="card rv">
+            <h3>Join our Discord</h3>
+            <p>
+              Use the invite link: [invite link]. Turn on notifications for announcements so you never miss a
+              session.
+            </p>
+          </div>
+          <div class="card rv">
+            <h3>Read the rules</h3>
+            <p>
+              Read [rules channel] and the Player Rules tab here. They are short and they keep roleplay fun
+              for everyone.
+            </p>
+          </div>
+          <div class="card rv">
+            <h3>Verify and pick your roles</h3>
+            <p>Follow the steps in [verification channel] to unlock the server.</p>
+          </div>
+          <div class="card rv">
+            <h3>Check the session times</h3>
+            <p>Sessions are posted in [sessions channel]. Join early so you can get in.</p>
+          </div>
+          <div class="card rv">
+            <h3>Join ER:LC</h3>
+            <p>
+              Open Emergency Response: Liberty County on Roblox, find Private Servers and enter the server
+              code [server code].
+            </p>
+          </div>
+          <div class="card rv">
+            <h3>Choose your roleplay</h3>
+            <p>
+              Play as a civilian right away, or apply to a department. The Roleplay guide explains each
+              option.
+            </p>
+          </div>
+          <div class="card rv">
+            <h3>Ask for help any time</h3>
+            <p>
+              Not sure about something? Use !mod in the game or a ticket in Discord. Staff are happy to help.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section class="view" id="v-crules">
+        <h2>Player rules</h2>
+        <p class="lead">
+          Every rule in plain words, with an example and what is not a violation. Staff use judgement, and
+          most first-time mistakes get a friendly warning.
+        </p>
+        <div class="cr">
+          <input
+            class="fi"
+            id="crq"
+            type="search"
+            placeholder="Search a rule, e.g. RDM, driving, chat"
+            aria-label="Search rules"
+          /><select id="crf" aria-label="Category">
+            <option value="all">All rules</option>
+            <option value="minor">Small</option>
+            <option value="moderate">Medium</option>
+            <option value="major">Serious</option>
+            <option value="severe">Very serious</option>
+          </select>
+        </div>
+        <div class="gl" id="crg"></div>
+      </section>
+      <section class="view" id="v-croleplay">
+        <h2>Roleplay guide</h2>
+        <p class="lead">
+          Good roleplay means acting like a real person in a real town. Here is how it works at CCRP.
+        </p>
+        <h3 class="sub rv">Pick your role</h3>
+        <div class="grid">
+          <div class="card rv">
+            <h3>Police (PD)</h3>
+            <p>Patrol, traffic stops and investigations. Apply in [department channel].</p>
+          </div>
+          <div class="card rv">
+            <h3>Sheriff (SD)</h3>
+            <p>County patrol and larger areas. Apply in [department channel].</p>
+          </div>
+          <div class="card rv">
+            <h3>Fire and EMS (FD)</h3>
+            <p>Fires, rescues and medical calls. Apply in [department channel].</p>
+          </div>
+          <div class="card rv">
+            <h3>Civilian</h3>
+            <p>Jobs, driving, shopping and everyday life. You can start right away.</p>
+          </div>
+          <div class="card rv">
+            <h3>Criminal roleplay</h3>
+            <p>Allowed with staff approval through a priority. Keep it realistic and fair.</p>
+          </div>
+        </div>
+        <h3 class="sub rv">Driving</h3>
+        <div class="grid">
+          <div class="card rv">
+            <h3>Drive like a real person</h3>
+            <p>
+              Follow traffic rules and stay under 100. Going 100+ is only allowed when you are being chased.
+            </p>
+          </div>
+          <div class="card rv">
+            <h3>Pull over for emergency lights</h3>
+            <p>When police use lights and sirens, stop and roleplay the stop.</p>
+          </div>
+        </div>
+        <h3 class="sub rv">Priorities for crimes</h3>
+        <div class="grid">
+          <div class="card rv">
+            <h3>How to ask</h3>
+            <p>
+              Use !mod and tell staff what you plan, where and who is involved. Wait for approval. Only one
+              priority runs at a time.
+            </p>
+          </div>
+          <div class="card ex rv">
+            <span class="tag minor">Often allowed</span>
+            <ul>
+              <li>Bank and jewelry store robberies</li>
+              <li>Armed and store robberies</li>
+              <li>Hostage scenes</li>
+              <li>Pursuits</li>
+            </ul>
+          </div>
+          <div class="card ex bad rv">
+            <span class="tag severe">Never allowed</span>
+            <ul>
+              <li>Bomb or terrorism roleplay</li>
+              <li>Suicide or self-harm</li>
+              <li>Drug or drunk roleplay</li>
+              <li>Sexual or NSFW roleplay</li>
+              <li>Anything that breaks Roblox rules</li>
+            </ul>
+          </div>
+        </div>
+        <h3 class="sub rv">Roleplay tips</h3>
+        <div class="grid">
+          <div class="card rv">
+            <h3>Show real reactions</h3>
+            <p>If you are hurt, act hurt. If someone points a gun at you, act afraid.</p>
+          </div>
+          <div class="card rv">
+            <h3>Give others a chance</h3>
+            <p>Let people respond to your actions instead of deciding for them.</p>
+          </div>
+          <div class="card rv">
+            <h3>Stay in character</h3>
+            <p>Keep real-life chat out of roleplay and do not use outside information.</p>
+          </div>
+          <div class="card rv">
+            <h3>If you die</h3>
+            <p>Forget the scene and do not return to it. That is the new life rule.</p>
+          </div>
+        </div>
+      </section>
+      <section class="view" id="v-cdiscord">
+        <h2>Discord guide</h2>
+        <p class="lead">
+          Our Discord is where we plan sessions, get help and hang out. These are the rules and tools.
+        </p>
+        <div class="grid">
+          <div class="card rv">
+            <h3>Discord rules</h3>
+            <ul>
+              <li>Be kind and respectful</li>
+              <li>No spam or pinging staff for fun</li>
+              <li>No ads or invites to other servers</li>
+              <li>No NSFW or hate speech</li>
+              <li>Use channels for what they are for</li>
+              <li>Follow Discord's Terms of Service</li>
+            </ul>
+          </div>
+          <div class="card rv">
+            <h3>Good to know</h3>
+            <ul>
+              <li>Staff will never ask for your password</li>
+              <li>Report problems in a ticket, not in public chat</li>
+              <li>Do not argue with staff in public</li>
+            </ul>
+          </div>
+        </div>
+        <h3 class="sub rv">Channels</h3>
+        <div class="scr">
+          <table>
+            <tr>
+              <th>Channel</th>
+              <th>What it is for</th>
+            </tr>
+            <tr>
+              <td>[announcements channel]</td>
+              <td>News, updates and session announcements</td>
+            </tr>
+            <tr>
+              <td>[rules channel]</td>
+              <td>The server rules</td>
+            </tr>
+            <tr>
+              <td>[sessions channel]</td>
+              <td>Session times and server code</td>
+            </tr>
+            <tr>
+              <td>[general channel]</td>
+              <td>Chat with the community</td>
+            </tr>
+            <tr>
+              <td>[support channel]</td>
+              <td>Open a ticket for help or reports</td>
+            </tr>
+            <tr>
+              <td>[applications channel]</td>
+              <td>Staff and department applications</td>
+            </tr>
+            <tr>
+              <td>[suggestions channel]</td>
+              <td>Share ideas for the server</td>
+            </tr>
+          </table>
+        </div>
+        <h3 class="sub rv">Roles</h3>
+        <div class="scr">
+          <table>
+            <tr>
+              <th>Role</th>
+              <th>Meaning</th>
+            </tr>
+            <tr>
+              <td>[member role]</td>
+              <td>Verified community members</td>
+            </tr>
+            <tr>
+              <td>[department roles]</td>
+              <td>PD, SD and FD members</td>
+            </tr>
+            <tr>
+              <td>[staff roles]</td>
+              <td>Trial Mod, Moderator, Senior Mod, Administrator and Management</td>
+            </tr>
+            <tr>
+              <td>[booster role]</td>
+              <td>Thanks to people who boost the server</td>
+            </tr>
+          </table>
+        </div>
+        <h3 class="sub rv">Open a ticket</h3>
+        <div class="steps">
+          <div class="card rv">
+            <h3>Go to [support channel]</h3>
+            <p>Click the button to open a ticket.</p>
+          </div>
+          <div class="card rv">
+            <h3>Say what you need</h3>
+            <p>Write your username, what happened and when. Add clips or screenshots.</p>
+          </div>
+          <div class="card rv">
+            <h3>Wait for staff</h3>
+            <p>A staff member will reply. Please be patient and polite.</p>
+          </div>
+        </div>
+      </section>
+      <section class="view" id="v-chelp">
+        <h2>Get help</h2>
+        <p class="lead">
+          Staff are here to help, not to catch you out. Here is the right way to get help fast.
+        </p>
+        <div class="grid">
+          <div class="card rv">
+            <h3>In the game: use !mod</h3>
+            <p>Type !mod in chat if someone breaks the rules or you need help. Staff will come to you.</p>
+          </div>
+          <div class="card rv">
+            <h3>In Discord: open a ticket</h3>
+            <p>Use [support channel] for reports after the session, questions and appeals.</p>
+          </div>
+        </div>
+        <h3 class="sub rv">What to include in a report</h3>
+        <div class="card rv">
+          <ul>
+            <li>The player's Roblox username</li>
+            <li>What happened, step by step</li>
+            <li>Where and about what time</li>
+            <li>A clip or screenshot if you have one</li>
+          </ul>
+        </div>
+        <h3 class="sub rv">If you were punished</h3>
+        <div class="steps">
+          <div class="card rv">
+            <h3>Stay calm</h3>
+            <p>Arguing in chat will not help. Staff reviews everything with evidence.</p>
+          </div>
+          <div class="card rv">
+            <h3>Read the rule</h3>
+            <p>Check the Player Rules tab so you understand what happened.</p>
+          </div>
+          <div class="card rv">
+            <h3>Appeal</h3>
+            <p>
+              Send an appeal in [appeals channel] with your username, why you think it should change, and that
+              you have read the rules.
+            </p>
+          </div>
+        </div>
+        <h3 class="sub rv">What staff cannot do</h3>
+        <div class="grid">
+          <div class="card rv">
+            <h3>Staff will not</h3>
+            <ul>
+              <li>Unban in public chat</li>
+              <li>Give roles or ranks on request</li>
+              <li>Share who reported someone</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section class="view" id="v-cteam">
+        <h2>Join the team</h2>
+        <p class="lead">Want to help run CCRP? Here is how teams and applications work.</p>
+        <div class="grid">
+          <div class="card rv">
+            <h3>Staff application</h3>
+            <p>
+              Apply in [applications channel] when applications are open. Staff are chosen through
+              applications and reviews, never by request.
+            </p>
+          </div>
+          <div class="card rv">
+            <h3>Department application</h3>
+            <p>PD, SD and FD each have their own application in [department channel].</p>
+          </div>
+        </div>
+        <h3 class="sub rv">Tips for a good application</h3>
+        <div class="grid">
+          <div class="card rv">
+            <h3>Be honest</h3>
+            <p>Write about yourself and how you have helped others.</p>
+          </div>
+          <div class="card rv">
+            <h3>Know the rules</h3>
+            <p>Read the Player Rules tab and show you understand them.</p>
+          </div>
+          <div class="card rv">
+            <h3>Stay active and kind</h3>
+            <p>Good behavior in the server is noticed.</p>
+          </div>
+        </div>
+        <h3 class="sub rv">After you are accepted</h3>
+        <div class="steps">
+          <div class="card rv">
+            <h3>Trial Moderator</h3>
+            <p>You start as a trial moderator, which means you are not a full mod yet.</p>
+          </div>
+          <div class="card rv">
+            <h3>Complete an R/A</h3>
+            <p>
+              An R/A is a ride-along with an Administrator or higher. You learn by watching, then handling
+              reports with their help.
+            </p>
+          </div>
+          <div class="card rv">
+            <h3>Become a Moderator</h3>
+            <p>After a successful R/A you can be promoted to a full moderator.</p>
+          </div>
+        </div>
+      </section>
+      <section class="view" id="v-cfaq">
+        <h2>FAQ</h2>
+        <p class="lead">Quick answers to what players ask the most.</p>
+        <details class="rule">
+          <summary><strong>How do I join the server?</strong></summary>
+          <div class="body">
+            <p>Join our Discord, read the rules and use the server code in [sessions channel].</p>
+          </div>
+        </details>
+        <details class="rule">
+          <summary><strong>How do I become a mod?</strong></summary>
+          <div class="body">
+            <p>Staff are picked through applications. Watch [announcements channel] for when they open.</p>
+          </div>
+        </details>
+        <details class="rule">
+          <summary><strong>Can I be a police officer or firefighter?</strong></summary>
+          <div class="body"><p>Yes. Apply to the department in [department channel].</p></div>
+        </details>
+        <details class="rule">
+          <summary><strong>Can I rob a bank?</strong></summary>
+          <div class="body"><p>Yes, with staff approval. Use !mod to ask for a priority.</p></div>
+        </details>
+        <details class="rule">
+          <summary><strong>Why can't I drive over 100?</strong></summary>
+          <div class="body">
+            <p>Going 100+ is only allowed during a real chase. Otherwise it breaks the driving rule.</p>
+          </div>
+        </details>
+        <details class="rule">
+          <summary><strong>I got punished. What now?</strong></summary>
+          <div class="body"><p>Read the rule, stay calm and send an appeal in [appeals channel].</p></div>
+        </details>
+        <details class="rule">
+          <summary><strong>How do I report someone?</strong></summary>
+          <div class="body">
+            <p>Use !mod in the game or open a ticket in [support channel] with a clip.</p>
+          </div>
+        </details>
+        <details class="rule">
+          <summary><strong>When are sessions?</strong></summary>
+          <div class="body"><p>Session times are in [sessions channel].</p></div>
+        </details>
+      </section>
       <section class="view" id="v-appeals">
         <h2>Ban appeals</h2>
         <p class="lead">
@@ -3321,6 +3838,11 @@
       <div class="dbox">
         <div class="dh"><b>All tabs</b><button class="ib" id="dx">Close</button></div>
         <div class="dg" id="dg"></div>
+        <h3 class="cat">Guide</h3>
+        <select id="gs2" aria-label="Guide">
+          <option value="staff">Staff Handbook</option>
+          <option value="community">Community Guide</option>
+        </select>
         <h3 class="cat">View</h3>
         <select id="vm2" aria-label="View mode">
           <option value="auto">Auto</option>
@@ -4392,7 +4914,7 @@
         } else if (k === "b") {
           if (pal.classList.contains("on")) op(false);
           else if (drw.classList.contains("on")) dr(false);
-          else nav("home");
+          else nav(VIEWS[0]);
         } else if (k === "lb") nav(VIEWS[(i + n - 1) % n]);
         else if (k === "rb") nav(VIEWS[(i + 1) % n]);
         else if (k === "st") op(true);
@@ -4566,7 +5088,7 @@
         ["Legend", 310],
       ];
       const BD = [
-        ["Explorer", "Visit every tab", () => VIEWS.slice(1).every((v) => prog.v[v])],
+        ["Explorer", "Visit every tab", () => STAFF.slice(1).every((v) => prog.v[v])],
         ["Quiz Whiz", "Score 100% on the scenario quiz", () => prog.perfect > 0],
         ["Log Master", "Copy 5 logs from the Log builder", () => prog.copies >= 5],
         ["Lookup Pro", "Use the punishment lookup 10 times", () => prog.lookups >= 10],
@@ -4668,7 +5190,7 @@
       route = function (n) {
         route2(n);
         const r = document.documentElement.dataset.v || "home";
-        if (r !== "home" && !prog.v[r]) {
+        if (r !== "home" && STAFF.includes(r) && !prog.v[r]) {
           prog.v[r] = 1;
           save();
         }
@@ -4853,6 +5375,114 @@
           const t = a.getAttribute("href").slice(2);
           if (IC[t]) a.insertAdjacentHTML("afterbegin", icon(IC[t]));
         });
+      /* two guides in one site: staff handbook and community guide */
+      const STAFF = [...VIEWS],
+        COMM = [
+          "cwelcome",
+          "cstart",
+          "crules",
+          "croleplay",
+          "cdiscord",
+          "chelp",
+          "cteam",
+          "glossary",
+          "cfaq",
+        ];
+      Object.assign(NAMES, {
+        cwelcome: "Welcome",
+        cstart: "Getting Started",
+        crules: "Player Rules",
+        croleplay: "Roleplay Guide",
+        cdiscord: "Discord Guide",
+        chelp: "Get Help",
+        cteam: "Join the Team",
+        cfaq: "FAQ",
+      });
+      Object.assign(IC, {
+        cwelcome: "home",
+        cstart: "clipboard",
+        crules: "shield",
+        croleplay: "siren",
+        cdiscord: "chat",
+        chelp: "help",
+        cteam: "star",
+        cfaq: "help",
+      });
+      document.querySelectorAll("#v-cwelcome a.hc,#v-cwelcome ~ section.view").forEach((el) => {
+        if (el.matches("a.hc")) {
+          const t = el.getAttribute("href").slice(2),
+            h = el.querySelector("h3");
+          if (h && IC[t] && !h.querySelector(".ic")) h.insertAdjacentHTML("afterbegin", icon(IC[t]));
+        }
+      });
+      COMM.forEach((v) => {
+        if (v === "glossary" || (v === "cwelcome" && false)) return;
+        const h = L("v-" + v).querySelector("h2");
+        if (h && IC[v] && !h.querySelector(".ic")) h.insertAdjacentHTML("afterbegin", icon(IC[v]));
+      });
+      let guide = "staff";
+      root.dataset.guide = "staff";
+      function dgBuild() {
+        L("dg").innerHTML = VIEWS.map((v) => `<a href="#/${v}">${icon(IC[v] || "home")}${NAMES[v]}</a>`).join(
+          "",
+        );
+      }
+      function setGuide(g) {
+        guide = g;
+        root.dataset.guide = g;
+        VIEWS.splice(0, VIEWS.length, ...(g === "staff" ? STAFF : COMM));
+        L("gs").value = L("gs2").value = g;
+        document.querySelector(".logo span").textContent = g === "staff" ? "Staff" : "Community";
+        dgBuild();
+      }
+      const routeG = route;
+      route = function (n) {
+        let r = (n || location.hash.replace(/^#\/?/, "") || "").trim();
+        if (r === "home" && guide === "community") r = "cwelcome";
+        const inS = STAFF.includes(r),
+          inC = COMM.includes(r);
+        if (!inS && !inC) r = guide === "community" ? "cwelcome" : "home";
+        else if (inS && !inC && guide !== "staff") setGuide("staff");
+        else if (inC && !inS && guide !== "community") setGuide("community");
+        routeG(r);
+      };
+      const gsw = (g) => {
+        setGuide(g);
+        nav(g === "staff" ? "home" : "cwelcome");
+      };
+      L("gs").onchange = (e) => gsw(e.target.value);
+      L("gs2").onchange = (e) => gsw(e.target.value);
+      COMM.forEach((r, i) => {
+        if (r === "glossary") return;
+        const p = COMM[i - 1],
+          nx = COMM[i + 1] || COMM[0],
+          d = document.createElement("div");
+        d.className = "pn";
+        d.innerHTML =
+          (p ? `<a class="btn g" href="#/${p}">Back: ${NAMES[p]}</a>` : "<span></span>") +
+          `<a class="btn" href="#/${nx}">${nx === COMM[0] ? "Back to Welcome" : "Next: " + NAMES[nx]}</a>`;
+        L("v-" + r).appendChild(d);
+      });
+      COMM.filter((v) => v !== "glossary").forEach((v) =>
+        ALL.push({ t: NAMES[v] + " (Community)", s: "Tab", f: () => nav(v) }),
+      );
+      function crl() {
+        const sv = L("crf").value,
+          w = L("crq").value.toLowerCase().trim().split(/\s+/);
+        L("crg").innerHTML =
+          RULES.filter(
+            (r) =>
+              (sv === "all" || r[1] === sv) && w.every((k) => (r[0] + " " + r[2]).toLowerCase().includes(k)),
+          )
+            .map((r, i) => {
+              const x = RX[r[0]],
+                f = r[3][0];
+              return `<div class="card ga" style="--n:${Math.min(i, 12)}"><span class="tag ${r[1]}">${r[1]}</span><h3>${r[0]}</h3><p>${r[2]}</p>${x ? `<p class="rp">Example: ${x[0]}</p><p><b>Not a violation:</b> ${x[1]}</p>` : ""}<p class="xp">First step: ${f === W ? "usually a warning" : f}</p></div>`;
+            })
+            .join("") || '<p class="none">No rules match.</p>';
+      }
+      L("crq").oninput = L("crf").oninput = crl;
+      crl();
       /* player questions: [category, question, what to do, reply] */
       const QA = [
         [
