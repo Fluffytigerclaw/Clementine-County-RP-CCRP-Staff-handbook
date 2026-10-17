@@ -1496,7 +1496,7 @@
         color: var(--mut);
         font-weight: 500;
       }
-            ::view-transition-group(root) {
+      ::view-transition-group(root) {
         animation-duration: 0.3s;
       }
       @keyframes growbar {
@@ -1589,6 +1589,81 @@
         color: var(--or);
         text-decoration: none;
         font-weight: 600;
+      }
+      .ic {
+        width: 1.1em;
+        height: 1.1em;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 1.8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        vertical-align: -0.17em;
+        flex: none;
+      }
+      section.view > h2 .ic {
+        width: 0.85em;
+        height: 0.85em;
+        color: var(--or);
+        margin-right: 0.25em;
+        vertical-align: -0.05em;
+      }
+      .hc h3 .ic {
+        margin-right: 0.3em;
+      }
+      .step .ic {
+        width: 1em;
+        height: 1em;
+        margin-right: 0.3em;
+      }
+      .dg .ic {
+        margin-right: 0.7rem;
+        color: var(--or);
+      }
+      .dg a.on .ic {
+        color: #1a1206;
+      }
+      .oi {
+        position: absolute;
+        z-index: 2;
+        width: 2.5rem;
+        height: 2.5rem;
+        padding: 0.55rem;
+        background: var(--s1);
+        border: 1px solid var(--ln);
+        border-radius: 14px;
+        color: var(--or);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+        animation: bob 5s ease-in-out infinite;
+      }
+      .oi.a {
+        left: -3%;
+        top: 8%;
+      }
+      .oi.b {
+        right: -3%;
+        top: 14%;
+      }
+      .oi.c {
+        right: 0;
+        bottom: 8%;
+      }
+      .oi.d {
+        left: 0;
+        bottom: 12%;
+      }
+      @keyframes bob {
+        50% {
+          transform: translateY(-9px);
+        }
+      }
+      .lite .oi {
+        animation: none;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .oi {
+          animation: none;
+        }
       }
       @media (max-width: 820px) {
         #vm {
@@ -1943,6 +2018,76 @@
     </style>
   </head>
   <body>
+    <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+      <symbol id="i-hammer" viewBox="0 0 24 24">
+        <rect x="4" y="6.5" width="10" height="5" rx="1" transform="rotate(-45 9 9)" />
+        <path d="M12.5 12.5L20 20M3 21h8" />
+      </symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24">
+        <path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z" />
+        <path d="M9 12l2 2 4-4" />
+      </symbol>
+      <symbol id="i-list" viewBox="0 0 24 24">
+        <path d="M8 6h12M8 12h12M8 18h12" />
+        <circle cx="4" cy="6" r="1" />
+        <circle cx="4" cy="12" r="1" />
+        <circle cx="4" cy="18" r="1" />
+      </symbol>
+      <symbol id="i-clipboard" viewBox="0 0 24 24">
+        <rect x="5" y="4" width="14" height="17" rx="2" />
+        <rect x="9" y="2" width="6" height="4" rx="1" />
+        <path d="M9 12h6M9 16h4" />
+      </symbol>
+      <symbol id="i-toolbox" viewBox="0 0 24 24">
+        <rect x="3" y="8" width="18" height="12" rx="2" />
+        <path d="M9 8V6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18" />
+      </symbol>
+      <symbol id="i-siren" viewBox="0 0 24 24">
+        <path d="M6 18v-5a6 6 0 0 1 12 0v5" />
+        <path d="M4 18h16v3H4zM12 3v2M4.5 6l1.5 1.5M19.5 6L18 7.5" />
+      </symbol>
+      <symbol id="i-megaphone" viewBox="0 0 24 24">
+        <path d="M3 10v4l11 4V6z" />
+        <path d="M14 9a4 4 0 0 1 0 6M6 14l1.5 6h3L9 15" />
+      </symbol>
+      <symbol id="i-chat" viewBox="0 0 24 24">
+        <path d="M4 5h16v11H9l-5 4z" />
+        <path d="M8 10h8" />
+      </symbol>
+      <symbol id="i-scale" viewBox="0 0 24 24">
+        <path d="M12 4v16M6 20h12M5 7h14" />
+        <path d="M5 7l-3 7a3 3 0 0 0 6 0zM19 7l-3 7a3 3 0 0 0 6 0z" />
+      </symbol>
+      <symbol id="i-cap" viewBox="0 0 24 24">
+        <path d="M2 9l10-5 10 5-10 5z" />
+        <path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5" />
+      </symbol>
+      <symbol id="i-terminal" viewBox="0 0 24 24">
+        <rect x="3" y="4" width="18" height="16" rx="2" />
+        <path d="M7 9l3 3-3 3M12 16h5" />
+      </symbol>
+      <symbol id="i-star" viewBox="0 0 24 24">
+        <path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z" />
+      </symbol>
+      <symbol id="i-book" viewBox="0 0 24 24">
+        <path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z" />
+        <path d="M4 19V5M9 7h6" />
+      </symbol>
+      <symbol id="i-help" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="9" />
+        <path d="M9.5 9.5a2.5 2.5 0 1 1 5 0c0 1.5-2.5 2-2.5 3.5M12 17h.01" />
+      </symbol>
+      <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11l9-8 9 8M5 10v10h14V10M10 20v-6h4v6" /></symbol>
+      <symbol id="i-alert" viewBox="0 0 24 24">
+        <path d="M12 3l10 18H2z" />
+        <path d="M12 10v5M12 18h.01" />
+      </symbol>
+      <symbol id="i-door" viewBox="0 0 24 24"><path d="M10 4H5v16h5M14 8l4 4-4 4M18 12H9" /></symbol>
+      <symbol id="i-ban" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="9" />
+        <path d="M5.6 5.6l12.8 12.8" />
+      </symbol>
+    </svg>
     <canvas id="fx" aria-hidden="true"></canvas>
     <div id="toast" role="status" aria-live="polite"></div>
     <button class="ib" id="btop" aria-label="Back to top">Top</button>
@@ -3711,6 +3856,20 @@
       try {
         pins = JSON.parse(localStorage.getItem("ccrp-pins") || "[]");
       } catch (_) {}
+      function icon(n) {
+        return '<svg class="ic" aria-hidden="true"><use href="#i-' + n + '"/></svg>';
+      }
+      function stepIc(t) {
+        return icon(
+          /warning/i.test(t)
+            ? "alert"
+            : /kick|removal/i.test(t)
+              ? "door"
+              : /perm/i.test(t)
+                ? "ban"
+                : "hammer",
+        );
+      }
       function rxh(n) {
         const x = RX[n];
         return x
@@ -3735,7 +3894,7 @@
         RULES.forEach((r) => {
           if (f !== "all" && r[1] !== f) return;
           if (s && !s.split(/\s+/).every((x) => (r[0] + " " + r[2]).toLowerCase().includes(x))) return;
-          h += `<details class="rule rv in" style="--n:${Math.min(n++, 12)}"><summary><strong>${r[0]}</strong><button class="cb pin${pins.includes(r[0]) ? " on" : ""}" data-p="${r[0]}">${pins.includes(r[0]) ? "Pinned" : "Pin"}</button><span class="tag ${r[1]}">${r[1]}</span><span class="d">${r[2].split(".")[0]}.</span></summary><div class="body"><p>${r[2]}</p>${rxh(r[0])}<div class="ladder">${r[3].map((t, i) => `<div class="step ${cls(t)}" style="--i:${i}"><small>${LAB[i]}</small><span>${t || "Skipped"}</span></div>`).join("")}</div></div></details>`;
+          h += `<details class="rule rv in" style="--n:${Math.min(n++, 12)}"><summary><strong>${r[0]}</strong><button class="cb pin${pins.includes(r[0]) ? " on" : ""}" data-p="${r[0]}">${pins.includes(r[0]) ? "Pinned" : "Pin"}</button><span class="tag ${r[1]}">${r[1]}</span><span class="d">${r[2].split(".")[0]}.</span></summary><div class="body"><p>${r[2]}</p>${rxh(r[0])}<div class="ladder">${r[3].map((t, i) => `<div class="step ${cls(t)}" style="--i:${i}"><small>${LAB[i]}</small><span>${t ? stepIc(t) : ""}${t || "Skipped"}</span></div>`).join("")}</div></div></details>`;
         });
         box.innerHTML = h || '<p class="none">No rules match. Try another search.</p>';
       }
@@ -4649,9 +4808,64 @@
         } catch (_) {}
       }
       /* safety net: make sure the open tab's title is visible even if the scroll observer is slow */
-const route4=route;
-route=function(n){route4(n);setTimeout(()=>{document.querySelectorAll(".view.on .hd").forEach(h=>{const r=h.getBoundingClientRect();if(r.bottom>0&&r.top<innerHeight)h.classList.add("in")})},700)};
-/* player questions: [category, question, what to do, reply] */
+      const route4 = route;
+      route = function (n) {
+        route4(n);
+        setTimeout(() => {
+          document.querySelectorAll(".view.on .hd").forEach((h) => {
+            const r = h.getBoundingClientRect();
+            if (r.bottom > 0 && r.top < innerHeight) h.classList.add("in");
+          });
+        }, 700);
+      };
+      /* icons: headings, home cards, menu and floating badges around the logo */
+      const IC = {
+        home: "home",
+        conduct: "shield",
+        punishments: "hammer",
+        cheatsheet: "list",
+        procedure: "clipboard",
+        toolkit: "toolbox",
+        priority: "siren",
+        hints: "megaphone",
+        questions: "chat",
+        appeals: "scale",
+        training: "cap",
+        commands: "terminal",
+        ranks: "star",
+        glossary: "book",
+        faq: "help",
+      };
+      document.querySelectorAll("a.hc").forEach((a) => {
+        const t = (a.getAttribute("href") || "").slice(2),
+          h = a.querySelector("h3");
+        if (h && IC[t]) h.insertAdjacentHTML("afterbegin", icon(IC[t]));
+      });
+      document.querySelectorAll("section.view").forEach((sc) => {
+        const t = sc.id.slice(2),
+          h = sc.querySelector("h2");
+        if (h && IC[t]) h.insertAdjacentHTML("afterbegin", icon(IC[t]));
+      });
+      L("dg")
+        .querySelectorAll("a")
+        .forEach((a) => {
+          const t = a.getAttribute("href").slice(2);
+          if (IC[t]) a.insertAdjacentHTML("afterbegin", icon(IC[t]));
+        });
+      [
+        ["hammer", "a"],
+        ["shield", "b"],
+        ["siren", "c"],
+        ["clipboard", "d"],
+      ].forEach(([n, c], i) => {
+        const sp = document.createElement("span");
+        sp.className = "oi " + c;
+        sp.style.animationDelay = i * 0.7 + "s";
+        sp.setAttribute("aria-hidden", "true");
+        sp.innerHTML = icon(n);
+        L("lw").appendChild(sp);
+      });
+      /* player questions: [category, question, what to do, reply] */
       const QA = [
         [
           "Applying",
