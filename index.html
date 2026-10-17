@@ -1492,10 +1492,7 @@
         color: var(--mut);
         font-weight: 500;
       }
-      nav {
-        view-transition-name: site-nav;
-      }
-      ::view-transition-group(root) {
+            ::view-transition-group(root) {
         animation-duration: 0.3s;
       }
       @keyframes growbar {
@@ -3787,7 +3784,7 @@
         (e) =>
           e.forEach((x) => {
             const t = x.target;
-            if (x.isIntersecting && x.intersectionRatio >= 0.15) {
+            if (x.isIntersecting && (t.classList.contains("hd") || x.intersectionRatio >= 0.15)) {
               t.classList.add("in");
               setTimeout(() => (t.style.transitionDelay = ""), 1400);
             } else if (t.classList.contains("in")) {
@@ -4645,7 +4642,10 @@
           navigator.serviceWorker.register("sw.js").catch(() => {});
         } catch (_) {}
       }
-      /* player questions: [category, question, what to do, reply] */
+      /* safety net: make sure the open tab's title is visible even if the scroll observer is slow */
+const route4=route;
+route=function(n){route4(n);setTimeout(()=>{document.querySelectorAll(".view.on .hd").forEach(h=>{const r=h.getBoundingClientRect();if(r.bottom>0&&r.top<innerHeight)h.classList.add("in")})},700)};
+/* player questions: [category, question, what to do, reply] */
       const QA = [
         [
           "Applying",
