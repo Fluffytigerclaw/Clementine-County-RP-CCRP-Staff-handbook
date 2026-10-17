@@ -567,11 +567,15 @@
       }
       .hd {
         padding-bottom: 0.15em;
-        clip-path: inset(-20% 104% -20% -4%);
-        transition: clip-path 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+        opacity: 0;
+        transform: translateY(14px);
+        transition:
+          opacity 0.9s ease,
+          transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
       }
       .hd.in {
-        clip-path: inset(-20% -5% -20% -4%);
+        opacity: 1;
+        transform: none;
       }
       .card,
       details.rule {
@@ -1867,7 +1871,8 @@
           transition: none;
         }
         .hd {
-          clip-path: none;
+          opacity: 1;
+          transform: none;
           transition: none;
         }
         .wd i,
@@ -3879,6 +3884,7 @@
         );
         v.querySelectorAll(".card.rv,.hd").forEach((e) => {
           e.classList.remove("in");
+          void e.offsetWidth;
           io.observe(e);
         });
         if (r === "punishments") mv(tabs.querySelector(".on"));
