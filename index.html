@@ -483,12 +483,8 @@
         z-index: -1;
         pointer-events: none;
         background:
-          radial-gradient(40% 35% at 18% calc(18% + var(--p, 0) * 40%), rgba(var(--glow), 0.11), transparent),
-          radial-gradient(
-            42% 40% at 85% calc(75% - var(--p, 0) * 40%),
-            rgba(110, 140, 210, 0.12),
-            transparent
-          );
+          radial-gradient(40% 35% at 18% calc(18% + 0 * 40%), rgba(var(--glow), 0.11), transparent),
+          radial-gradient(42% 40% at 85% calc(75% - 0 * 40%), rgba(110, 140, 210, 0.12), transparent);
       }
       .logo {
         display: flex;
@@ -642,8 +638,7 @@
       @keyframes vin {
         from {
           opacity: 0;
-          transform: translateY(26px);
-          filter: blur(6px);
+          transform: translateY(18px);
         }
       }
       section.view {
@@ -1494,6 +1489,80 @@
         font-size: 0.9rem;
         color: var(--mut);
         font-weight: 500;
+      }
+      nav {
+        view-transition-name: site-nav;
+      }
+      ::view-transition-group(root) {
+        animation-duration: 0.3s;
+      }
+      @keyframes growbar {
+        to {
+          transform: scaleX(1);
+        }
+      }
+      @supports (animation-timeline: scroll()) {
+        #bar {
+          transform: scaleX(0);
+          animation: growbar linear both;
+          animation-timeline: scroll(root block);
+        }
+      }
+      .vt .view.on {
+        animation: none;
+      }
+      footer select {
+        width: auto;
+        display: inline-block;
+        margin-left: 0.4rem;
+        padding: 0.3rem 0.8rem;
+        border-radius: 99px;
+        font-size: 0.85rem;
+        background: var(--s1);
+        border: 1px solid var(--ln);
+        color: var(--tx);
+      }
+      .lite #fx {
+        display: none;
+      }
+      .lite .mq div,
+      .lite .lw::after,
+      .lite .lw::before,
+      .lite section.view > h2::after {
+        animation: none;
+      }
+      .lite section.view > h2::after {
+        width: 110px;
+      }
+      .lite nav,
+      .lite #pal,
+      .lite #drw {
+        -webkit-backdrop-filter: none;
+        backdrop-filter: none;
+      }
+      .lite .card::after,
+      .lite details.rule::after {
+        display: none;
+      }
+      .lite .rv {
+        transition-duration: 0.25s;
+      }
+      .lite .step,
+      .lite details.rule,
+      .lite .ga {
+        animation: none;
+        opacity: 1;
+        transform: none;
+      }
+      @media (pointer: coarse) {
+        nav {
+          -webkit-backdrop-filter: none;
+          backdrop-filter: none;
+          background: rgba(19, 26, 38, 0.97);
+        }
+        [data-theme="light"] nav {
+          background: rgba(243, 246, 249, 0.97);
+        }
       }
       @media (max-width: 820px) {
         #vm {
@@ -3053,6 +3122,14 @@
       Clementine County RP (CCRP) staff handbook. For staff only. Punishments are guidelines, so use judgement
       and always log your reason. Shortcuts: keys 1 to 0 switch the first ten tabs, / or Ctrl K searches. Last
       updated October 9, 2026.
+      <br /><label
+        >Effects
+        <select id="fxm" aria-label="Visual effects">
+          <option value="auto">Auto</option>
+          <option value="full">Full</option>
+          <option value="light">Light (smoother on slow devices)</option>
+        </select></label
+      >
     </footer>
 
     <div id="pal">
@@ -3514,8 +3591,6 @@
         const y = scrollY,
           m = document.documentElement.scrollHeight - innerHeight;
         bar.style.transform = `scaleX(${m > 0 ? y / m : 0})`;
-        document.documentElement.style.setProperty("--p", m > 0 ? y / m : 0);
-        if (!rm) lw.style.transform = `translateY(${y * 0.18}px) scale(${Math.max(0.7, 1 - y / 2400)})`;
         tick = false;
       }
       addEventListener(
@@ -4064,6 +4139,11 @@
         }
       }
       function fxl() {
+        if (root.classList.contains("lite")) {
+          fxX.clearRect(0, 0, fxW, fxH);
+          setTimeout(() => requestAnimationFrame(fxl), 500);
+          return;
+        }
         if (fxN++ % 30 === 0) fxG = getComputedStyle(root).getPropertyValue("--glow").trim() || fxG;
         fxX.clearRect(0, 0, fxW, fxH);
         fxE.forEach((e) => {
@@ -4087,7 +4167,7 @@
       }
       if (fxX && !rm) {
         fxs();
-        fxE = Array.from({ length: 42 }, () => {
+        fxE = Array.from({ length: innerWidth < 700 ? 22 : 36 }, () => {
           const e = fxMk();
           e.y = Math.random() * fxH;
           return e;
@@ -4289,6 +4369,51 @@
       const btop = L("btop");
       addEventListener("scroll", () => btop.classList.toggle("on", scrollY > 700), { passive: true });
       btop.onclick = () => scrollTo({ top: 0, behavior: rm ? "auto" : "smooth" });
+      /* smoothness: throttle pointer work, effects mode, native page transitions */
+      let fxLm = 0;
+      document.addEventListener(
+        "pointermove",
+        (e) => {
+          if (e.timeStamp - fxLm < 24) e.stopImmediatePropagation();
+          else fxLm = e.timeStamp;
+        },
+        true,
+      );
+      const fxSave = navigator.connection && navigator.connection.saveData;
+      let fxMode = "auto";
+      try {
+        fxMode = localStorage.getItem("ccrp-fx") || "auto";
+      } catch (_) {}
+      function setFx(m) {
+        fxMode = m;
+        try {
+          localStorage.setItem("ccrp-fx", m);
+        } catch (_) {}
+        root.classList.toggle(
+          "lite",
+          m === "light" ||
+            (m === "auto" &&
+              (rm ||
+                fxSave ||
+                (navigator.hardwareConcurrency || 8) <= 4 ||
+                (navigator.deviceMemory || 8) <= 2)),
+        );
+        L("fxm").value = m;
+      }
+      L("fxm").onchange = (e) => setFx(e.target.value);
+      setFx(fxMode);
+      let vtReady = false;
+      setTimeout(() => {
+        vtReady = true;
+      }, 0);
+      if (document.startViewTransition && !rm) {
+        root.classList.add("vt");
+        const routeV = route;
+        route = function (n) {
+          if (!vtReady || document.hidden) return routeV(n);
+          document.startViewTransition(() => routeV(n));
+        };
+      }
       /* player questions: [category, question, what to do, reply] */
       const QA = [
         [
