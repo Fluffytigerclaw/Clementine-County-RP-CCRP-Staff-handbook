@@ -23,6 +23,15 @@ Open `index.html` in any text editor.
 - **Colors:** find `:root {` at the top of the style block. Each tab's accent color is in the lines that start with `[data-v=`.
 - **Ranks, conduct, appeals and FAQ text:** search for the heading, then edit the text next to it.
 
+## Two guides in one site
+
+The site holds two guides. Use the **Guide** dropdown in the top bar (inside the **Menu** on phones) to switch between the **Staff Handbook** and the **Community Guide**. Each guide has its own tabs, and each tab has its own link, like `#/crules`.
+
+- **Staff Handbook:** the original handbook for moderators.
+- **Community Guide:** Welcome, Getting Started, Player Rules, Roleplay Guide, Discord Guide, Get Help, Join the Team, Glossary and FAQ.
+- **Fill in the [brackets]:** the community pages use placeholders like `[server code]`, `[rules channel]` and `[applications channel]`. Search `index.html` for `[` and replace them with your real server details.
+- **Player rules:** the Player Rules tab is built from the same `RULES` and `RX` lists as the staff guide, so editing a rule updates both.
+
 ## View modes (PC, Mobile, Console)
 
 The site picks a view for each device automatically, and anyone can change it with the **View** dropdown in the top bar (inside the **Menu** on phones). The choice is saved on that device.
