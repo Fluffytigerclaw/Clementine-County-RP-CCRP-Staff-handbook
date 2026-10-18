@@ -1694,6 +1694,51 @@
         margin-bottom: 0.8rem;
       }
       @media (max-width: 820px) {
+        [data-mode="pc"] .links {
+          display: none;
+        }
+        [data-mode="pc"] #mb,
+        [data-mode="pc"] .cur {
+          display: flex;
+        }
+      }
+      #gs {
+        display: none !important;
+      }
+      .gsbar {
+        display: flex;
+        gap: 0.4rem;
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 max(1.2rem, env(safe-area-inset-left)) 0.6rem max(1.2rem, env(safe-area-inset-left));
+      }
+      .gsbar button {
+        flex: 1;
+        background: var(--s1);
+        border: 1px solid var(--ln);
+        color: var(--mut);
+        border-radius: 99px;
+        padding: 0.45rem 0.8rem;
+        font: 600 0.85rem Figtree;
+        cursor: pointer;
+        transition:
+          background 0.25s,
+          color 0.25s,
+          border-color 0.25s;
+      }
+      .gsbar button.on {
+        background: var(--or);
+        border-color: var(--or);
+        color: #1a1206;
+      }
+      [data-mode="mobile"] .gsbar {
+        max-width: 520px;
+      }
+      [data-mode="console"] .gsbar button {
+        min-height: 52px;
+        font-size: 1.05rem;
+      }
+      @media (max-width: 820px) {
         #gs {
           display: none;
         }
@@ -2147,11 +2192,12 @@
           ><a href="#/hints">:h Commands</a><a href="#/questions">Player Questions</a
           ><a href="#/appeals">Appeals</a><a href="#/training">Training</a><a href="#/commands">Commands</a
           ><a href="#/ranks">Ranks</a><a href="#/glossary">Glossary</a><a href="#/faq">FAQ</a
-          ><a class="gc" href="#/dwelcome">Welcome</a><a class="gc" href="#/drules">Server Rules</a
-          ><a class="gc" href="#/dtools">Mod Tools</a><a class="gc" href="#/dprocedure">Incidents</a
-          ><a class="gc" href="#/dtickets">Tickets</a><a class="gc" href="#/dsafety">Safety and Raids</a
-          ><a class="gc" href="#/dconduct">Mod Conduct</a><a class="gc" href="#/dquiz">Practice</a
-          ><a class="gc" href="#/dfaq">FAQ</a>
+          ><a href="#/dwelcome">Discord Mod Guide</a><a class="gc" href="#/dwelcome">Welcome</a
+          ><a class="gc" href="#/drules">Server Rules</a><a class="gc" href="#/dtools">Mod Tools</a
+          ><a class="gc" href="#/dprocedure">Incidents</a><a class="gc" href="#/dtickets">Tickets</a
+          ><a class="gc" href="#/dsafety">Safety and Raids</a><a class="gc" href="#/dconduct">Mod Conduct</a
+          ><a class="gc" href="#/dquiz">Practice</a><a class="gc" href="#/dfaq">FAQ</a
+          ><a class="gc" href="#/staffhome">Staff Handbook</a>
         </div>
         <div class="tools">
           <select class="ib" id="gs" aria-label="Guide">
@@ -2169,6 +2215,10 @@
           ><button class="ib" id="tb" aria-label="Toggle theme">Light</button>
         </div>
       </div>
+      <div class="gsbar" id="gsbar">
+        <button data-g="staff">Staff Handbook (ER:LC)</button
+        ><button data-g="discord">Discord Mod Guide</button>
+      </div>
     </nav>
 
     <main id="top">
@@ -2181,7 +2231,8 @@
               once, then keep it open while you patrol.
             </p>
             <a class="btn" href="#/punishments">Open the punishment guide</a
-            ><a class="btn g" href="#/procedure">How to handle a report</a>
+            ><a class="btn g" href="#/procedure">How to handle a report</a
+            ><a class="btn g" href="#/dwelcome">Discord Mod Guide</a>
           </div>
           <div class="lw" id="lw">
             <img id="fruit" data-logo alt="CCRP logo" width="400" height="400" />
@@ -3035,6 +3086,9 @@
             </ul>
           </div>
         </div>
+        <p style="margin-top: 1rem">
+          <a class="btn g" href="#/staffhome">Open the Staff Handbook (ER:LC)</a>
+        </p>
         <h3 class="sub rv">Where to next?</h3>
         <div class="grid hcs">
           <a class="card hc rv" style="--or: #8ea1ff; --glow: 142, 161, 255" href="#/drules"
@@ -4919,7 +4973,7 @@
       function gdetect() {
         const ua = navigator.userAgent || "";
         if (/Xbox|PlayStation|Nintendo|SmartTV|Tizen|Web0S|WebOS/i.test(ua)) return "console";
-        if (matchMedia("(pointer:coarse)").matches && innerWidth < 900) return "mobile";
+        if (innerWidth < 821 || (matchMedia("(pointer:coarse)").matches && innerWidth < 900)) return "mobile";
         return "pc";
       }
       let gpref = "auto";
@@ -5505,9 +5559,11 @@
       let guide = "staff";
       root.dataset.guide = "staff";
       function dgBuild() {
-        L("dg").innerHTML = VIEWS.map((v) => `<a href="#/${v}">${icon(IC[v] || "home")}${NAMES[v]}</a>`).join(
-          "",
-        );
+        L("dg").innerHTML =
+          VIEWS.map((v) => `<a href="#/${v}">${icon(IC[v] || "home")}${NAMES[v]}</a>`).join("") +
+          (guide === "discord"
+            ? '<a href="#/staffhome">' + icon("home") + "Open the Staff Handbook</a>"
+            : '<a href="#/dwelcome">' + icon("shield") + "Open the Discord Mod Guide</a>");
       }
       function setGuide(g) {
         guide = g;
@@ -5516,11 +5572,19 @@
         L("gs").value = L("gs2").value = g;
         document.querySelector(".logo span").textContent = g === "staff" ? "Staff" : "Discord Mods";
         dgBuild();
+        document
+          .querySelectorAll("#gsbar button")
+          .forEach((b) => b.classList.toggle("on", b.dataset.g === g));
       }
+      document.querySelectorAll("#gsbar button").forEach((b) => (b.onclick = () => gsw(b.dataset.g)));
+      document.querySelector('#gsbar button[data-g="staff"]').classList.add("on");
       const routeG = route;
       route = function (n) {
         let r = (n || location.hash.replace(/^#\/?/, "") || "").trim();
-        if (r === "home" && guide === "discord") r = "dwelcome";
+        if (r === "staffhome") {
+          setGuide("staff");
+          r = "home";
+        } else if (r === "home" && guide === "discord") r = "dwelcome";
         const inS = STAFF.includes(r),
           inD = DISC.includes(r);
         if (!inS && !inD) r = guide === "discord" ? "dwelcome" : "home";
