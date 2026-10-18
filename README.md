@@ -1,61 +1,82 @@
-# CCRP Staff Handbook
+# CCRP Handbook
 
-Staff guide website for **Clementine County RP (CCRP)**. It is a plain static site, so it runs on GitHub Pages with no build step.
+A free website for **Clementine County RP (CCRP)** with two guides in one:
+
+- **Staff Handbook (ER:LC):** rules, punishment ladders, priority requests, `:h` hints, appeals, training and more for in-game moderators.
+- **Discord Mod Guide:** Discord rules, mod tools, incidents, tickets, safety and raids, conduct and practice for Discord moderators.
+
+It is a plain static site, so it runs on GitHub Pages with no build step.
+
+## Files
+
+| File | What it is |
+|---|---|
+| `index.html` | The whole site: pages, styles and code. The logo is inside this file. |
+| `sw.js` | Lets the site open offline. It always tries the internet first, so updates show up right away. |
+| `manifest.webmanifest` | Lets people install the site as an app. |
+| `icon-192.png`, `icon-512.png` | The app icons. |
+| `README.md` | This guide. |
+
+Upload all of them to the top level of the repo. The site still works with only `index.html`, but install and offline use need the others.
 
 ## Put it online (GitHub Pages)
 
-1. Create a GitHub repository (for example `ccrp-handbook`).
-2. Upload `index.html` to the top level of the repo. The logo is already inside `index.html`, so no other file is needed.
-3. Open **Settings > Pages**, set the source to **Deploy from a branch**, choose `main` and `/ (root)`, then save.
-4. Wait a minute or two. Your site will be at `https://YOURNAME.github.io/REPONAME/`.
-5. After you upload a new version, hard refresh with **Ctrl+Shift+R** to skip the browser cache.
+1. Create a GitHub repository and upload the files above.
+2. Open **Settings > Pages**, set the source to **Deploy from a branch**, choose `main` and `/ (root)`, then save.
+3. Wait a minute or two. The site appears at `https://YOURNAME.github.io/REPONAME/`.
+4. After every upload, hard refresh with **Ctrl+Shift+R**. Because the site works offline, an old copy can stick, so reload twice if needed.
 
-## Edit the content
+## How it works
 
-Open `index.html` in any text editor.
+- **Tabs are pages.** Each tab has its own link, like `#/punishments` or `#/drules`. Opening a link shows that page. The Back and Next buttons, search, number keys and menu all use the same links.
+- **Two guides.** The bar under the top bar switches between them. Each guide has its own tabs, accent colors and Home.
+- **One list, many places.** Most content lives in lists near the bottom of `index.html`. Edit a list once and every page that uses it updates. For example, the ER:LC `RULES` list feeds the punishment guide, the cheat sheet, the lookup, the log builder, the search and the rule of the day.
+- **Three views.** The site picks **PC**, **Mobile** or **Console** for each device. Anyone can change it in the **Menu** (phones) or the top bar. The choice is saved on that device.
+- **Light effects.** The **Effects** dropdown in the footer turns off heavy animation for slow devices.
 
-- **Punishment rules:** find `const RULES = [` near the bottom. Each rule is one entry: name, severity (`minor`, `moderate`, `major` or `severe`), description, and the ladder. The ladder is a list of steps for the 1st to 5th offense. The lookup, cheat sheet, search and log builder all read this one list.
-- **Rule explanations (example, not a violation, staff tip):** find `const RX = {`. Add an entry with the same name as the rule.
-- **R/A checklist:** find `const CK = [`.
-- **Scenario quiz:** find `const SC = [`.
-- **Glossary:** find `const GL = [`.
-- **Ready-made hints:** find `const HT = [`.
-- **Colors:** find `:root {` at the top of the style block. Each tab's accent color is in the lines that start with `[data-v=`.
-- **Ranks, conduct, appeals and FAQ text:** search for the heading, then edit the text next to it.
+## Where to edit what
 
-## Two guides in one site
+Open `index.html` in a text editor and search for the name.
 
-The site holds two guides. Use the **Guide** dropdown in the top bar (inside the **Menu** on phones) to switch between the **Staff Handbook** (ER:LC moderators) and the **Discord Mod Guide** (Discord moderators). Each guide has its own tabs, and each tab has its own link, like `#/drules`.
+| To change | Search for |
+|---|---|
+| ER:LC rules and punishment ladders | `const RULES` |
+| Rule explanations (example, not a violation, tip) | `const RX` |
+| Discord rules and action ladders | `const DR` |
+| Replies to player questions | `const QA` |
+| Staff scenario quiz | `const SC` |
+| Discord scenario quiz | `const DQ` |
+| R/A checklist | `const CK` |
+| Glossary | `const GL` |
+| Ready-made `:h` hints | `const HT` |
+| Levels and badges | `const LV` and `const BD` |
+| Role paths on the Home page | `const PATHS` |
+| Colors | `:root {` near the top (and the lines starting `[data-v=` for each tab) |
+| The "Last updated" date | `Last updated` in the footer |
 
-- **Staff Handbook:** the original handbook for ER:LC staff.
-- **Discord Mod Guide:** Welcome, Server Rules, Mod Tools, Incidents (with a mod log builder and DM templates), Tickets (with ready replies), Safety and Raids, Mod Conduct, Practice scenarios and FAQ.
-- **Edit the Discord rules:** find `const DR = [` in `index.html`. Each rule has a name, a severity, a description, the action ladder and an example. The rule list, lookup and log builder all read this one list.
-- **Fill in the [brackets]:** the Discord pages use placeholders like `[bot prefix]`, `[rules channel]` and `[appeals channel]`. Search `index.html` for `[` and replace them with your real server details.
+Anything in `[square brackets]`, like `[server code]` or `[appeals channel]`, is a placeholder. Search for `[` and replace them with your real details.
 
-## View modes (PC, Mobile, Console)
+## Features
 
-The site picks a view for each device automatically, and anyone can change it with the **View** dropdown in the top bar (inside the **Menu** on phones). The choice is saved on that device.
-
-- **PC:** full tab row across the top, wide layout.
-- **Mobile:** one-column layout, a **Menu** button with every tab, bigger tap targets.
-- **Console:** bigger text, bold focus outlines, and a controller hint bar. Use the D-pad or left stick to move, **A** to select, **LB / RB** to switch tabs, **B** to go Home and **Start** to search. Arrow keys and Enter work too. Controller support depends on the console's browser, so the View dropdown also works as a fallback.
-
-## Progress, levels and badges
-
-The Home tab tracks each staff member's progress on their own device: tabs visited, quiz results, logs copied and R/A checklist items. It turns them into XP and levels (Rookie, Patroller, Veteran, Chief, Legend) and a row of badges. Nothing is sent anywhere, and **Reset progress** clears it. Level names and XP amounts are in `const LV`, `const BD` and the `xp` function.
-
-## Install as an app and offline use
-
-Upload all of these files to the top level of the repo, not just `index.html`: `index.html`, `sw.js`, `manifest.webmanifest`, `icon-192.png` and `icon-512.png`. After that, phones and computers can install the site like an app (an **Install as an app** button appears in the footer, or use your browser's menu), and it keeps working when the internet drops. Updates still show up as soon as you are online.
+- Punishment lookup, cheat sheet, search with autofill (press **Tab**) and pinned rules
+- Log builders for ER:LC and Discord, with copy buttons
+- Priority checker, hint builder, ready replies and DM templates
+- Levels, badges, rule of the day, role paths and scenario quizzes
+- Light and dark mode, three views, controller support and offline install
 
 ## Shortcuts
 
-- Keys `1` to `0` open the first ten tabs.
-- `/` or `Ctrl K` opens search. Press `Tab` to autofill a suggestion.
-- The cheat sheet has a print button for a clean paper copy.
+- Keys `1` to `0` open the first ten tabs of the current guide.
+- `/` or `Ctrl K` opens search.
+- On a console or with a controller: D-pad moves, **A** selects, **LB / RB** change tab, **B** goes Home, **Start** opens search.
+
+## Saved on each device
+
+Theme, view mode, effects, progress, role path, R/A checklist and pinned rules are saved in the browser. Nothing is sent anywhere. **Reset progress** on the Home page clears the progress.
 
 ## Troubleshooting
 
-- **Blank page or old version:** hard refresh with Ctrl+Shift+R.
-- **Tabs do nothing:** make sure you uploaded the newest `index.html`.
-- **Changes not showing on GitHub:** check that the commit finished and that Pages shows "Your site is live".
+- **Old version or blank page:** hard refresh with Ctrl+Shift+R, or open the site in a private window.
+- **Changes not showing on GitHub:** check that the commit finished and that Pages says "Your site is live".
+- **Phone shows the wrong layout:** open the **Menu** and change **View** to Auto.
+- **Something looks stuck:** set **Effects** in the footer to Light.
