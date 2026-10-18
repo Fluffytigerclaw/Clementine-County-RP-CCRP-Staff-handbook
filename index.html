@@ -1666,12 +1666,12 @@
           animation: none;
         }
       }
-      [data-guide="community"] {
-        --or: #6fd6c0;
-        --glow: 111, 214, 192;
+      [data-guide="discord"] {
+        --or: #8ea1ff;
+        --glow: 142, 161, 255;
       }
-      [data-guide="community"] #links a:not(.gc),
-      :root:not([data-guide="community"]) #links a.gc {
+      [data-guide="discord"] #links a:not(.gc),
+      :root:not([data-guide="discord"]) #links a.gc {
         display: none;
       }
       #gs,
@@ -2147,16 +2147,16 @@
           ><a href="#/hints">:h Commands</a><a href="#/questions">Player Questions</a
           ><a href="#/appeals">Appeals</a><a href="#/training">Training</a><a href="#/commands">Commands</a
           ><a href="#/ranks">Ranks</a><a href="#/glossary">Glossary</a><a href="#/faq">FAQ</a
-          ><a class="gc" href="#/cwelcome">Welcome</a><a class="gc" href="#/cstart">Getting Started</a
-          ><a class="gc" href="#/crules">Player Rules</a><a class="gc" href="#/croleplay">Roleplay Guide</a
-          ><a class="gc" href="#/cdiscord">Discord Guide</a><a class="gc" href="#/chelp">Get Help</a
-          ><a class="gc" href="#/cteam">Join the Team</a><a class="gc" href="#/glossary">Glossary</a
-          ><a class="gc" href="#/cfaq">FAQ</a>
+          ><a class="gc" href="#/dwelcome">Welcome</a><a class="gc" href="#/drules">Server Rules</a
+          ><a class="gc" href="#/dtools">Mod Tools</a><a class="gc" href="#/dprocedure">Incidents</a
+          ><a class="gc" href="#/dtickets">Tickets</a><a class="gc" href="#/dsafety">Safety and Raids</a
+          ><a class="gc" href="#/dconduct">Mod Conduct</a><a class="gc" href="#/dquiz">Practice</a
+          ><a class="gc" href="#/dfaq">FAQ</a>
         </div>
         <div class="tools">
           <select class="ib" id="gs" aria-label="Guide">
             <option value="staff">Staff Handbook</option>
-            <option value="community">Community Guide</option>
+            <option value="discord">Discord Mod Guide</option>
           </select>
           <select class="ib" id="vm" aria-label="View mode">
             <option value="auto">View: Auto</option>
@@ -3007,477 +3007,560 @@
         </div>
         <div class="gl" id="ql"></div>
       </section>
-      <section class="view" id="v-cwelcome">
-        <h2>Welcome to Clementine County RP</h2>
+      <section class="view" id="v-dwelcome">
+        <h2>Discord moderator guide</h2>
         <p class="lead">
-          This is the community guide for our Discord and ER:LC server. Everything players and team members
-          need is here: how to join, the rules in plain words, roleplay tips, how to get help and how to join
-          the team.
+          This guide is for the Discord moderators of Clementine County RP. It covers the server rules, the
+          tools you use, how to handle incidents and tickets, how to stay safe, and how to act as a team. The
+          ER:LC staff handbook is a separate guide: use the Guide dropdown to switch.
         </p>
         <div class="grid">
           <div class="card rv">
-            <h3>The server at a glance</h3>
+            <h3>Your job</h3>
             <ul>
-              <li>Roleplay on ER:LC (Roblox) with a Discord community</li>
-              <li>Server code: [server code]</li>
-              <li>Session times: [sessions channel]</li>
-              <li>Questions: [support channel]</li>
+              <li>Keep the Discord friendly and safe</li>
+              <li>Apply the rules fairly and the same for everyone</li>
+              <li>Help members through tickets</li>
+              <li>Protect the server from scams and raids</li>
             </ul>
           </div>
           <div class="card rv">
-            <h3>Five golden rules</h3>
+            <h3>Golden rules</h3>
             <ul>
-              <li>Roleplay realistically</li>
-              <li>No RDM or VDM</li>
-              <li>Respect everyone</li>
-              <li>Listen to staff</li>
-              <li>Not sure? Use !mod</li>
+              <li>Screenshot before you act</li>
+              <li>Warn first for small mistakes</li>
+              <li>Never moderate in anger</li>
+              <li>Log every action</li>
+              <li>Not sure? Ask a senior mod</li>
             </ul>
           </div>
         </div>
         <h3 class="sub rv">Where to next?</h3>
         <div class="grid hcs">
-          <a class="card hc rv" style="--or: #6fd6c0; --glow: 111, 214, 192" href="#/cstart"
-            ><h3>Getting started</h3>
-            <p>Join in a few easy steps.</p></a
+          <a class="card hc rv" style="--or: #8ea1ff; --glow: 142, 161, 255" href="#/drules"
+            ><h3>Server rules</h3>
+            <p>Every Discord rule with the action to take.</p></a
           >
-          <a class="card hc rv" style="--or: #9ad1ff; --glow: 154, 209, 255" href="#/crules"
-            ><h3>Player rules</h3>
-            <p>Every rule explained with examples.</p></a
+          <a class="card hc rv" style="--or: #7fd6f0; --glow: 127, 214, 240" href="#/dtools"
+            ><h3>Mod tools</h3>
+            <p>Timeouts, kicks, bans, slowmode and AutoMod.</p></a
           >
-          <a class="card hc rv" style="--or: #ffb37a; --glow: 255, 179, 122" href="#/croleplay"
-            ><h3>Roleplay guide</h3>
-            <p>Departments, driving, priorities and banned roleplays.</p></a
+          <a class="card hc rv" style="--or: #7fcfa8; --glow: 127, 207, 168" href="#/dprocedure"
+            ><h3>Handling incidents</h3>
+            <p>Steps, a log builder and DM templates.</p></a
           >
-          <a class="card hc rv" style="--or: #c8a2ff; --glow: 200, 162, 255" href="#/cdiscord"
-            ><h3>Discord guide</h3>
-            <p>Channels, roles, tickets and etiquette.</p></a
+          <a class="card hc rv" style="--or: #ffd27f; --glow: 255, 210, 127" href="#/dtickets"
+            ><h3>Tickets</h3>
+            <p>Handle tickets and copy ready replies.</p></a
           >
-          <a class="card hc rv" style="--or: #7fd6f0; --glow: 127, 214, 240" href="#/chelp"
-            ><h3>Get help</h3>
-            <p>!mod, reports and appeals.</p></a
+          <a class="card hc rv" style="--or: #ff9a8a; --glow: 255, 154, 138" href="#/dsafety"
+            ><h3>Safety and raids</h3>
+            <p>Raids, scams, doxxing and crisis situations.</p></a
           >
-          <a class="card hc rv" style="--or: #e8c26e; --glow: 232, 194, 110" href="#/cteam"
-            ><h3>Join the team</h3>
-            <p>Staff and department applications.</p></a
+          <a class="card hc rv" style="--or: #c8a2ff; --glow: 200, 162, 255" href="#/dconduct"
+            ><h3>Mod conduct</h3>
+            <p>How moderators act, together.</p></a
           >
-          <a class="card hc rv" style="--or: #ee98ac; --glow: 238, 152, 172" href="#/cfaq"
+          <a class="card hc rv" style="--or: #c5e08a; --glow: 197, 224, 138" href="#/dquiz"
+            ><h3>Practice</h3>
+            <p>Test yourself with Discord scenarios.</p></a
+          >
+          <a class="card hc rv" style="--or: #ee98ac; --glow: 238, 152, 172" href="#/dfaq"
             ><h3>FAQ</h3>
-            <p>Quick answers to common questions.</p></a
+            <p>Quick answers for Discord mods.</p></a
           >
         </div>
       </section>
-      <section class="view" id="v-cstart">
-        <h2>Getting started</h2>
-        <p class="lead">New here? Follow these steps and you will be roleplaying in minutes.</p>
-        <div class="steps">
-          <div class="card rv">
-            <h3>Join our Discord</h3>
-            <p>
-              Use the invite link: [invite link]. Turn on notifications for announcements so you never miss a
-              session.
-            </p>
-          </div>
-          <div class="card rv">
-            <h3>Read the rules</h3>
-            <p>
-              Read [rules channel] and the Player Rules tab here. They are short and they keep roleplay fun
-              for everyone.
-            </p>
-          </div>
-          <div class="card rv">
-            <h3>Verify and pick your roles</h3>
-            <p>Follow the steps in [verification channel] to unlock the server.</p>
-          </div>
-          <div class="card rv">
-            <h3>Check the session times</h3>
-            <p>Sessions are posted in [sessions channel]. Join early so you can get in.</p>
-          </div>
-          <div class="card rv">
-            <h3>Join ER:LC</h3>
-            <p>
-              Open Emergency Response: Liberty County on Roblox, find Private Servers and enter the server
-              code [server code].
-            </p>
-          </div>
-          <div class="card rv">
-            <h3>Choose your roleplay</h3>
-            <p>
-              Play as a civilian right away, or apply to a department. The Roleplay guide explains each
-              option.
-            </p>
-          </div>
-          <div class="card rv">
-            <h3>Ask for help any time</h3>
-            <p>
-              Not sure about something? Use !mod in the game or a ticket in Discord. Staff are happy to help.
-            </p>
-          </div>
-        </div>
-      </section>
-      <section class="view" id="v-crules">
-        <h2>Player rules</h2>
+      <section class="view" id="v-drules">
+        <h2>Discord server rules</h2>
         <p class="lead">
-          Every rule in plain words, with an example and what is not a violation. Staff use judgement, and
-          most first-time mistakes get a friendly warning.
+          Every Discord rule, what it means, an example and the action ladder. Warnings count as a first step.
+          Always check the member's history and write a log.
         </p>
-        <div class="cr">
+        <div class="card calc rv">
+          <h3>Quick action lookup</h3>
+          <p>Pick the rule and how many times the member has already been logged for it.</p>
+          <div class="cr">
+            <select id="dlk1" aria-label="Rule"></select
+            ><select id="dlk2" aria-label="Prior offenses">
+              <option value="0">First time</option>
+              <option value="1">1 prior offense</option>
+              <option value="2">2 prior offenses</option>
+              <option value="3">3 prior offenses</option>
+              <option value="4">4 or more prior offenses</option>
+            </select>
+          </div>
+          <div class="res" id="dlkres"></div>
+        </div>
+        <div class="cr" style="margin-top: 1.2rem">
           <input
             class="fi"
-            id="crq"
+            id="drq"
             type="search"
-            placeholder="Search a rule, e.g. RDM, driving, chat"
+            placeholder="Search a rule, e.g. spam, scam, ping"
             aria-label="Search rules"
-          /><select id="crf" aria-label="Category">
+          /><select id="drf" aria-label="Severity">
             <option value="all">All rules</option>
-            <option value="minor">Small</option>
-            <option value="moderate">Medium</option>
-            <option value="major">Serious</option>
-            <option value="severe">Very serious</option>
+            <option value="minor">Minor</option>
+            <option value="moderate">Moderate</option>
+            <option value="major">Major</option>
+            <option value="severe">Severe</option>
           </select>
         </div>
-        <div class="gl" id="crg"></div>
+        <div class="gl" id="drg"></div>
       </section>
-      <section class="view" id="v-croleplay">
-        <h2>Roleplay guide</h2>
-        <p class="lead">
-          Good roleplay means acting like a real person in a real town. Here is how it works at CCRP.
-        </p>
-        <h3 class="sub rv">Pick your role</h3>
-        <div class="grid">
-          <div class="card rv">
-            <h3>Police (PD)</h3>
-            <p>Patrol, traffic stops and investigations. Apply in [department channel].</p>
-          </div>
-          <div class="card rv">
-            <h3>Sheriff (SD)</h3>
-            <p>County patrol and larger areas. Apply in [department channel].</p>
-          </div>
-          <div class="card rv">
-            <h3>Fire and EMS (FD)</h3>
-            <p>Fires, rescues and medical calls. Apply in [department channel].</p>
-          </div>
-          <div class="card rv">
-            <h3>Civilian</h3>
-            <p>Jobs, driving, shopping and everyday life. You can start right away.</p>
-          </div>
-          <div class="card rv">
-            <h3>Criminal roleplay</h3>
-            <p>Allowed with staff approval through a priority. Keep it realistic and fair.</p>
-          </div>
-        </div>
-        <h3 class="sub rv">Driving</h3>
-        <div class="grid">
-          <div class="card rv">
-            <h3>Drive like a real person</h3>
-            <p>
-              Follow traffic rules and stay under 100. Going 100+ is only allowed when you are being chased.
-            </p>
-          </div>
-          <div class="card rv">
-            <h3>Pull over for emergency lights</h3>
-            <p>When police use lights and sirens, stop and roleplay the stop.</p>
-          </div>
-        </div>
-        <h3 class="sub rv">Priorities for crimes</h3>
-        <div class="grid">
-          <div class="card rv">
-            <h3>How to ask</h3>
-            <p>
-              Use !mod and tell staff what you plan, where and who is involved. Wait for approval. Only one
-              priority runs at a time.
-            </p>
-          </div>
-          <div class="card ex rv">
-            <span class="tag minor">Often allowed</span>
-            <ul>
-              <li>Bank and jewelry store robberies</li>
-              <li>Armed and store robberies</li>
-              <li>Hostage scenes</li>
-              <li>Pursuits</li>
-            </ul>
-          </div>
-          <div class="card ex bad rv">
-            <span class="tag severe">Never allowed</span>
-            <ul>
-              <li>Bomb or terrorism roleplay</li>
-              <li>Suicide or self-harm</li>
-              <li>Drug or drunk roleplay</li>
-              <li>Sexual or NSFW roleplay</li>
-              <li>Anything that breaks Roblox rules</li>
-            </ul>
-          </div>
-        </div>
-        <h3 class="sub rv">Roleplay tips</h3>
-        <div class="grid">
-          <div class="card rv">
-            <h3>Show real reactions</h3>
-            <p>If you are hurt, act hurt. If someone points a gun at you, act afraid.</p>
-          </div>
-          <div class="card rv">
-            <h3>Give others a chance</h3>
-            <p>Let people respond to your actions instead of deciding for them.</p>
-          </div>
-          <div class="card rv">
-            <h3>Stay in character</h3>
-            <p>Keep real-life chat out of roleplay and do not use outside information.</p>
-          </div>
-          <div class="card rv">
-            <h3>If you die</h3>
-            <p>Forget the scene and do not return to it. That is the new life rule.</p>
-          </div>
-        </div>
-      </section>
-      <section class="view" id="v-cdiscord">
-        <h2>Discord guide</h2>
-        <p class="lead">
-          Our Discord is where we plan sessions, get help and hang out. These are the rules and tools.
-        </p>
-        <div class="grid">
-          <div class="card rv">
-            <h3>Discord rules</h3>
-            <ul>
-              <li>Be kind and respectful</li>
-              <li>No spam or pinging staff for fun</li>
-              <li>No ads or invites to other servers</li>
-              <li>No NSFW or hate speech</li>
-              <li>Use channels for what they are for</li>
-              <li>Follow Discord's Terms of Service</li>
-            </ul>
-          </div>
-          <div class="card rv">
-            <h3>Good to know</h3>
-            <ul>
-              <li>Staff will never ask for your password</li>
-              <li>Report problems in a ticket, not in public chat</li>
-              <li>Do not argue with staff in public</li>
-            </ul>
-          </div>
-        </div>
-        <h3 class="sub rv">Channels</h3>
+      <section class="view" id="v-dtools">
+        <h2>Mod tools</h2>
+        <p class="lead">Know which tool fits which problem. Use the lightest tool that fixes the behavior.</p>
         <div class="scr">
           <table>
             <tr>
-              <th>Channel</th>
-              <th>What it is for</th>
+              <th>Action</th>
+              <th>What it does</th>
+              <th>Use it for</th>
             </tr>
             <tr>
-              <td>[announcements channel]</td>
-              <td>News, updates and session announcements</td>
+              <td>Warning</td>
+              <td>A message to the member. Written down in the log.</td>
+              <td>Small first mistakes</td>
             </tr>
             <tr>
-              <td>[rules channel]</td>
-              <td>The server rules</td>
+              <td>Timeout</td>
+              <td>Stops a member from chatting or joining voice. Lasts from 60 seconds up to 28 days.</td>
+              <td>Cooling off, spam, heated arguments</td>
             </tr>
             <tr>
-              <td>[sessions channel]</td>
-              <td>Session times and server code</td>
+              <td>Kick</td>
+              <td>Removes a member. They can rejoin with an invite.</td>
+              <td>Repeated breaks, hacked accounts</td>
             </tr>
             <tr>
-              <td>[general channel]</td>
-              <td>Chat with the community</td>
+              <td>Ban</td>
+              <td>Removes a member and blocks them from rejoining. You can delete their recent messages.</td>
+              <td>Severe rules, scams, raids</td>
             </tr>
             <tr>
-              <td>[support channel]</td>
-              <td>Open a ticket for help or reports</td>
+              <td>Slowmode</td>
+              <td>Limits how often people can post in a channel.</td>
+              <td>Busy or heated chats</td>
             </tr>
             <tr>
-              <td>[applications channel]</td>
-              <td>Staff and department applications</td>
+              <td>Lock channel</td>
+              <td>Stops members from posting in a channel.</td>
+              <td>Raids and big fights</td>
             </tr>
             <tr>
-              <td>[suggestions channel]</td>
-              <td>Share ideas for the server</td>
+              <td>Delete messages</td>
+              <td>Removes rule-breaking messages. Screenshot first.</td>
+              <td>Spam, scams, NSFW, doxxing</td>
             </tr>
           </table>
         </div>
-        <h3 class="sub rv">Roles</h3>
+        <h3 class="sub rv">How to use them</h3>
+        <div class="grid">
+          <div class="card rv">
+            <h3>Discord's built-in tools</h3>
+            <p>Right-click a member, then choose Timeout, Kick or Ban. Delete a message from its menu.</p>
+          </div>
+          <div class="card rv">
+            <h3>Our bot</h3>
+            <p>
+              Use [bot prefix]warn, [bot prefix]timeout, [bot prefix]kick and [bot prefix]ban so actions are
+              logged for you. Always add a reason.
+            </p>
+          </div>
+          <div class="card rv">
+            <h3>AutoMod</h3>
+            <p>
+              AutoMod blocks banned words, spam and mass mentions before you see them. Check alerts in
+              [automod channel]. Report false alarms to an admin.
+            </p>
+          </div>
+          <div class="card rv">
+            <h3>Audit log</h3>
+            <p>
+              The audit log shows who did what on the server for the last 45 days. Use it to check actions and
+              settle disputes.
+            </p>
+          </div>
+        </div>
+        <h3 class="sub rv">Words you will hear</h3>
         <div class="scr">
           <table>
             <tr>
-              <th>Role</th>
+              <th>Word</th>
               <th>Meaning</th>
             </tr>
             <tr>
-              <td>[member role]</td>
-              <td>Verified community members</td>
+              <td>Ping</td>
+              <td>Mentioning a person or role with @.</td>
             </tr>
             <tr>
-              <td>[department roles]</td>
-              <td>PD, SD and FD members</td>
+              <td>Raid</td>
+              <td>Many accounts joining to spam or cause trouble.</td>
             </tr>
             <tr>
-              <td>[staff roles]</td>
-              <td>Trial Mod, Moderator, Senior Mod, Administrator and Management</td>
+              <td>Alt</td>
+              <td>A second account, often used to dodge a ban.</td>
             </tr>
             <tr>
-              <td>[booster role]</td>
-              <td>Thanks to people who boost the server</td>
+              <td>Webhook</td>
+              <td>A way for apps to post into a channel, often used by scammers.</td>
+            </tr>
+            <tr>
+              <td>Role hierarchy</td>
+              <td>Higher roles can moderate lower roles, never the other way around.</td>
+            </tr>
+            <tr>
+              <td>Verification level</td>
+              <td>How long accounts must wait before they can chat.</td>
             </tr>
           </table>
         </div>
-        <h3 class="sub rv">Open a ticket</h3>
+      </section>
+      <section class="view" id="v-dprocedure">
+        <h2>Handling an incident</h2>
+        <p class="lead">Use the same steps every time. It keeps decisions fair and easy to check.</p>
         <div class="steps">
           <div class="card rv">
-            <h3>Go to [support channel]</h3>
-            <p>Click the button to open a ticket.</p>
+            <h3>Capture the evidence</h3>
+            <p>
+              Screenshot the messages with names and time, or copy the message link. Do this before you delete
+              anything.
+            </p>
           </div>
           <div class="card rv">
-            <h3>Say what you need</h3>
-            <p>Write your username, what happened and when. Add clips or screenshots.</p>
+            <h3>Check the rule</h3>
+            <p>Find the rule in this guide. If you cannot name a rule, do not punish. Ask a senior mod.</p>
           </div>
           <div class="card rv">
-            <h3>Wait for staff</h3>
-            <p>A staff member will reply. Please be patient and polite.</p>
+            <h3>Check the history</h3>
+            <p>Look at past warnings or timeouts so you know which step is next.</p>
+          </div>
+          <div class="card rv">
+            <h3>Act</h3>
+            <p>
+              Use the lightest tool that works: warning, timeout, kick or ban. Delete the messages if needed.
+            </p>
+          </div>
+          <div class="card rv">
+            <h3>Tell the member</h3>
+            <p>Send a short, polite DM with the rule and what happens next. The templates below help.</p>
+          </div>
+          <div class="card rv">
+            <h3>Log it</h3>
+            <p>Write who, what rule, what happened, the evidence and what you did.</p>
+          </div>
+          <div class="card rv">
+            <h3>Escalate if needed</h3>
+            <p>Unsure, threats, or a member disputes it? Pass it to a senior mod or admin.</p>
           </div>
         </div>
+        <h3 class="sub rv">Mod log builder</h3>
+        <div class="card rv" id="dlogf">
+          <div class="cr">
+            <input class="fi" id="dUser" placeholder="Member name and ID" /><input
+              class="fi"
+              id="dChan"
+              placeholder="Channel (e.g. #general)"
+            /><select id="dRule" aria-label="Rule"></select
+            ><select id="dAct" aria-label="Action">
+              <option>Warning</option>
+              <option>Timeout</option>
+              <option>Kick</option>
+              <option>Ban</option>
+              <option>Messages deleted</option></select
+            ><input class="fi" id="dEvi" placeholder="Evidence link" /><input
+              class="fi"
+              id="dMod"
+              placeholder="Your name"
+            />
+          </div>
+          <textarea
+            class="fi"
+            id="dWhat"
+            placeholder="What happened? Say what you saw, step by step. Example: I saw this member post the same invite link five times in #general and ignore a warning from another mod."
+          ></textarea>
+          <p class="warn" id="dWarn"></p>
+          <pre class="out" id="dOut"></pre>
+          <button class="btn" id="dCopy" style="border: 0; cursor: pointer; margin-top: 0.8rem">
+            Copy log
+          </button>
+        </div>
+        <h3 class="sub rv">DM templates</h3>
+        <div id="dDm"></div>
       </section>
-      <section class="view" id="v-chelp">
-        <h2>Get help</h2>
+      <section class="view" id="v-dtickets">
+        <h2>Tickets</h2>
         <p class="lead">
-          Staff are here to help, not to catch you out. Here is the right way to get help fast.
+          Tickets are where members ask for help, report problems and appeal. A kind, quick reply makes a big
+          difference.
         </p>
+        <div class="steps">
+          <div class="card rv">
+            <h3>Claim it</h3>
+            <p>Say you are taking the ticket so two mods do not answer at once.</p>
+          </div>
+          <div class="card rv">
+            <h3>Greet and read</h3>
+            <p>Say hello, read the whole ticket and check any evidence.</p>
+          </div>
+          <div class="card rv">
+            <h3>Ask for what is missing</h3>
+            <p>Usernames, what happened, where and when, and a clip or screenshot.</p>
+          </div>
+          <div class="card rv">
+            <h3>Resolve or hand over</h3>
+            <p>Fix it, or pass it to the right person: a senior mod for disputes, an admin for appeals.</p>
+          </div>
+          <div class="card rv">
+            <h3>Close politely</h3>
+            <p>Tell the member what was done, thank them and close the ticket.</p>
+          </div>
+        </div>
+        <div class="scr" style="margin-top: 1rem">
+          <table>
+            <tr>
+              <th>Ticket type</th>
+              <th>Handled by</th>
+            </tr>
+            <tr>
+              <td>Support questions</td>
+              <td>Any Discord mod</td>
+            </tr>
+            <tr>
+              <td>Reports about members</td>
+              <td>Moderator or higher</td>
+            </tr>
+            <tr>
+              <td>Ban appeals</td>
+              <td>Administrator or higher</td>
+            </tr>
+            <tr>
+              <td>Applications</td>
+              <td>Management and department leads</td>
+            </tr>
+          </table>
+        </div>
+        <h3 class="sub rv">Ready replies</h3>
+        <div id="dTk"></div>
+      </section>
+      <section class="view" id="v-dsafety">
+        <h2>Safety and raids</h2>
+        <p class="lead">Some situations need a fast, calm response. Learn these before you need them.</p>
+        <h3 class="sub rv">If a raid starts</h3>
+        <div class="steps">
+          <div class="card rv">
+            <h3>Stay calm and call for help</h3>
+            <p>Tell the other mods and admins in staff chat right away.</p>
+          </div>
+          <div class="card rv">
+            <h3>Slow it down</h3>
+            <p>Lock channels, pause invites and raise the verification level if you have permission.</p>
+          </div>
+          <div class="card rv">
+            <h3>Remove the raiders</h3>
+            <p>Ban the accounts and delete their messages. Screenshot the names and IDs first.</p>
+          </div>
+          <div class="card rv">
+            <h3>Check and tell</h3>
+            <p>Check the audit log, tell members what happened, then unlock the channels.</p>
+          </div>
+        </div>
+        <h3 class="sub rv">Other dangers</h3>
         <div class="grid">
           <div class="card rv">
-            <h3>In the game: use !mod</h3>
-            <p>Type !mod in chat if someone breaks the rules or you need help. Staff will come to you.</p>
-          </div>
-          <div class="card rv">
-            <h3>In Discord: open a ticket</h3>
-            <p>Use [support channel] for reports after the session, questions and appeals.</p>
-          </div>
-        </div>
-        <h3 class="sub rv">What to include in a report</h3>
-        <div class="card rv">
-          <ul>
-            <li>The player's Roblox username</li>
-            <li>What happened, step by step</li>
-            <li>Where and about what time</li>
-            <li>A clip or screenshot if you have one</li>
-          </ul>
-        </div>
-        <h3 class="sub rv">If you were punished</h3>
-        <div class="steps">
-          <div class="card rv">
-            <h3>Stay calm</h3>
-            <p>Arguing in chat will not help. Staff reviews everything with evidence.</p>
-          </div>
-          <div class="card rv">
-            <h3>Read the rule</h3>
-            <p>Check the Player Rules tab so you understand what happened.</p>
-          </div>
-          <div class="card rv">
-            <h3>Appeal</h3>
+            <h3>Scam and phishing links</h3>
             <p>
-              Send an appeal in [appeals channel] with your username, why you think it should change, and that
-              you have read the rules.
+              Delete the message, ban the account and warn members not to click it. Report it to Discord if
+              you can.
+            </p>
+          </div>
+          <div class="card rv">
+            <h3>Doxxing</h3>
+            <p>
+              Delete the personal information at once and do not repost it. Ban the account and tell an admin.
+            </p>
+          </div>
+          <div class="card rv">
+            <h3>Members who may be under 13</h3>
+            <p>
+              Discord requires members to meet its minimum age. Do not question them in public. Tell an admin
+              so they can follow Discord's rules.
+            </p>
+          </div>
+          <div class="card rv">
+            <h3>Threats</h3>
+            <p>
+              Take every threat seriously. Screenshot it, remove the message and tell an admin straight away.
             </p>
           </div>
         </div>
-        <h3 class="sub rv">What staff cannot do</h3>
+        <h3 class="sub rv">If someone talks about hurting themselves</h3>
+        <div class="card ex rv">
+          <span class="tag moderate">Take it seriously</span>
+          <ul>
+            <li>Be kind and calm. Do not argue or joke.</li>
+            <li>You are not a counselor. Do not try to handle it alone.</li>
+            <li>Tell an admin right away so a senior person can help.</li>
+            <li>
+              Encourage them to reach out to someone they trust or to local emergency services. In the US they
+              can call or text 988.
+            </li>
+            <li>Do not post about it in public channels.</li>
+          </ul>
+        </div>
+        <h3 class="sub rv">Protect yourself and the team</h3>
         <div class="grid">
           <div class="card rv">
-            <h3>Staff will not</h3>
+            <h3>Secure your account</h3>
+            <p>Use two-factor authentication and a strong, unique password.</p>
+          </div>
+          <div class="card rv">
+            <h3>Never share secrets</h3>
+            <p>No one from Discord or staff will ask for your password or token.</p>
+          </div>
+          <div class="card rv">
+            <h3>Be careful with links and files</h3>
+            <p>Do not open unknown files or links, even from friends. Their accounts can be hacked.</p>
+          </div>
+        </div>
+      </section>
+      <section class="view" id="v-dconduct">
+        <h2>Mod conduct</h2>
+        <p class="lead">
+          Moderators set the tone for the whole community. These apply to every rank, every time.
+        </p>
+        <div class="grid">
+          <div class="card rv">
+            <h3>Be fair</h3>
             <ul>
-              <li>Unban in public chat</li>
-              <li>Give roles or ranks on request</li>
-              <li>Share who reported someone</li>
+              <li>Same rule, same action, for everyone</li>
+              <li>No favorites and no grudges</li>
+            </ul>
+          </div>
+          <div class="card rv">
+            <h3>Be calm</h3>
+            <ul>
+              <li>Never argue in public</li>
+              <li>Move heated chats to a ticket or DM</li>
+            </ul>
+          </div>
+          <div class="card rv">
+            <h3>Be private</h3>
+            <ul>
+              <li>Keep staff chats and reports in staff channels</li>
+              <li>Never reveal who reported someone</li>
+            </ul>
+          </div>
+          <div class="card rv">
+            <h3>Stay in your role</h3>
+            <ul>
+              <li>Only use the permissions your role gives you</li>
+              <li>Do not give roles or unbans on request</li>
+            </ul>
+          </div>
+          <div class="card rv">
+            <h3>Avoid conflicts of interest</h3>
+            <ul>
+              <li>Hand the case to another mod if it involves a friend</li>
+              <li>Never moderate your own disputes</li>
+            </ul>
+          </div>
+          <div class="card rv">
+            <h3>Work as a team</h3>
+            <ul>
+              <li>Say when you take a case</li>
+              <li>Leave notes so the next mod knows what happened</li>
+              <li>Disagree in staff chat, not in public</li>
+            </ul>
+          </div>
+          <div class="card rv">
+            <h3>Look after yourself</h3>
+            <ul>
+              <li>Take breaks when things get heavy</li>
+              <li>It is okay to hand a hard case to someone else</li>
+            </ul>
+          </div>
+          <div class="card rv">
+            <h3>Ask when unsure</h3>
+            <ul>
+              <li>Ask a senior mod before acting</li>
+              <li>Asking is never a weakness</li>
             </ul>
           </div>
         </div>
       </section>
-      <section class="view" id="v-cteam">
-        <h2>Join the team</h2>
-        <p class="lead">Want to help run CCRP? Here is how teams and applications work.</p>
-        <div class="grid">
-          <div class="card rv">
-            <h3>Staff application</h3>
-            <p>
-              Apply in [applications channel] when applications are open. Staff are chosen through
-              applications and reviews, never by request.
-            </p>
-          </div>
-          <div class="card rv">
-            <h3>Department application</h3>
-            <p>PD, SD and FD each have their own application in [department channel].</p>
-          </div>
-        </div>
-        <h3 class="sub rv">Tips for a good application</h3>
-        <div class="grid">
-          <div class="card rv">
-            <h3>Be honest</h3>
-            <p>Write about yourself and how you have helped others.</p>
-          </div>
-          <div class="card rv">
-            <h3>Know the rules</h3>
-            <p>Read the Player Rules tab and show you understand them.</p>
-          </div>
-          <div class="card rv">
-            <h3>Stay active and kind</h3>
-            <p>Good behavior in the server is noticed.</p>
-          </div>
-        </div>
-        <h3 class="sub rv">After you are accepted</h3>
-        <div class="steps">
-          <div class="card rv">
-            <h3>Trial Moderator</h3>
-            <p>You start as a trial moderator, which means you are not a full mod yet.</p>
-          </div>
-          <div class="card rv">
-            <h3>Complete an R/A</h3>
-            <p>
-              An R/A is a ride-along with an Administrator or higher. You learn by watching, then handling
-              reports with their help.
-            </p>
-          </div>
-          <div class="card rv">
-            <h3>Become a Moderator</h3>
-            <p>After a successful R/A you can be promoted to a full moderator.</p>
-          </div>
+      <section class="view" id="v-dquiz">
+        <h2>Practice scenarios</h2>
+        <p class="lead">Test yourself with real Discord situations.</p>
+        <div class="card rv">
+          <div class="qp"><i id="dqp"></i></div>
+          <div id="dquiz"></div>
         </div>
       </section>
-      <section class="view" id="v-cfaq">
+      <section class="view" id="v-dfaq">
         <h2>FAQ</h2>
-        <p class="lead">Quick answers to what players ask the most.</p>
+        <p class="lead">Quick answers for Discord moderators.</p>
         <details class="rule">
-          <summary><strong>How do I join the server?</strong></summary>
+          <summary><strong>A member argues with my decision in public.</strong></summary>
           <div class="body">
-            <p>Join our Discord, read the rules and use the server code in [sessions channel].</p>
+            <p>
+              Stay calm and state the rule once. Point them to a ticket or the appeal channel and do not
+              debate in chat.
+            </p>
           </div>
         </details>
         <details class="rule">
-          <summary><strong>How do I become a mod?</strong></summary>
+          <summary><strong>Someone asks to be unbanned in chat.</strong></summary>
           <div class="body">
-            <p>Staff are picked through applications. Watch [announcements channel] for when they open.</p>
+            <p>
+              Do not unban in chat. Tell them to use [appeals channel]. An Administrator or higher reviews it.
+            </p>
           </div>
         </details>
         <details class="rule">
-          <summary><strong>Can I be a police officer or firefighter?</strong></summary>
-          <div class="body"><p>Yes. Apply to the department in [department channel].</p></div>
-        </details>
-        <details class="rule">
-          <summary><strong>Can I rob a bank?</strong></summary>
-          <div class="body"><p>Yes, with staff approval. Use !mod to ask for a priority.</p></div>
-        </details>
-        <details class="rule">
-          <summary><strong>Why can't I drive over 100?</strong></summary>
+          <summary><strong>A friend breaks a rule.</strong></summary>
           <div class="body">
-            <p>Going 100+ is only allowed during a real chase. Otherwise it breaks the driving rule.</p>
+            <p>Treat them like anyone else. If you cannot be fair, hand the case to another mod.</p>
           </div>
         </details>
         <details class="rule">
-          <summary><strong>I got punished. What now?</strong></summary>
-          <div class="body"><p>Read the rule, stay calm and send an appeal in [appeals channel].</p></div>
+          <summary><strong>I am not sure a message breaks a rule.</strong></summary>
+          <div class="body"><p>Do not guess. Ask a senior mod in staff chat before you act.</p></div>
         </details>
         <details class="rule">
-          <summary><strong>How do I report someone?</strong></summary>
+          <summary><strong>Do I need evidence for a warning?</strong></summary>
           <div class="body">
-            <p>Use !mod in the game or open a ticket in [support channel] with a clip.</p>
+            <p>
+              Yes. Screenshot or copy the message link, even for warnings. No evidence means a friendly
+              reminder at most.
+            </p>
           </div>
         </details>
         <details class="rule">
-          <summary><strong>When are sessions?</strong></summary>
-          <div class="body"><p>Session times are in [sessions channel].</p></div>
+          <summary><strong>A member DMs me asking for help with a staff matter.</strong></summary>
+          <div class="body">
+            <p>
+              Be kind and send them to a ticket so a team can see it. Do not handle staff matters alone in
+              DMs.
+            </p>
+          </div>
+        </details>
+        <details class="rule">
+          <summary><strong>What should I do if I make a mistake?</strong></summary>
+          <div class="body">
+            <p>Tell a senior mod, fix it, and write what happened in the log. Honest mistakes are fine.</p>
+          </div>
+        </details>
+        <details class="rule">
+          <summary><strong>I think my account was hacked.</strong></summary>
+          <div class="body">
+            <p>
+              Tell an admin right away so they can remove your permissions, then change your password and turn
+              on two-factor authentication.
+            </p>
+          </div>
         </details>
       </section>
       <section class="view" id="v-appeals">
@@ -3841,7 +3924,7 @@
         <h3 class="cat">Guide</h3>
         <select id="gs2" aria-label="Guide">
           <option value="staff">Staff Handbook</option>
-          <option value="community">Community Guide</option>
+          <option value="discord">Discord Mod Guide</option>
         </select>
         <h3 class="cat">View</h3>
         <select id="vm2" aria-label="View mode">
@@ -5375,48 +5458,47 @@
           const t = a.getAttribute("href").slice(2);
           if (IC[t]) a.insertAdjacentHTML("afterbegin", icon(IC[t]));
         });
-      /* two guides in one site: staff handbook and community guide */
+      /* two guides in one site: ER:LC staff handbook and Discord moderator guide */
       const STAFF = [...VIEWS],
-        COMM = [
-          "cwelcome",
-          "cstart",
-          "crules",
-          "croleplay",
-          "cdiscord",
-          "chelp",
-          "cteam",
-          "glossary",
-          "cfaq",
+        DISC = [
+          "dwelcome",
+          "drules",
+          "dtools",
+          "dprocedure",
+          "dtickets",
+          "dsafety",
+          "dconduct",
+          "dquiz",
+          "dfaq",
         ];
       Object.assign(NAMES, {
-        cwelcome: "Welcome",
-        cstart: "Getting Started",
-        crules: "Player Rules",
-        croleplay: "Roleplay Guide",
-        cdiscord: "Discord Guide",
-        chelp: "Get Help",
-        cteam: "Join the Team",
-        cfaq: "FAQ",
+        dwelcome: "Welcome",
+        drules: "Server Rules",
+        dtools: "Mod Tools",
+        dprocedure: "Incidents",
+        dtickets: "Tickets",
+        dsafety: "Safety and Raids",
+        dconduct: "Mod Conduct",
+        dquiz: "Practice",
+        dfaq: "FAQ",
       });
       Object.assign(IC, {
-        cwelcome: "home",
-        cstart: "clipboard",
-        crules: "shield",
-        croleplay: "siren",
-        cdiscord: "chat",
-        chelp: "help",
-        cteam: "star",
-        cfaq: "help",
+        dwelcome: "home",
+        drules: "shield",
+        dtools: "toolbox",
+        dprocedure: "clipboard",
+        dtickets: "chat",
+        dsafety: "siren",
+        dconduct: "star",
+        dquiz: "cap",
+        dfaq: "help",
       });
-      document.querySelectorAll("#v-cwelcome a.hc,#v-cwelcome ~ section.view").forEach((el) => {
-        if (el.matches("a.hc")) {
-          const t = el.getAttribute("href").slice(2),
-            h = el.querySelector("h3");
-          if (h && IC[t] && !h.querySelector(".ic")) h.insertAdjacentHTML("afterbegin", icon(IC[t]));
-        }
+      document.querySelectorAll("#v-dwelcome a.hc").forEach((el) => {
+        const t = el.getAttribute("href").slice(2),
+          h = el.querySelector("h3");
+        if (h && IC[t] && !h.querySelector(".ic")) h.insertAdjacentHTML("afterbegin", icon(IC[t]));
       });
-      COMM.forEach((v) => {
-        if (v === "glossary" || (v === "cwelcome" && false)) return;
+      DISC.forEach((v) => {
         const h = L("v-" + v).querySelector("h2");
         if (h && IC[v] && !h.querySelector(".ic")) h.insertAdjacentHTML("afterbegin", icon(IC[v]));
       });
@@ -5430,59 +5512,368 @@
       function setGuide(g) {
         guide = g;
         root.dataset.guide = g;
-        VIEWS.splice(0, VIEWS.length, ...(g === "staff" ? STAFF : COMM));
+        VIEWS.splice(0, VIEWS.length, ...(g === "staff" ? STAFF : DISC));
         L("gs").value = L("gs2").value = g;
-        document.querySelector(".logo span").textContent = g === "staff" ? "Staff" : "Community";
+        document.querySelector(".logo span").textContent = g === "staff" ? "Staff" : "Discord Mods";
         dgBuild();
       }
       const routeG = route;
       route = function (n) {
         let r = (n || location.hash.replace(/^#\/?/, "") || "").trim();
-        if (r === "home" && guide === "community") r = "cwelcome";
+        if (r === "home" && guide === "discord") r = "dwelcome";
         const inS = STAFF.includes(r),
-          inC = COMM.includes(r);
-        if (!inS && !inC) r = guide === "community" ? "cwelcome" : "home";
-        else if (inS && !inC && guide !== "staff") setGuide("staff");
-        else if (inC && !inS && guide !== "community") setGuide("community");
+          inD = DISC.includes(r);
+        if (!inS && !inD) r = guide === "discord" ? "dwelcome" : "home";
+        else if (inS && !inD && guide !== "staff") setGuide("staff");
+        else if (inD && !inS && guide !== "discord") setGuide("discord");
         routeG(r);
       };
       const gsw = (g) => {
         setGuide(g);
-        nav(g === "staff" ? "home" : "cwelcome");
+        nav(g === "staff" ? "home" : "dwelcome");
       };
       L("gs").onchange = (e) => gsw(e.target.value);
       L("gs2").onchange = (e) => gsw(e.target.value);
-      COMM.forEach((r, i) => {
-        if (r === "glossary") return;
-        const p = COMM[i - 1],
-          nx = COMM[i + 1] || COMM[0],
+      DISC.forEach((r, i) => {
+        const p = DISC[i - 1],
+          nx = DISC[i + 1] || DISC[0],
           d = document.createElement("div");
         d.className = "pn";
         d.innerHTML =
           (p ? `<a class="btn g" href="#/${p}">Back: ${NAMES[p]}</a>` : "<span></span>") +
-          `<a class="btn" href="#/${nx}">${nx === COMM[0] ? "Back to Welcome" : "Next: " + NAMES[nx]}</a>`;
+          `<a class="btn" href="#/${nx}">${nx === DISC[0] ? "Back to Welcome" : "Next: " + NAMES[nx]}</a>`;
         L("v-" + r).appendChild(d);
       });
-      COMM.filter((v) => v !== "glossary").forEach((v) =>
-        ALL.push({ t: NAMES[v] + " (Community)", s: "Tab", f: () => nav(v) }),
-      );
-      function crl() {
-        const sv = L("crf").value,
-          w = L("crq").value.toLowerCase().trim().split(/\s+/);
-        L("crg").innerHTML =
-          RULES.filter(
+      DISC.forEach((v) => ALL.push({ t: NAMES[v] + " (Discord Mods)", s: "Tab", f: () => nav(v) }));
+      /* Discord rules: [name, severity, description, ladder, example] */
+      const A1 = "Warning",
+        A2 = "10 min timeout",
+        A3 = "1 hour timeout",
+        A4 = "1 day timeout",
+        A5 = "7 day timeout",
+        A6 = "Kick",
+        A7 = "Ban";
+      const DR = [
+        [
+          "Harassment / Disrespect",
+          "moderate",
+          "Insulting, bullying or targeting members or staff.",
+          [A1, A2, A3, A4, A7],
+          "Repeatedly mocking someone after they asked to stop.",
+        ],
+        [
+          "Hate Speech / Slurs",
+          "severe",
+          "Racism, slurs or attacks on people for who they are.",
+          [A4, A7],
+          "Using a slur in chat or as a username.",
+        ],
+        [
+          "NSFW Content",
+          "severe",
+          "Sexual or graphic images, text, avatars or usernames.",
+          [A5, A7],
+          "Posting a graphic image in a general channel.",
+        ],
+        [
+          "Spam / Flooding",
+          "minor",
+          "Posting the same thing again and again, or flooding chat.",
+          [A1, A2, A3, A4, A6],
+          "Sending ten messages in a row with no meaning.",
+        ],
+        [
+          "Mass Pinging / Ping Abuse",
+          "minor",
+          "Pinging many people, roles or staff for no reason.",
+          [A1, A2, A3, A4, A5],
+          "Pinging @everyone or a staff role for fun.",
+        ],
+        [
+          "Advertising / Invite Links",
+          "moderate",
+          "Promoting other servers, products or channels without permission.",
+          [A1, A3, A6, A7],
+          "Posting another server's invite in chat.",
+        ],
+        [
+          "Scam / Phishing Links",
+          "severe",
+          "Links or files that try to steal accounts or money.",
+          [A7],
+          "A fake giveaway link that asks members to log in.",
+        ],
+        [
+          "Impersonating Staff or Members",
+          "major",
+          "Pretending to be a staff member or another person.",
+          [A4, A6, A7],
+          "Copying a mod's name and photo to give orders.",
+        ],
+        [
+          "Doxxing / Personal Information",
+          "severe",
+          "Sharing private information about someone.",
+          [A7],
+          "Posting someone's address or phone number.",
+        ],
+        [
+          "Ban Evasion / Alt Accounts",
+          "severe",
+          "Rejoining on another account after a ban.",
+          [A7],
+          "A banned member comes back with a new account.",
+        ],
+        [
+          "Raiding / Threats",
+          "severe",
+          "Organized attacks on the server or threats to people.",
+          [A7],
+          "Many new accounts spamming and threatening staff.",
+        ],
+        [
+          "Off-topic / Wrong Channel",
+          "minor",
+          "Using channels for something they are not meant for.",
+          [A1, A1, A2, A3, A4],
+          "Posting memes in the support channel.",
+        ],
+        [
+          "Arguing With Staff / Backseat Modding",
+          "minor",
+          "Arguing with decisions in public or acting like staff.",
+          [A1, A2, A3, A4, A6],
+          "Telling a mod 'you are wrong' in public chat.",
+        ],
+        [
+          "Leaking Staff Chats or Private Info",
+          "major",
+          "Sharing staff messages, reports or private tickets.",
+          [A4, A6, A7],
+          "Posting a screenshot of a staff channel.",
+        ],
+        [
+          "Underage or Discord TOS Breaks",
+          "severe",
+          "Breaking Discord's Terms of Service or minimum age rules.",
+          [A7],
+          "Anything that breaks Discord's rules. Tell an admin.",
+        ],
+        [
+          "Ticket Abuse / False Reports",
+          "moderate",
+          "Opening tickets as a joke or reporting people falsely.",
+          [A1, A3, A4, A6, A7],
+          "Reporting someone just because you argued with them.",
+        ],
+        [
+          "Begging for Roles or Perks",
+          "minor",
+          "Asking again and again for roles, ranks or unbans.",
+          [A1, A1, A2, A3, A4],
+          "Asking every mod for staff every day.",
+        ],
+      ];
+      const DLAB = ["1st offense", "2nd offense", "3rd offense", "4th offense", "5th offense"];
+      L("dlk1").innerHTML = DR.map((r, i) => `<option value="${i}">${r[0]}</option>`).join("");
+      function dlk() {
+        const r = DR[L("dlk1").value],
+          l = r[3],
+          p = +L("dlk2").value,
+          i = Math.min(p, l.length - 1);
+        L("dlkres").innerHTML =
+          `<small>${r[0]}: ${DLAB[i]}</small><b>${l[i]}</b><span>${p >= l.length ? "They are past the end of this ladder, so use the last step and tell a senior mod. " : ""}Screenshot the evidence, write a log, and tell the member why.</span>`;
+      }
+      L("dlk1").onchange = L("dlk2").onchange = dlk;
+      dlk();
+      function drl() {
+        const sv = L("drf").value,
+          w = L("drq").value.toLowerCase().trim().split(/\s+/);
+        L("drg").innerHTML =
+          DR.filter(
             (r) =>
               (sv === "all" || r[1] === sv) && w.every((k) => (r[0] + " " + r[2]).toLowerCase().includes(k)),
           )
-            .map((r, i) => {
-              const x = RX[r[0]],
-                f = r[3][0];
-              return `<div class="card ga" style="--n:${Math.min(i, 12)}"><span class="tag ${r[1]}">${r[1]}</span><h3>${r[0]}</h3><p>${r[2]}</p>${x ? `<p class="rp">Example: ${x[0]}</p><p><b>Not a violation:</b> ${x[1]}</p>` : ""}<p class="xp">First step: ${f === W ? "usually a warning" : f}</p></div>`;
-            })
+            .map(
+              (r, i) =>
+                `<div class="card ga" style="--n:${Math.min(i, 12)}"><span class="tag ${r[1]}">${r[1]}</span><h3>${r[0]}</h3><p>${r[2]}</p><p class="rp">Example: ${r[4]}</p><p class="xp">${r[3].map((t, k) => DLAB[k] + ": " + t).join("  |  ")}</p></div>`,
+            )
             .join("") || '<p class="none">No rules match.</p>';
       }
-      L("crq").oninput = L("crf").oninput = crl;
-      crl();
+      L("drq").oninput = L("drf").oninput = drl;
+      drl();
+      /* Discord mod log builder */
+      L("dRule").innerHTML = DR.map((r) => `<option>${r[0]}</option>`).join("");
+      function dmk() {
+        const w = L("dWhat").value.trim();
+        L("dOut").textContent =
+          `Moderator: ${L("dMod").value.trim() || "[your name]"}\nMember: ${L("dUser").value.trim() || "[name and ID]"}\nChannel: ${L("dChan").value.trim() || "[channel]"}\nRule: ${L("dRule").value}\nAction: ${L("dAct").value}\nWhat happened: ${w || "[say what you saw, step by step]"}\nEvidence: ${L("dEvi").value.trim() || "[screenshot or message link]"}`;
+        L("dWarn").textContent =
+          w.length < 80
+            ? "Add more detail: what you saw, where, and what you did. Short logs get sent back."
+            : "";
+      }
+      document
+        .querySelectorAll("#dlogf input,#dlogf select,#dlogf textarea")
+        .forEach((e) => (e.oninput = dmk));
+      dmk();
+      L("dCopy").onclick = () => copyTo(L("dOut").textContent, L("dCopy"));
+      L("dDm").innerHTML = [
+        "Hi [name], this is a reminder from the CCRP Discord team: [rule] is not allowed here. Please read [rules channel]. This is a warning and nothing else will happen this time.",
+        "Hi [name], you have been timed out for [length] because of [rule]. Please read [rules channel]. If you think this is a mistake, you can open a ticket in [support channel].",
+        "Hi [name], you have been removed from the CCRP Discord for [rule]. You can rejoin, but please read the rules first.",
+        "Hi [name], you have been banned from the CCRP Discord for [rule]. You can appeal in [appeals channel] with your username and why the ban should change.",
+      ]
+        .map(cmdRow)
+        .join("");
+      L("dTk").innerHTML = [
+        "Hi [name], thanks for opening a ticket! I am [your name] and I will help you today. Can you tell me what happened, where and when?",
+        "Thanks for the details. Could you please add a screenshot or clip so we can check it properly?",
+        "I have passed this to a senior moderator. They will reply as soon as they can. Thank you for your patience!",
+        "Thanks for reporting this. We have taken action. We cannot share the details, but we appreciate your help keeping CCRP safe.",
+        "I am sorry, but we cannot [request] because [reason]. You can [other option] instead.",
+        "This ticket is being closed because the issue is solved. If you need more help, please open a new ticket. Thank you!",
+      ]
+        .map(cmdRow)
+        .join("");
+      /* Discord practice quiz */
+      const DQ = [
+        [
+          "Someone posts the same invite link five times in #general. It is their first time. What do you do?",
+          [
+            "Ban them straight away",
+            "Delete the messages, screenshot them, and give a warning",
+            "Ignore it",
+            "Timeout them for a week",
+          ],
+          1,
+          "Advertising starts with a warning. Screenshot first, then delete the messages and log it.",
+        ],
+        [
+          "A member posts a link that says 'free Nitro, log in here'. What is it, and what do you do?",
+          [
+            "A fun giveaway, leave it",
+            "A scam: delete it, ban the account and warn members",
+            "Ask them to explain",
+            "Give a warning",
+          ],
+          1,
+          "Free-gift login links are phishing. Delete, ban, warn members and report it if you can.",
+        ],
+        [
+          "Two members are arguing in public and it is getting heated. What is best?",
+          [
+            "Join the argument",
+            "Slowmode or a calm reminder, then move it to DMs or a ticket",
+            "Ban both",
+            "Delete the channel",
+          ],
+          1,
+          "Cool the chat down first. Slowmode and a calm message work well.",
+        ],
+        [
+          "A member says they are thinking about hurting themselves. What do you do?",
+          [
+            "Ignore it",
+            "Joke to cheer them up",
+            "Be kind, tell an admin right away and share emergency resources",
+            "Argue with them",
+          ],
+          2,
+          "Take it seriously, be kind, do not handle it alone and alert an admin. Share local emergency options.",
+        ],
+        [
+          "Your friend breaks a rule and nobody else saw. What do you do?",
+          [
+            "Let it go",
+            "Treat them like anyone else and log it, or hand it to another mod",
+            "Ban them to look fair",
+            "Tell them to delete the message",
+          ],
+          1,
+          "Same rule for everyone. If you cannot be fair, pass it to another mod.",
+        ],
+        [
+          "Someone posts another member's address in chat. What do you do first?",
+          [
+            "Reply to them",
+            "Delete it at once without reposting it, then ban and tell an admin",
+            "Warn them",
+            "Ask them to remove it",
+          ],
+          1,
+          "Doxxing is severe. Remove it quickly, do not repost it, and tell an admin.",
+        ],
+        [
+          "A member keeps asking you in DMs to unban a friend. What do you say?",
+          [
+            "Unban the friend",
+            "Politely tell them to use the appeals channel",
+            "Ignore them",
+            "Argue with them",
+          ],
+          1,
+          "Bans are only changed through appeals. Be polite and point to the right place.",
+        ],
+        [
+          "Dozens of new accounts join and spam. What is the first thing you do?",
+          [
+            "Wait for it to stop",
+            "Alert other staff and slow it down: lock channels, pause invites",
+            "Ban one account and watch",
+            "Leave the server",
+          ],
+          1,
+          "Call for help and slow the raid, then remove the accounts and clean up.",
+        ],
+      ];
+      let dqi = 0,
+        dqs = 0;
+      function dq() {
+        const el = L("dquiz");
+        if (dqi >= DQ.length) {
+          L("dqp").style.width = "100%";
+          el.innerHTML = `<h3>Finished: ${dqs} of ${DQ.length} correct</h3><p class="fb">${dqs >= DQ.length - 1 ? "Great work." : "Review the guide and try again."}</p><button class="btn" id="dqr" style="border:0;cursor:pointer">Try again</button>`;
+          L("dqr").onclick = () => {
+            dqi = dqs = 0;
+            dq();
+          };
+          if (dqs === DQ.length) burst(innerWidth / 2, innerHeight / 3);
+          return;
+        }
+        const [q, o, a, w] = DQ[dqi];
+        L("dqp").style.width = (dqi / DQ.length) * 100 + "%";
+        el.innerHTML =
+          `<small>Question ${dqi + 1} of ${DQ.length}</small><h3>${q}</h3>` +
+          o.map((t, i) => `<button class="opt" data-i="${i}">${t}</button>`).join("") +
+          '<div id="dfb"></div>';
+        el.querySelectorAll(".opt").forEach(
+          (b) =>
+            (b.onclick = () => {
+              if (el.querySelector(".ok,.no")) return;
+              const g = +b.dataset.i;
+              if (g === a) dqs++;
+              el.querySelectorAll(".opt").forEach((x, i) => {
+                x.disabled = true;
+                if (i === a) x.classList.add("ok");
+                else if (i === g) x.classList.add("no");
+              });
+              L("dfb").className = "fb";
+              L("dfb").innerHTML =
+                (g === a ? "Correct. " : "Not quite. ") +
+                w +
+                '<br><button class="btn" id="dqn" style="border:0;cursor:pointer;margin-top:.8rem">' +
+                (dqi + 1 < DQ.length ? "Next question" : "See score") +
+                "</button>";
+              L("dqn").onclick = () => {
+                dqi++;
+                dq();
+              };
+            }),
+        );
+      }
+      dq();
+
       /* player questions: [category, question, what to do, reply] */
       const QA = [
         [
