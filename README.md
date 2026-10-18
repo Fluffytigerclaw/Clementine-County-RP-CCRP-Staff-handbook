@@ -25,12 +25,12 @@ Open `index.html` in any text editor.
 
 ## Two guides in one site
 
-The site holds two guides. Use the **Guide** dropdown in the top bar (inside the **Menu** on phones) to switch between the **Staff Handbook** and the **Community Guide**. Each guide has its own tabs, and each tab has its own link, like `#/crules`.
+The site holds two guides. Use the **Guide** dropdown in the top bar (inside the **Menu** on phones) to switch between the **Staff Handbook** (ER:LC moderators) and the **Discord Mod Guide** (Discord moderators). Each guide has its own tabs, and each tab has its own link, like `#/drules`.
 
-- **Staff Handbook:** the original handbook for moderators.
-- **Community Guide:** Welcome, Getting Started, Player Rules, Roleplay Guide, Discord Guide, Get Help, Join the Team, Glossary and FAQ.
-- **Fill in the [brackets]:** the community pages use placeholders like `[server code]`, `[rules channel]` and `[applications channel]`. Search `index.html` for `[` and replace them with your real server details.
-- **Player rules:** the Player Rules tab is built from the same `RULES` and `RX` lists as the staff guide, so editing a rule updates both.
+- **Staff Handbook:** the original handbook for ER:LC staff.
+- **Discord Mod Guide:** Welcome, Server Rules, Mod Tools, Incidents (with a mod log builder and DM templates), Tickets (with ready replies), Safety and Raids, Mod Conduct, Practice scenarios and FAQ.
+- **Edit the Discord rules:** find `const DR = [` in `index.html`. Each rule has a name, a severity, a description, the action ladder and an example. The rule list, lookup and log builder all read this one list.
+- **Fill in the [brackets]:** the Discord pages use placeholders like `[bot prefix]`, `[rules channel]` and `[appeals channel]`. Search `index.html` for `[` and replace them with your real server details.
 
 ## View modes (PC, Mobile, Console)
 
