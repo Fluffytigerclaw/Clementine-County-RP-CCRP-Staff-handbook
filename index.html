@@ -1761,6 +1761,200 @@
       .sub {
         margin-bottom: 1rem;
       }
+      .cs {
+        position: relative;
+        display: block;
+        max-width: 100%;
+      }
+      .cs-native {
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
+        width: 1px;
+        height: 1px;
+        left: 0;
+        top: 0;
+      }
+      .cs-btn {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.6rem;
+        width: 100%;
+        text-align: left;
+        background: var(--s2);
+        border: 1px solid var(--ln);
+        color: var(--tx);
+        border-radius: 10px;
+        padding: 0.65rem 0.8rem;
+        font: inherit;
+        cursor: pointer;
+        transition:
+          border-color 0.2s,
+          background 0.2s;
+      }
+      .cs-btn:hover,
+      .cs-btn[aria-expanded="true"] {
+        border-color: var(--or);
+      }
+      .cs-btn.ib {
+        width: auto;
+        border-radius: 99px;
+        padding: 0.4rem 0.85rem;
+        background: var(--s1);
+        font-size: 0.85rem;
+      }
+      .cs-l {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .cs-c {
+        flex: none;
+        width: 1em;
+        height: 1em;
+        transition: transform 0.2s;
+      }
+      .cs-btn[aria-expanded="true"] .cs-c {
+        transform: rotate(180deg);
+      }
+      footer .cs {
+        display: inline-block;
+        vertical-align: middle;
+      }
+      footer .cs-btn {
+        width: auto;
+        border-radius: 99px;
+        padding: 0.3rem 0.8rem;
+        font-size: 0.85rem;
+        background: var(--s1);
+      }
+      @media (max-width: 820px) {
+        .cs:has(> #vm) {
+          display: none;
+        }
+      }
+      [data-mode="mobile"] .cs:has(> #vm) {
+        display: none;
+      }
+      .csm,
+      .mp {
+        position: fixed;
+        z-index: 120;
+        display: none;
+        min-width: 200px;
+        max-height: min(50vh, 360px);
+        overflow: auto;
+        background: var(--s1);
+        border: 1px solid var(--ln);
+        border-radius: 14px;
+        padding: 0.35rem;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+        transform-origin: top left;
+      }
+      .csm.on,
+      .mp.on {
+        display: block;
+        animation: csin 0.16s cubic-bezier(0.2, 0.8, 0.2, 1);
+      }
+      @keyframes csin {
+        from {
+          opacity: 0;
+          transform: translateY(-6px) scale(0.97);
+        }
+      }
+      .cso,
+      .mp a {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.8rem;
+        width: 100%;
+        background: none;
+        border: 0;
+        color: var(--tx);
+        font: inherit;
+        font-weight: 500;
+        text-align: left;
+        text-decoration: none;
+        padding: 0.6rem 0.8rem;
+        border-radius: 10px;
+        cursor: pointer;
+      }
+      .cso:hover,
+      .cso:focus-visible,
+      .mp a:hover,
+      .mp a:focus-visible {
+        background: var(--s2);
+        outline: none;
+      }
+      .cso.on,
+      .mp a.on {
+        color: var(--or);
+        font-weight: 600;
+        background: rgba(var(--glow), 0.12);
+      }
+      .cso svg {
+        width: 1em;
+        height: 1em;
+        flex: none;
+        stroke: currentColor;
+        fill: none;
+        stroke-width: 2.4;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .csb {
+        position: fixed;
+        inset: 0;
+        z-index: 119;
+        background: rgba(5, 8, 14, 0.55);
+        display: none;
+      }
+      .csb.on {
+        display: block;
+        animation: fin 0.2s;
+      }
+      .csm.sheet {
+        left: 0 !important;
+        right: 0;
+        top: auto !important;
+        bottom: 0;
+        max-height: 62vh;
+        border-radius: 20px 20px 0 0;
+        padding: 0.6rem 0.6rem calc(0.8rem + env(safe-area-inset-bottom));
+        animation: sheetin 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+      }
+      .csm.sheet::before {
+        content: "";
+        display: block;
+        width: 40px;
+        height: 4px;
+        border-radius: 9px;
+        background: var(--ln);
+        margin: 0.2rem auto 0.6rem;
+      }
+      @keyframes sheetin {
+        from {
+          transform: translateY(100%);
+        }
+      }
+      .csm.sheet .cso {
+        padding: 0.85rem 1rem;
+        min-height: 48px;
+      }
+      .lite .csm,
+      .lite .mp,
+      .lite .csb {
+        animation: none !important;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .csm,
+        .mp,
+        .csb {
+          animation: none !important;
+        }
+      }
       @media (max-width: 820px) {
         .cst .sevtag {
           display: table;
@@ -6766,6 +6960,177 @@
       }
       const upQ = addGhost(q),
         upP = addGhost(pi);
+      /* clean dropdown menus: every select opens a tidy list (a bottom sheet on phones) */
+      {
+        const pd = Object.getOwnPropertyDescriptor(HTMLSelectElement.prototype, "value");
+        const pop = document.createElement("div");
+        pop.className = "csm";
+        pop.setAttribute("role", "listbox");
+        document.body.appendChild(pop);
+        const back = document.createElement("div");
+        back.className = "csb";
+        document.body.appendChild(back);
+        const CH =
+            '<svg class="cs-c" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>',
+          CK = '<svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg>';
+        let cur = null;
+        function closeMenu(refocus) {
+          if (!cur) return;
+          pop.classList.remove("on", "sheet");
+          back.classList.remove("on");
+          cur.btn.setAttribute("aria-expanded", "false");
+          if (refocus) cur.btn.focus({ preventScroll: true });
+          cur = null;
+        }
+        function openMenu(sel, btn) {
+          closeMenu();
+          pop.innerHTML = "";
+          [...sel.options].forEach((o, i) => {
+            const b = document.createElement("button");
+            b.type = "button";
+            b.className = "cso" + (i === sel.selectedIndex ? " on" : "");
+            b.setAttribute("role", "option");
+            b.dataset.i = i;
+            const sp = document.createElement("span");
+            sp.textContent = o.textContent;
+            b.appendChild(sp);
+            if (i === sel.selectedIndex) b.insertAdjacentHTML("beforeend", CK);
+            pop.appendChild(b);
+          });
+          const r = btn.getBoundingClientRect(),
+            phone = innerWidth <= 820;
+          pop.classList.toggle("sheet", phone);
+          back.classList.toggle("on", phone);
+          pop.style.minWidth = phone ? "" : Math.max(r.width, 200) + "px";
+          pop.classList.add("on");
+          if (!phone) {
+            const h = pop.offsetHeight;
+            let top = r.bottom + 6;
+            if (top + h > innerHeight - 8) top = Math.max(8, r.top - h - 6);
+            pop.style.top = top + "px";
+            pop.style.left = Math.max(8, Math.min(r.left, innerWidth - pop.offsetWidth - 8)) + "px";
+          }
+          btn.setAttribute("aria-expanded", "true");
+          cur = { sel, btn };
+          const on = pop.querySelector(".on") || pop.firstChild;
+          if (on) {
+            on.scrollIntoView({ block: "nearest" });
+            on.focus({ preventScroll: true });
+          }
+        }
+        pop.addEventListener("click", (e) => {
+          const b = e.target.closest(".cso");
+          if (!b || !cur) return;
+          const { sel } = cur;
+          sel.value = sel.options[+b.dataset.i].value;
+          sel.dispatchEvent(new Event("input", { bubbles: true }));
+          sel.dispatchEvent(new Event("change", { bubbles: true }));
+          closeMenu(true);
+        });
+        pop.addEventListener("keydown", (e) => {
+          e.stopPropagation();
+          const items = [...pop.querySelectorAll(".cso")],
+            i = items.indexOf(document.activeElement);
+          if (e.key === "Escape") {
+            e.preventDefault();
+            closeMenu(true);
+          } else if (e.key === "ArrowDown") {
+            e.preventDefault();
+            (items[i + 1] || items[0]).focus();
+          } else if (e.key === "ArrowUp") {
+            e.preventDefault();
+            (items[i - 1] || items[items.length - 1]).focus();
+          } else if (e.key === "Home") {
+            e.preventDefault();
+            items[0].focus();
+          } else if (e.key === "End") {
+            e.preventDefault();
+            items[items.length - 1].focus();
+          } else if (e.key === "Tab") closeMenu(false);
+        });
+        back.addEventListener("click", () => closeMenu(false));
+        document.addEventListener("click", (e) => {
+          if (cur && !e.target.closest(".csm,.cs-btn")) closeMenu(false);
+        });
+        addEventListener("resize", () => closeMenu(false));
+        addEventListener(
+          "scroll",
+          () => {
+            if (cur && innerWidth > 820) closeMenu(false);
+          },
+          { passive: true },
+        );
+        function enhance(sel) {
+          if (sel.dataset.cs) return;
+          sel.dataset.cs = "1";
+          const wrap = document.createElement("span");
+          wrap.className = "cs";
+          sel.parentNode.insertBefore(wrap, sel);
+          wrap.appendChild(sel);
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "cs-btn" + (sel.classList.contains("ib") ? " ib" : "");
+          btn.setAttribute("aria-haspopup", "listbox");
+          btn.setAttribute("aria-expanded", "false");
+          if (sel.getAttribute("aria-label")) btn.setAttribute("aria-label", sel.getAttribute("aria-label"));
+          btn.innerHTML = '<span class="cs-l"></span>' + CH;
+          wrap.appendChild(btn);
+          sel.classList.add("cs-native");
+          sel.tabIndex = -1;
+          sel.setAttribute("aria-hidden", "true");
+          const sync = () => {
+            const o = sel.options[sel.selectedIndex];
+            btn.querySelector(".cs-l").textContent = o ? o.textContent : "";
+          };
+          Object.defineProperty(sel, "value", {
+            get() {
+              return pd.get.call(sel);
+            },
+            set(v) {
+              pd.set.call(sel, v);
+              sync();
+            },
+            configurable: true,
+          });
+          sel.addEventListener("change", sync);
+          new MutationObserver(sync).observe(sel, { childList: true, subtree: true });
+          sync();
+          btn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            cur && cur.sel === sel ? closeMenu(false) : openMenu(sel, btn);
+          });
+          btn.addEventListener("keydown", (e) => {
+            if (e.key === "ArrowDown" || e.key === "ArrowUp") {
+              e.preventDefault();
+              openMenu(sel, btn);
+            }
+          });
+        }
+        document.querySelectorAll("select").forEach(enhance);
+        /* the More menu gets the same keyboard behavior */
+        L("morepop").addEventListener("keydown", (e) => {
+          const items = [...L("morepop").querySelectorAll("a")],
+            i = items.indexOf(document.activeElement);
+          if (e.key === "Escape") {
+            L("morepop").classList.remove("on");
+            L("more").setAttribute("aria-expanded", "false");
+            L("more").focus();
+          } else if (e.key === "ArrowDown") {
+            e.preventDefault();
+            (items[i + 1] || items[0]).focus();
+          } else if (e.key === "ArrowUp") {
+            e.preventDefault();
+            (items[i - 1] || items[items.length - 1]).focus();
+          }
+        });
+        L("more").addEventListener("click", () => {
+          setTimeout(() => {
+            const a = L("morepop").querySelector("a.on") || L("morepop").querySelector("a");
+            if (L("morepop").classList.contains("on") && a) a.focus({ preventScroll: true });
+          }, 30);
+        });
+      }
+
       route();
     </script>
   </body>
