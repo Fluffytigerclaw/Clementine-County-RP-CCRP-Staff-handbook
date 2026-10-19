@@ -31,7 +31,7 @@ Upload all of them to the top level of the repo. The site still works with only 
 - **Tabs are pages.** Each tab has its own link, like `#/punishments` or `#/drules`. Opening a link shows that page. The Back and Next buttons, search, number keys and menu all use the same links.
 - **Two guides.** The bar under the top bar switches between them. Each guide has its own tabs, accent colors and Home.
 - **One list, many places.** Most content lives in lists near the bottom of `index.html`. Edit a list once and every page that uses it updates. For example, the ER:LC `RULES` list feeds the punishment guide, the cheat sheet, the lookup, the log builder, the search and the rule of the day.
-- **Three views.** The site picks **PC**, **Mobile** or **Console** for each device. Anyone can change it in the **Menu** (phones) or the top bar. The choice is saved on that device.
+- **Three views.** The site picks **PC**, **Mobile** or **Console** for each device. Anyone can change it with **View** in the footer (or in the **Menu** on phones). The choice is saved on that device.
 - **Light effects.** The **Effects** dropdown in the footer turns off heavy animation for slow devices.
 
 ## Where to edit what
@@ -79,4 +79,5 @@ Theme, view mode, effects, progress, role path, R/A checklist and pinned rules a
 - **Old version or blank page:** hard refresh with Ctrl+Shift+R, or open the site in a private window.
 - **Changes not showing on GitHub:** check that the commit finished and that Pages says "Your site is live".
 - **Phone shows the wrong layout:** open the **Menu** and change **View** to Auto.
+- **Tabs missing from the top bar:** the ones that do not fit are under **More**.
 - **Something looks stuck:** set **Effects** in the footer to Light.
