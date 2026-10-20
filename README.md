@@ -70,9 +70,17 @@ Anything in `[square brackets]`, like `[server code]` or `[appeals channel]`, is
 - `/` or `Ctrl K` opens search.
 - On a console or with a controller: D-pad moves, **A** selects, **LB / RB** change tab, **B** goes Home, **Start** opens search.
 
-## Saved on each device
+## Cookies and settings
 
-Theme, view mode, effects, progress, role path, R/A checklist and pinned rules are saved in the browser. Nothing is sent anywhere. **Reset progress** on the Home page clears the progress.
+The site has no accounts, no tracking and no ads, and nothing is ever sent anywhere. On a first visit a small banner asks what may be saved on the visitor's device:
+
+- **Essential:** only the visitor's cookie choice. Always on. It is saved as a cookie (`ccrp_consent`) and in browser storage.
+- **Settings:** theme, text size, view, effects and reduce motion.
+- **Progress:** XP, levels, badges, pinned rules, role path and the R/A checklist.
+
+Until the visitor chooses, nothing is saved. They can change their mind any time with the sliders button in the top bar, the **Cookies and settings** button in the footer, or the **Menu** on phones. The settings panel also has theme (match device, dark or light), text size, view, effects and reduce motion, a list of exactly what is saved, **Download my data**, **Reset progress**, **Clear offline copy** and **Delete everything**.
+
+To add a new saved item, add its key to `CKCAT` near the top of the script so it follows the visitor's choices.
 
 ## Troubleshooting
 
