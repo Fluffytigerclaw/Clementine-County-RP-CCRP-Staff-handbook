@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://fluffytigerclaw.github.io/Clementine-County-RP-CCRP-Staff-handbook/sitemap.xml
