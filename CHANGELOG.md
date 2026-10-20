@@ -1,5 +1,8 @@
 # Changelog
 
+## 2026-10-20
+- Quality of life: a Continue card on Home, a shortcuts list (press ?), and pinned rules shown first in search.
+
 ## 2026-10-19
 - Added a cookie banner and a Settings panel (theme, text size, view, effects, reduce motion, saved data controls).
 - Added clean dropdown menus, a More menu and a guide switch bar.
