@@ -15,6 +15,10 @@ It is a plain static site, so it runs on GitHub Pages with no build step.
 | `sw.js` | Lets the site open offline. It always tries the internet first, so updates show up right away. |
 | `manifest.webmanifest` | Lets people install the site as an app. |
 | `icon-192.png`, `icon-512.png` | The app icons. |
+| `404.html` | The page shown when a link is wrong. |
+| `og-image.png`, `favicon.ico` | The preview picture when the link is shared, and the tab icon. |
+| `robots.txt`, `sitemap.xml` | Help search engines find the site. |
+| `CHANGELOG.md` | A short list of what changed. |
 | `README.md` | This guide. |
 
 Upload all of them to the top level of the repo. The site still works with only `index.html`, but install and offline use need the others.
