@@ -2098,6 +2098,101 @@
       .krow span {
         color: var(--mut);
       }
+      .tm {
+        font:
+          800 2.6rem "Bricolage Grotesque",
+          Figtree,
+          system-ui,
+          sans-serif;
+        margin: 0.3rem 0;
+      }
+      a.nd::after {
+        content: "";
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--or);
+        margin-left: 0.4rem;
+        vertical-align: middle;
+      }
+      .cs-case {
+        margin: 0.6rem 0;
+      }
+      .cs-case small {
+        color: var(--mut);
+      }
+      .shi {
+        display: flex;
+        gap: 0.7rem;
+        align-items: flex-start;
+        padding: 0.55rem 0;
+        border-bottom: 1px solid var(--ln);
+        cursor: pointer;
+      }
+      .shi input {
+        accent-color: var(--or);
+        width: 1.1rem;
+        height: 1.1rem;
+        margin-top: 0.25rem;
+        flex: none;
+      }
+      .shi.done span {
+        color: var(--mut);
+        text-decoration: line-through;
+      }
+      .wn {
+        display: flex;
+        gap: 1rem;
+        padding: 0.8rem 0;
+        border-bottom: 1px solid var(--ln);
+      }
+      .wn time {
+        color: var(--mut);
+        flex: none;
+        width: 6.5rem;
+        font-size: 0.9rem;
+      }
+      #certwrap {
+        display: none;
+      }
+      .cert {
+        max-width: 760px;
+        margin: 0 auto;
+        padding: 3rem 2rem;
+        border: 6px double #b34700;
+        text-align: center;
+        color: #111;
+        background: #fff;
+      }
+      .cert h1 {
+        font-size: 2.4rem;
+        margin: 0.4rem 0;
+      }
+      .cert img {
+        width: 110px;
+      }
+      .cert .nm {
+        font-size: 2rem;
+        border-bottom: 2px solid #333;
+        display: inline-block;
+        padding: 0 2rem;
+        margin: 1rem 0;
+      }
+      body.printcert > *:not(#certwrap) {
+        display: none !important;
+      }
+      body.printcert #certwrap {
+        display: block;
+      }
+      @media print {
+        #certwrap {
+          display: none;
+        }
+        body.printcert #certwrap {
+          display: block;
+        }
+      }
       @media (max-width: 820px) {
         #keym {
           align-items: flex-end;
@@ -2851,12 +2946,14 @@
           ><a href="#/hints">:h Commands</a><a href="#/questions">Player Questions</a
           ><a href="#/appeals">Appeals</a><a href="#/training">Training</a><a href="#/commands">Commands</a
           ><a href="#/ranks">Ranks</a><a href="#/glossary">Glossary</a><a href="#/faq">FAQ</a
-          ><a href="#/dwelcome">Discord Mod Guide</a><a class="gc" href="#/dwelcome">Welcome</a
-          ><a class="gc" href="#/drules">Server Rules</a><a class="gc" href="#/dtools">Mod Tools</a
-          ><a class="gc" href="#/dprocedure">Incidents</a><a class="gc" href="#/dtickets">Tickets</a
-          ><a class="gc" href="#/dsafety">Safety and Raids</a><a class="gc" href="#/dconduct">Mod Conduct</a
-          ><a class="gc" href="#/dquiz">Practice</a><a class="gc" href="#/dfaq">FAQ</a
-          ><a class="gc" href="#/staffhome">Staff Handbook</a>
+          ><a href="#/caselog">Case Log</a><a href="#/shift">Shift</a><a href="#/whatsnew">What's New</a
+          ><a href="#/exam">Exam</a><a href="#/replies">Quick Replies</a><a href="#/compare">Compare Rules</a
+          ><a href="#/announce">Announcements</a><a href="#/dwelcome">Discord Mod Guide</a
+          ><a class="gc" href="#/dwelcome">Welcome</a><a class="gc" href="#/drules">Server Rules</a
+          ><a class="gc" href="#/dtools">Mod Tools</a><a class="gc" href="#/dprocedure">Incidents</a
+          ><a class="gc" href="#/dtickets">Tickets</a><a class="gc" href="#/dsafety">Safety and Raids</a
+          ><a class="gc" href="#/dconduct">Mod Conduct</a><a class="gc" href="#/dquiz">Practice</a
+          ><a class="gc" href="#/dfaq">FAQ</a><a class="gc" href="#/staffhome">Staff Handbook</a>
         </div>
         <button class="ib" id="more" aria-haspopup="true" aria-expanded="false">More</button>
         <div class="tools">
@@ -4276,6 +4373,143 @@
           </div>
         </details>
       </section>
+      <section class="view" id="v-caselog">
+        <h2>Case log</h2>
+        <p class="lead">
+          A private notebook for your own cases. It is saved only on this device, never uploaded. Turn on
+          Progress saving in Settings to keep it after you close the page.
+        </p>
+        <div class="card">
+          <div class="cr">
+            <input class="fi" id="cPlayer" placeholder="Player username" /><select
+              id="cRule"
+              aria-label="Rule"
+            ></select
+            ><select id="cAct" aria-label="Action">
+              <option>Warning</option>
+              <option>Kick</option>
+              <option>1 day ban</option>
+              <option>3 day ban</option>
+              <option>7 day ban</option>
+              <option>Permanent ban</option>
+              <option>No action</option></select
+            ><input class="fi" id="cEvi" placeholder="Evidence link" />
+          </div>
+          <textarea
+            class="fi"
+            id="cNote"
+            placeholder="What happened? Say what you saw, where and when."
+          ></textarea>
+          <div class="sact">
+            <button class="btn" id="cSave" style="border: 0; cursor: pointer">Save case</button>
+          </div>
+        </div>
+        <div class="cr" style="margin-top: 1.2rem">
+          <input class="fi" id="cQ" type="search" placeholder="Search your cases" aria-label="Search cases" />
+          <div class="sact" style="margin: 0">
+            <button class="cb" id="cExp">Export CSV</button
+            ><button class="cb dng" id="cClr">Clear all</button>
+          </div>
+        </div>
+        <div id="cList"></div>
+      </section>
+      <section class="view" id="v-shift">
+        <h2>Shift</h2>
+        <p class="lead">Start and end every patrol the same way. Tick items off and time your session.</p>
+        <div class="card">
+          <small>Session timer</small>
+          <div class="tm" id="tmShow">00:00:00</div>
+          <div class="sact">
+            <button class="btn" id="tmGo" style="border: 0; cursor: pointer">Start</button
+            ><button class="cb" id="tmLap">Lap</button><button class="cb" id="tmRst">Reset shift</button>
+          </div>
+          <div id="tmLaps"></div>
+        </div>
+        <div class="grid" style="margin-top: 1rem">
+          <div class="card">
+            <h3>Starting patrol</h3>
+            <div id="shS"></div>
+          </div>
+          <div class="card">
+            <h3>Ending patrol</h3>
+            <div id="shE"></div>
+          </div>
+        </div>
+      </section>
+      <section class="view" id="v-whatsnew">
+        <h2>What's new</h2>
+        <p class="lead">Recent changes to the rules, the staff team and this handbook.</p>
+        <div id="wnList"></div>
+      </section>
+      <section class="view" id="v-exam">
+        <h2>Mod exam</h2>
+        <p class="lead">10 questions, 10 minutes. Score 8 or more to pass and get a printable certificate.</p>
+        <div class="card">
+          <div class="qp"><i id="exP"></i></div>
+          <div id="exBox"></div>
+        </div>
+      </section>
+      <section class="view" id="v-replies">
+        <h2>Quick replies</h2>
+        <p class="lead">Pick a situation and copy the reply, DM or hint that fits. Fill in the [brackets].</p>
+        <div class="card">
+          <select id="qrSel" aria-label="Situation"></select>
+          <div id="qrOut" style="margin-top: 0.8rem"></div>
+        </div>
+      </section>
+      <section class="view" id="v-compare">
+        <h2>Compare rules</h2>
+        <p class="lead">Pick two rules to see how they differ.</p>
+        <div class="cr">
+          <select id="cmpA" aria-label="First rule"></select
+          ><select id="cmpB" aria-label="Second rule"></select>
+        </div>
+        <div class="card" id="cmpDiff" style="margin-bottom: 1rem"></div>
+        <div class="grid" id="cmpOut"></div>
+      </section>
+      <section class="view" id="v-announce">
+        <h2>Announcement builder</h2>
+        <p class="lead">
+          Fill in the form and copy a ready Discord announcement. Start a note line with + for new, ~ for
+          improved, or - for removed. Other lines go under details.
+        </p>
+        <div class="card">
+          <div class="cr">
+            <select id="anType" aria-label="Type">
+              <option value="Update">Update or change log</option>
+              <option value="Event">Event</option>
+              <option value="Rule change">Rule change</option>
+              <option value="Giveaway">Giveaway</option>
+              <option value="Maintenance">Maintenance</option>
+              <option value="Welcome">Welcome</option></select
+            ><input class="fi" id="anTitle" placeholder="Title" /><input
+              class="fi"
+              id="anPing"
+              placeholder="Ping"
+              value="@Staff"
+            /><input class="fi" id="anDate" placeholder="Date and time" /><input
+              class="fi"
+              id="anLink"
+              placeholder="Link"
+            /><input class="fi" id="anContact" placeholder="Who to message" />
+          </div>
+          <textarea
+            class="fi"
+            id="anNotes"
+            placeholder="+ Added the case log&#10;~ Faster search&#10;- Removed an old rule&#10;Read the new rules this week"
+          ></textarea>
+        </div>
+        <h3 class="sub">Full version</h3>
+        <pre class="out" id="anFull"></pre>
+        <button class="btn" id="anCopy1" style="border: 0; cursor: pointer; margin-top: 0.6rem">
+          Copy full
+        </button>
+        <h3 class="sub">Short version</h3>
+        <pre class="out" id="anShort"></pre>
+        <button class="btn" id="anCopy2" style="border: 0; cursor: pointer; margin-top: 0.6rem">
+          Copy short
+        </button>
+      </section>
       <section class="view" id="v-appeals">
         <h2>Ban appeals</h2>
         <p class="lead">
@@ -4684,6 +4918,12 @@
         "ccrp-path": "progress",
         "ccrp-ra": "progress",
         "ccrp-pins": "progress",
+        "ccrp-cases": "progress",
+        "ccrp-shift": "progress",
+        "ccrp-streak": "progress",
+        "ccrp-exam": "progress",
+        "ccrp-seen": "progress",
+        "ccrp-lang": "prefs",
         "ccrp-last": "progress",
       };
       function ckCookieGet() {
@@ -7532,6 +7772,7 @@
             return null;
           }
         };
+      let stLang = "en";
       let stTheme = lsGet("ccrp-theme-mode") || lsGet("ccrp-theme") || "auto",
         stText = lsGet("ccrp-text") || "m",
         stCalm = lsGet("ccrp-calm") === "1";
@@ -7630,6 +7871,12 @@
         "ccrp-path": "Your role path",
         "ccrp-ra": "R/A checklist ticks",
         "ccrp-pins": "Pinned rules",
+        "ccrp-cases": "Your private case log",
+        "ccrp-shift": "Shift checklist and timer",
+        "ccrp-streak": "Daily challenge streak",
+        "ccrp-exam": "Best exam score",
+        "ccrp-seen": "Last What's New you read",
+        "ccrp-lang": "Language",
         "ccrp-last": "Last page you opened",
       };
       const stSel = (id, o, v) =>
@@ -7689,6 +7936,18 @@
             ),
           ) +
           stRow(
+            "Language",
+            "Translates menus, Home and settings.",
+            stSel(
+              "s-lg",
+              [
+                ["en", "English"],
+                ["es", "Español"],
+              ],
+              stLang,
+            ),
+          ) +
+          stRow(
             "Effects",
             "Light turns off heavy animation.",
             stSel(
@@ -7720,7 +7979,7 @@
           keys +
           "</table></div>" +
           '<p class="lead2">The site also keeps its own pages on your device so it opens without internet.</p>' +
-          '<h4>Your data</h4><div class="sact"><button class="cb" id="s-exp">Download my data</button><button class="cb" id="s-rst">Reset progress</button><button class="cb" id="s-off">Clear offline copy</button><button class="cb dng" id="s-del">Delete everything</button></div>';
+          '<h4>Your data</h4><div class="sact"><button class="cb" id="s-exp">Download my data</button><button class="cb" id="s-imp">Import data</button><button class="cb" id="s-rst">Reset progress</button><button class="cb" id="s-off">Clear offline copy</button><button class="cb dng" id="s-del">Delete everything</button></div>';
         document.querySelectorAll("#setb select").forEach(csEnhance);
         L("s-th").onchange = (e) => {
           stTheme = e.target.value;
@@ -7934,6 +8193,711 @@
               .join("");
           }
         };
+      }
+
+      /* more tools: case log, shift, what's new, exam, daily challenge, quick replies, compare, announcements, language */
+      {
+        const NEW = ["caselog", "shift", "whatsnew", "exam", "replies", "compare", "announce"];
+        Object.assign(NAMES, {
+          caselog: "Case Log",
+          shift: "Shift",
+          whatsnew: "What's New",
+          exam: "Exam",
+          replies: "Quick Replies",
+          compare: "Compare Rules",
+          announce: "Announcements",
+        });
+        Object.assign(IC, {
+          caselog: "clipboard",
+          shift: "list",
+          whatsnew: "star",
+          exam: "cap",
+          replies: "chat",
+          compare: "scale",
+          announce: "megaphone",
+        });
+        NEW.forEach((v) => {
+          STAFF.push(v);
+          if (guide === "staff") VIEWS.push(v);
+          const h = L("v-" + v).querySelector("h2");
+          if (h) h.insertAdjacentHTML("afterbegin", icon(IC[v]));
+        });
+        dgBuild();
+        const cols = {
+          caselog: ["#ffd27f", "255,210,127"],
+          shift: ["#7fcfa8", "127,207,168"],
+          whatsnew: ["#ee98ac", "238,152,172"],
+          exam: ["#c5e08a", "197,224,138"],
+          replies: ["#7fd6f0", "127,214,240"],
+          compare: ["#c8a2ff", "200,162,255"],
+          announce: ["#b0c4ff", "176,196,255"],
+        };
+        const hint = {
+          caselog: "Your private notebook.",
+          shift: "Checklists and a session timer.",
+          whatsnew: "Recent changes.",
+          exam: "Timed test and certificate.",
+          replies: "Copy the right reply fast.",
+          compare: "Two rules side by side.",
+          announce: "Write Discord announcements.",
+        };
+        const hg = document.querySelector("#v-home .hcs");
+        if (hg)
+          NEW.forEach((v) => {
+            const a = document.createElement("a");
+            a.className = "card hc rv";
+            a.style.cssText = `--or:${cols[v][0]};--glow:${cols[v][1]}`;
+            a.href = "#/" + v;
+            a.innerHTML = `<h3>${icon(IC[v])}${NAMES[v]}</h3><p>${hint[v]}</p>`;
+            hg.appendChild(a);
+          });
+        const css_ = (id, c) => {
+          const st = document.createElement("style");
+          st.textContent = `[data-v=${id}]{--or:${c[0]};--glow:${c[1]}}`;
+          document.head.appendChild(st);
+        };
+        NEW.forEach((v) => css_(v, cols[v]));
+        const jget = (k, d) => {
+          try {
+            const v = lsGet(k);
+            return v ? JSON.parse(v) : d;
+          } catch (_) {
+            return d;
+          }
+        };
+        const warnSave = () => {
+          if (!ckOk("progress")) toast("Turn on Progress saving in Settings to keep this");
+        };
+        const today = () => new Date().toISOString().slice(0, 10);
+        /* case log */
+        let cases = jget("ccrp-cases", []);
+        L("cRule").innerHTML = RULES.map((r) => `<option>${r[0]}</option>`).join("");
+        L("cRule").querySelectorAll;
+        document.querySelectorAll("#v-caselog select").forEach(csEnhance);
+        const cSaveAll = () => {
+          lsSet("ccrp-cases", JSON.stringify(cases));
+          warnSave();
+        };
+        function cDraw() {
+          const q = L("cQ").value.toLowerCase().trim();
+          const list = cases.filter(
+            (c) => !q || (c.p + " " + c.r + " " + c.a + " " + c.n).toLowerCase().includes(q),
+          );
+          L("cList").innerHTML = list.length
+            ? list
+                .slice()
+                .reverse()
+                .map(
+                  (c) =>
+                    `<div class="card cs-case"><small>${c.t} | ${esc(c.a)}</small><h3>${esc(c.p || "No name")} <span class="xp">${esc(c.r)}</span></h3><p>${esc(c.n) || "No notes."}</p>${c.e ? `<p><small>Evidence: ${esc(c.e)}</small></p>` : ""}<button class="cb dng" data-del="${c.id}">Delete</button></div>`,
+                )
+                .join("")
+            : '<p class="none">No cases yet. Add your first one above.</p>';
+        }
+        L("cSave").onclick = () => {
+          if (!L("cPlayer").value.trim() && !L("cNote").value.trim()) {
+            toast("Add a player or a note first");
+            return;
+          }
+          cases.push({
+            id: Date.now(),
+            t: new Date().toLocaleString(),
+            p: L("cPlayer").value.trim(),
+            r: L("cRule").value,
+            a: L("cAct").value,
+            n: L("cNote").value.trim(),
+            e: L("cEvi").value.trim(),
+          });
+          cSaveAll();
+          ["cPlayer", "cNote", "cEvi"].forEach((i) => (L(i).value = ""));
+          cDraw();
+          toast("Case saved");
+        };
+        L("cList").addEventListener("click", (e) => {
+          const b = e.target.closest("[data-del]");
+          if (!b) return;
+          cases = cases.filter((c) => c.id !== +b.dataset.del);
+          cSaveAll();
+          cDraw();
+        });
+        L("cQ").oninput = cDraw;
+        L("cExp").onclick = () => {
+          const q = (v) => '"' + String(v || "").replace(/"/g, '""') + '"';
+          const csv = ["Date,Player,Rule,Action,Notes,Evidence"]
+            .concat(cases.map((c) => [c.t, c.p, c.r, c.a, c.n, c.e].map(q).join(",")))
+            .join("\n");
+          const a = document.createElement("a");
+          a.href = URL.createObjectURL(new Blob([csv], { type: "text/csv" }));
+          a.download = "ccrp-cases.csv";
+          document.body.appendChild(a);
+          a.click();
+          a.remove();
+        };
+        let cT = null;
+        L("cClr").onclick = (e) => {
+          const b = e.currentTarget;
+          if (!cT) {
+            b.textContent = "Tap again to confirm";
+            cT = setTimeout(() => {
+              cT = null;
+              b.textContent = "Clear all";
+            }, 4000);
+            return;
+          }
+          clearTimeout(cT);
+          cT = null;
+          cases = [];
+          cSaveAll();
+          cDraw();
+          b.textContent = "Clear all";
+        };
+        cDraw();
+        /* shift */
+        const SS = [
+            "Check staff chat for notes from the last shift",
+            "Read What's New",
+            "Join the server and look for a priority or timer",
+            "Check open !mod calls and tickets",
+            "Tell staff chat you are on patrol",
+            "Keep the handbook open",
+          ],
+          SE = [
+            "Finish or hand over open cases",
+            "Write a log for every action",
+            "Tell staff chat you are leaving",
+            "Leave notes for the next mod",
+            "Make sure no timers or hints are left running",
+            "Take a break",
+          ];
+        let sh = jget("ccrp-shift", { s: [], e: [], t0: null, acc: 0, laps: [] });
+        const shSave = () => {
+          lsSet("ccrp-shift", JSON.stringify(sh));
+        };
+        const shList = (id, arr, key) => {
+          L(id).innerHTML = arr
+            .map(
+              (t, i) =>
+                `<label class="shi${sh[key][i] ? " done" : ""}"><input type="checkbox" data-k="${key}" data-i="${i}"${sh[key][i] ? " checked" : ""}><span>${t}</span></label>`,
+            )
+            .join("");
+        };
+        shList("shS", SS, "s");
+        shList("shE", SE, "e");
+        L("v-shift").addEventListener("change", (e) => {
+          const k = e.target.dataset.k;
+          if (!k) return;
+          sh[k][+e.target.dataset.i] = e.target.checked;
+          e.target.parentNode.classList.toggle("done", e.target.checked);
+          shSave();
+        });
+        const fmt = (ms) => {
+          const t = Math.floor(ms / 1000);
+          return [(t / 3600) | 0, ((t % 3600) / 60) | 0, t % 60]
+            .map((x) => String(x).padStart(2, "0"))
+            .join(":");
+        };
+        const elapsed = () => sh.acc + (sh.t0 ? Date.now() - sh.t0 : 0);
+        let tmI = null;
+        function tmDraw() {
+          L("tmShow").textContent = fmt(elapsed());
+          L("tmGo").textContent = sh.t0 ? "Pause" : sh.acc ? "Resume" : "Start";
+          L("tmLaps").innerHTML = sh.laps
+            .map((l, i) => `<p><small>Lap ${i + 1}</small> ${fmt(l)}</p>`)
+            .join("");
+        }
+        function tmRun() {
+          clearInterval(tmI);
+          if (sh.t0)
+            tmI = setInterval(() => {
+              L("tmShow").textContent = fmt(elapsed());
+            }, 500);
+        }
+        L("tmGo").onclick = () => {
+          if (sh.t0) {
+            sh.acc += Date.now() - sh.t0;
+            sh.t0 = null;
+          } else sh.t0 = Date.now();
+          shSave();
+          tmDraw();
+          tmRun();
+        };
+        L("tmLap").onclick = () => {
+          sh.laps.push(elapsed());
+          shSave();
+          tmDraw();
+        };
+        L("tmRst").onclick = () => {
+          sh = { s: [], e: [], t0: null, acc: 0, laps: [] };
+          shSave();
+          shList("shS", SS, "s");
+          shList("shE", SE, "e");
+          tmDraw();
+          tmRun();
+        };
+        tmDraw();
+        tmRun();
+        /* what's new */
+        const WN = [
+          [
+            "2026-10-20",
+            "Handbook",
+            "Added the case log, shift tab, exam, quick replies, compare rules and announcement builder.",
+          ],
+          ["2026-10-19", "Handbook", "Added cookies and settings, and a Discord Mod Guide."],
+          ["2026-10-16", "Rules", "GTA driving: going 100+ mph is only allowed when you are being chased."],
+          ["2026-10-16", "Rules", "For most rules, the first offense is a warning."],
+          [
+            "2026-10-16",
+            "Staff",
+            "Trial Mods complete an R/A with an Administrator or higher before becoming a full mod.",
+          ],
+        ];
+        L("wnList").innerHTML = WN.map(
+          (w) =>
+            `<div class="wn"><time>${w[0]}</time><div><span class="tag ${w[1] === "Rules" ? "major" : w[1] === "Staff" ? "moderate" : "minor"}">${w[1]}</span><p style="margin:.4rem 0 0">${w[2]}</p></div></div>`,
+        ).join("");
+        const wnLink = () => document.querySelector('#links a[href="#/whatsnew"]');
+        const wnMark = () => {
+          const a = wnLink();
+          if (a) a.classList.toggle("nd", lsGet("ccrp-seen") !== WN[0][0]);
+        };
+        wnMark();
+        new MutationObserver(() => {
+          if (root.dataset.v === "whatsnew") {
+            lsSet("ccrp-seen", WN[0][0]);
+          }
+          wnMark();
+        }).observe(root, { attributes: true, attributeFilter: ["data-v"] });
+        /* exam and certificate */
+        let ex = null,
+          exT = null;
+        const shuf = (a) =>
+          a
+            .map((x) => [Math.random(), x])
+            .sort((p, q) => p[0] - q[0])
+            .map((x) => x[1]);
+        function exStart() {
+          ex = {
+            q: shuf(SC).slice(0, 10),
+            i: 0,
+            s: 0,
+            end: Date.now() + 600000,
+            name: (L("exName") || {}).value || "",
+          };
+          clearInterval(exT);
+          exT = setInterval(() => {
+            const left = ex.end - Date.now();
+            if (left <= 0) exDone();
+            else if (L("exClock")) L("exClock").textContent = fmt(left).slice(3);
+          }, 500);
+          exDraw();
+        }
+        function exIntro() {
+          L("exP").style.width = "0";
+          const best = lsGet("ccrp-exam");
+          L("exBox").innerHTML =
+            `<h3>Ready?</h3><p class="lead2">You have 10 minutes. ${best ? "Your best score: " + best + " of 10." : ""}</p><input class="fi" id="exName" placeholder="Your name (for the certificate)" style="max-width:320px"><div class="sact"><button class="btn" id="exGo" style="border:0;cursor:pointer">Start the exam</button></div>`;
+          L("exGo").onclick = exStart;
+        }
+        function exDraw() {
+          if (ex.i >= ex.q.length) return exDone();
+          const [q, o, a] = ex.q[ex.i];
+          L("exP").style.width = (ex.i / ex.q.length) * 100 + "%";
+          L("exBox").innerHTML =
+            `<small>Question ${ex.i + 1} of ${ex.q.length} | <b id="exClock">${fmt(Math.max(0, ex.end - Date.now())).slice(3)}</b></small><h3>${q}</h3>` +
+            o.map((t, i) => `<button class="opt" data-i="${i}">${t}</button>`).join("");
+          L("exBox")
+            .querySelectorAll(".opt")
+            .forEach(
+              (b) =>
+                (b.onclick = () => {
+                  if (+b.dataset.i === a) ex.s++;
+                  ex.i++;
+                  exDraw();
+                }),
+            );
+        }
+        function exDone() {
+          clearInterval(exT);
+          const s = ex.s,
+            pass = s >= 8,
+            best = +lsGet("ccrp-exam") || 0;
+          if (s > best) lsSet("ccrp-exam", String(s));
+          L("exP").style.width = "100%";
+          L("exBox").innerHTML =
+            `<h3>${pass ? "You passed!" : "Not yet"}: ${s} of ${ex.q.length}</h3><p class="lead2">${pass ? "Great work. Print your certificate below." : "Review the Punishment Guide and Procedure tabs and try again."}</p><div class="sact">${pass ? '<button class="btn" id="exCert" style="border:0;cursor:pointer">Print certificate</button>' : ""}<button class="cb" id="exAgain">Try again</button></div>`;
+          L("exAgain").onclick = exIntro;
+          if (pass) {
+            burst(innerWidth / 2, innerHeight / 3);
+            L("exCert").onclick = () => {
+              const w =
+                document.getElementById("certwrap") ||
+                document.body.appendChild(Object.assign(document.createElement("div"), { id: "certwrap" }));
+              w.innerHTML = `<div class="cert"><img src="${LOGO}" alt=""><h1>Certificate of Completion</h1><p>This certifies that</p><div class="nm">${esc(ex.name || "________________")}</div><p>passed the CCRP Mod Exam with a score of <b>${s} out of ${ex.q.length}</b></p><p>${new Date().toLocaleDateString()}</p><p style="margin-top:2rem">Clementine County RP Staff</p></div>`;
+              document.body.classList.add("printcert");
+              window.print();
+            };
+          }
+        }
+        addEventListener("afterprint", () => document.body.classList.remove("printcert"));
+        exIntro();
+        /* daily challenge on Home */
+        {
+          const first = document.querySelector("#v-home h3.sub"),
+            d = today();
+          if (first) {
+            const c = document.createElement("div");
+            c.className = "card";
+            c.id = "daily";
+            c.style.marginTop = "1rem";
+            first.parentNode.insertBefore(c, first);
+            let st = jget("ccrp-streak", { last: "", n: 0, done: "", ok: false });
+            const idx = Math.floor(Date.parse(d) / 864e5) % SC.length,
+              [q, o, a, w] = SC[idx];
+            const yest = new Date(Date.now() - 864e5).toISOString().slice(0, 10);
+            const paint = () => {
+              const n = st.last === d || st.last === yest ? st.n : 0;
+              c.innerHTML =
+                `<small>Daily challenge | Streak: ${n} day${n === 1 ? "" : "s"}</small><h3>${q}</h3>` +
+                (st.done === d
+                  ? `<p class="fb">${st.ok ? "Correct! " : "Not quite. "}${w}</p><p><small>Come back tomorrow for a new one.</small></p>`
+                  : o.map((t, i) => `<button class="opt" data-i="${i}">${t}</button>`).join(""));
+            };
+            paint();
+            c.addEventListener("click", (e) => {
+              const b = e.target.closest(".opt");
+              if (!b || st.done === d) return;
+              const ok = +b.dataset.i === a;
+              st.ok = ok;
+              st.done = d;
+              if (ok) {
+                st.n = st.last === yest ? st.n + 1 : 1;
+                st.last = d;
+              } else if (st.last !== yest && st.last !== d) st.n = 0;
+              lsSet("ccrp-streak", JSON.stringify(st));
+              if (ok) burst(innerWidth / 2, innerHeight / 3);
+              paint();
+              warnSave();
+            });
+          }
+        }
+        /* quick replies */
+        const QR = [
+          [
+            "First-time RDM warning",
+            "You were warned for RDM. Please roleplay a reason before attacking. This is a warning.",
+            "Hi [name], you got a warning for RDM in the CCRP server. Please read the rules. The next one may lead to a kick.",
+            ":h Reminder: No RDM or VDM. Always have a roleplay reason before you attack.",
+          ],
+          [
+            "Driving over 100 with no chase",
+            "Please stay under 100 mph unless you are being chased.",
+            "Hi [name], going 100+ mph with no chase is not allowed. This is a warning.",
+            ":h Reminder: GTA driving is not allowed. Stay under 100 unless you are being chased.",
+          ],
+          [
+            "Priority approved",
+            "Your priority for [roleplay] is approved. The timer is starting now. Keep it realistic.",
+            "",
+            ":prty 600\n:h Priority started: [roleplay]. No new crimes or shootouts until the timer ends.",
+          ],
+          [
+            "Priority denied (timer running)",
+            "Another priority or peace timer is active. Please wait and ask again.",
+            "",
+            ":h Priority is active. Wait for the timer before starting a new crime scene.",
+          ],
+          [
+            "Arriving at a mod call",
+            "Hi, I am [your name] from staff. What happened? Please tell me one at a time.",
+            "",
+            "",
+          ],
+          [
+            "Player disrespects staff or players",
+            "Please stay respectful. This is a warning.",
+            "Hi [name], please keep chat respectful. This is a warning.",
+            ":h Please keep chat respectful.",
+          ],
+          [
+            "Ban appeal accepted",
+            "Thanks for your appeal. We reviewed the log and lifted your ban. Please read the rules again.",
+            "Hi [name], your ban was lifted after review. A repeat may lead to a longer ban.",
+            "",
+          ],
+          [
+            "Ban appeal denied",
+            "Thanks for your appeal. The ban stays because [reason]. You may appeal again after [time].",
+            "Hi [name], after reviewing the log your ban stays because [reason].",
+            "",
+          ],
+          [
+            "Someone asks how to be a mod",
+            "Staff are picked through applications. Watch [announcements channel] for when they open.",
+            "",
+            "",
+          ],
+          ["Start peacetime", "", "", ":pt 300\n:h Peacetime is on for 5 minutes. No crimes or fighting."],
+        ];
+        L("qrSel").innerHTML = QR.map((r, i) => `<option value="${i}">${r[0]}</option>`).join("");
+        csEnhance(L("qrSel"));
+        const qrDraw = () => {
+          const r = QR[+L("qrSel").value];
+          L("qrOut").innerHTML = [
+            ["In-game reply", r[1]],
+            ["DM", r[2]],
+            ["Hint or timer", r[3]],
+          ]
+            .filter((x) => x[1])
+            .map((x) => `<h3 class="cat">${x[0]}</h3>` + cmdRow(x[1]))
+            .join("");
+        };
+        L("qrSel").onchange = qrDraw;
+        qrDraw();
+        /* compare rules */
+        [L("cmpA"), L("cmpB")].forEach((sl) => {
+          sl.innerHTML = RULES.map((r, i) => `<option value="${i}">${r[0]}</option>`).join("");
+          csEnhance(sl);
+        });
+        L("cmpA").value = "0";
+        L("cmpB").value = "1";
+        const cmpCard = (r) => {
+          const x = RX[r[0]];
+          return `<div class="card"><span class="tag ${r[1]}">${r[1]}</span><h3>${r[0]}</h3><p>${r[2]}</p>${x ? `<p class="rp">Example: ${x[0]}</p><p><b>Not a violation:</b> ${x[1]}</p>` : ""}<div class="ladder">${r[3].map((t, i) => `<div class="step ${cls(t)}" style="opacity:1;transform:none"><small>${LAB[i]}</small><span>${t}</span></div>`).join("")}</div></div>`;
+        };
+        function cmpDraw() {
+          const a = RULES[+L("cmpA").value],
+            b = RULES[+L("cmpB").value],
+            diff = [];
+          if (a[1] !== b[1]) diff.push(`Severity: ${a[1]} vs ${b[1]}`);
+          else diff.push(`Both are ${a[1]}`);
+          diff.push(`First step: ${a[3][0]} vs ${b[3][0]}`);
+          const n = Math.max(a[3].length, b[3].length);
+          const d = [];
+          for (let i = 0; i < n; i++) if (a[3][i] !== b[3][i]) d.push(LAB[i]);
+          diff.push(d.length ? `Steps that differ: ${d.join(", ")}` : "The ladders are the same");
+          L("cmpDiff").innerHTML =
+            "<small>What is different</small><ul>" + diff.map((x) => `<li>${x}</li>`).join("") + "</ul>";
+          L("cmpOut").innerHTML = cmpCard(a) + cmpCard(b);
+        }
+        L("cmpA").onchange = L("cmpB").onchange = cmpDraw;
+        cmpDraw();
+        /* announcement builder */
+        const EM = {
+          Update: "📝",
+          "Rule change": "📜",
+          Event: "🎉",
+          Giveaway: "🎁",
+          Maintenance: "🔧",
+          Welcome: "👋",
+        };
+        function anMk() {
+          const t = L("anType").value,
+            ti = L("anTitle").value.trim() || "[title]",
+            pg = L("anPing").value.trim(),
+            dt = L("anDate").value.trim(),
+            lk = L("anLink").value.trim(),
+            ct = L("anContact").value.trim() || "[contact]";
+          const g = { n: [], i: [], r: [], d: [] };
+          L("anNotes")
+            .value.split("\n")
+            .map((x) => x.trim())
+            .filter(Boolean)
+            .forEach((x) => {
+              const k = x[0] === "+" ? "n" : x[0] === "~" ? "i" : x[0] === "-" ? "r" : "d";
+              g[k].push("- " + (k === "d" ? x : x.slice(1).trim()));
+            });
+          const sec = (h, a) => (a.length ? `\n## ${h}\n${a.join("\n")}\n` : "");
+          const full = `# ${EM[t]} ${ti}\n${pg ? pg + "\n" : ""}${dt ? "**When:** " + dt + "\n" : ""}${lk ? lk + "\n" : ""}${sec("✨ New", g.n)}${sec("🔧 Improved", g.i)}${sec("🗑️ Removed", g.r)}${sec("📌 Details", g.d)}\nQuestions? Message ${ct}. Thank you! 🧡`;
+          const bits = [...g.n, ...g.i, ...g.r, ...g.d].slice(0, 5);
+          const short = `# ${EM[t]} ${ti}\n${pg ? pg + "\n" : ""}${dt ? "**" + dt + "** | " : ""}${lk}\n${bits.join("\n")}\nQuestions? Message ${ct}. 🧡`;
+          L("anFull").textContent = full;
+          L("anShort").textContent = short;
+        }
+        document.querySelectorAll("#v-announce select").forEach(csEnhance);
+        document
+          .querySelectorAll("#v-announce input,#v-announce select,#v-announce textarea")
+          .forEach((e) => (e.oninput = anMk));
+        anMk();
+        L("anCopy1").onclick = () => copyTo(L("anFull").textContent, L("anCopy1"));
+        L("anCopy2").onclick = () => copyTo(L("anShort").textContent, L("anCopy2"));
+        /* import saved data (settings backup) */
+        document.addEventListener("click", (e) => {
+          if (e.target.id !== "s-imp") return;
+          const f = document.createElement("input");
+          f.type = "file";
+          f.accept = "application/json";
+          f.onchange = () => {
+            const r = new FileReader();
+            r.onload = () => {
+              try {
+                const d = JSON.parse(r.result);
+                let n = 0,
+                  skip = 0;
+                Object.keys(d).forEach((k) => {
+                  if (CKCAT[k] && k !== "ccrp-consent") {
+                    if (ckOk(CKCAT[k])) {
+                      lsSet(k, d[k]);
+                      n++;
+                    } else skip++;
+                  }
+                });
+                toast(
+                  n
+                    ? `Imported ${n} items${skip ? ", " + skip + " skipped (turn that category on first)" : ""}`
+                    : "Nothing imported. Turn on Settings or Progress saving first.",
+                );
+                if (n) setTimeout(() => location.reload(), 1200);
+              } catch (_) {
+                toast("That file could not be read");
+              }
+            };
+            r.readAsText(f.files[0]);
+          };
+          f.click();
+        });
+        /* language: Spanish for menus, Home and settings */
+        const ES = {
+          Home: "Inicio",
+          Conduct: "Conducta",
+          "Punishment Guide": "Guía de sanciones",
+          "Cheat Sheet": "Hoja rápida",
+          Procedure: "Procedimiento",
+          "Mod Toolkit": "Herramientas",
+          Priority: "Prioridad",
+          ":h Commands": "Comandos :h",
+          "Player Questions": "Preguntas de jugadores",
+          Appeals: "Apelaciones",
+          Training: "Entrenamiento",
+          Commands: "Comandos",
+          Ranks: "Rangos",
+          Glossary: "Glosario",
+          FAQ: "Preguntas frecuentes",
+          "Case Log": "Registro de casos",
+          Shift: "Turno",
+          "What's New": "Novedades",
+          Exam: "Examen",
+          "Quick Replies": "Respuestas rápidas",
+          "Compare Rules": "Comparar reglas",
+          Announcements: "Anuncios",
+          "Discord Mod Guide": "Guía de moderadores de Discord",
+          "Staff Handbook": "Manual del personal",
+          Search: "Buscar",
+          Menu: "Menú",
+          Light: "Claro",
+          Dark: "Oscuro",
+          More: "Más",
+          Close: "Cerrar",
+          "What do you need to do?": "¿Qué necesitas hacer?",
+          "Your path": "Tu ruta",
+          "All sections": "Todas las secciones",
+          "Punish someone": "Sancionar a alguien",
+          "Write a log": "Escribir un registro",
+          "Approve a priority": "Aprobar una prioridad",
+          "Answer a player": "Responder a un jugador",
+          "Send a hint": "Enviar un aviso",
+          "Learn the basics": "Aprender lo básico",
+          "Find the next step on the ladder.": "Encuentra el siguiente paso de la escalera.",
+          "Use the log builder and copy it.": "Usa el creador de registros y cópialo.",
+          "Check it is allowed and safe.": "Comprueba que esté permitido y sea seguro.",
+          "Ready replies for common questions.": "Respuestas listas para preguntas comunes.",
+          "Build the :h and timer commands.": "Crea los comandos :h y de temporizador.",
+          "R/A checklist and a quiz.": "Lista de R/A y un cuestionario.",
+          "Open the punishment guide": "Abrir la guía de sanciones",
+          "How to handle a report": "Cómo manejar un reporte",
+          "I am new to staff": "Soy nuevo en el personal",
+          "I am a trial mod": "Soy moderador en prueba",
+          "I am experienced": "Tengo experiencia",
+          "Continue where you left off": "Continúa donde lo dejaste",
+          Continue: "Continuar",
+          "Cookies and settings": "Cookies y ajustes",
+          Shortcuts: "Atajos",
+          "Cookies and saved settings": "Cookies y ajustes guardados",
+          "Accept all": "Aceptar todo",
+          "Essential only": "Solo esenciales",
+          Choose: "Elegir",
+          Appearance: "Apariencia",
+          Theme: "Tema",
+          "Text size": "Tamaño del texto",
+          View: "Vista",
+          Effects: "Efectos",
+          Language: "Idioma",
+          "Reduce motion": "Reducir movimiento",
+          "Cookies and saved data": "Cookies y datos guardados",
+          Essential: "Esenciales",
+          Settings: "Ajustes",
+          Progress: "Progreso",
+          "Your data": "Tus datos",
+          "Download my data": "Descargar mis datos",
+          "Import data": "Importar datos",
+          "Reset progress": "Reiniciar progreso",
+          "Clear offline copy": "Borrar copia sin conexión",
+          "Delete everything": "Borrar todo",
+          "What is saved right now": "Qué se guarda ahora",
+          "Rule of the day": "Regla del día",
+          "See the ladder": "Ver la escalera",
+          "Your progress": "Tu progreso",
+          "Daily challenge": "Desafío diario",
+          "Save case": "Guardar caso",
+          Start: "Iniciar",
+          Pause: "Pausar",
+          Lap: "Vuelta",
+          "Reset shift": "Reiniciar turno",
+          "Starting patrol": "Inicio de patrulla",
+          "Ending patrol": "Fin de patrulla",
+          "Start the exam": "Empezar el examen",
+          "Print certificate": "Imprimir certificado",
+          "Try again": "Intentar de nuevo",
+          "Copy full": "Copiar completo",
+          "Copy short": "Copiar corto",
+        };
+        stLang = lsGet("ccrp-lang") || "en";
+        const orig = new WeakMap();
+        function trAll() {
+          const roots = [
+            document.querySelector("nav"),
+            document.getElementById("v-home"),
+            document.getElementById("dg"),
+            document.getElementById("setm"),
+            document.getElementById("ckb"),
+            document.querySelector("footer"),
+            document.getElementById("morepop"),
+          ];
+          const walk = (n) => {
+            if (!n) return;
+            const w = document.createTreeWalker(n, NodeFilter.SHOW_TEXT);
+            let t;
+            while ((t = w.nextNode())) {
+              const raw = t.nodeValue,
+                key = raw.trim();
+              if (!key) continue;
+              if (!orig.has(t)) {
+                if (!ES[key]) continue;
+                orig.set(t, raw);
+              }
+              const base = orig.get(t).trim();
+              t.nodeValue = stLang === "es" && ES[base] ? orig.get(t).replace(base, ES[base]) : orig.get(t);
+            }
+          };
+          roots.forEach(walk);
+          document.documentElement.lang = stLang;
+        }
+        window.setLang = (v) => {
+          stLang = v;
+          lsSet("ccrp-lang", v);
+          trAll();
+        };
+        trAll();
+        document.addEventListener("change", (e) => {
+          if (e.target.id === "s-lg") {
+            setLang(e.target.value);
+            renderSettings();
+            trAll();
+          }
+        });
+        new MutationObserver(() => {
+          if (stLang === "es") trAll();
+        }).observe(document.body, { childList: true, subtree: true });
       }
 
       route();
