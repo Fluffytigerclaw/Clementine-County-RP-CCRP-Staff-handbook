@@ -1,5 +1,8 @@
 # Changelog
 
+## 2026-10-21
+- Added the case log, shift tab, mod exam with certificate, daily challenge, quick replies, compare rules, announcement builder, data import and a Spanish option.
+
 ## 2026-10-20
 - Quality of life: a Continue card on Home, a shortcuts list (press ?), and pinned rules shown first in search.
 
