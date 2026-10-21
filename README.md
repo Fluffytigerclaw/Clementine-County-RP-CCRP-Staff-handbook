@@ -66,6 +66,8 @@ Anything in `[square brackets]`, like `[server code]` or `[appeals channel]`, is
 - Log builders for ER:LC and Discord, with copy buttons
 - Priority checker, hint builder, ready replies and DM templates
 - Levels, badges, rule of the day, role paths and scenario quizzes
+- Case log, shift checklists and timer, mod exam with a printable certificate, daily challenge, quick replies, rule compare and an announcement builder
+- Spanish for menus, Home and settings (the rules stay in English)
 - Light and dark mode, three views, controller support and offline install
 
 ## Shortcuts
