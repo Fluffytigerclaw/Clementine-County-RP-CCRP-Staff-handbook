@@ -1,5 +1,8 @@
 # Changelog
 
+## 2026-10-21 (later)
+- Added a feedback form (copy, GitHub issue or optional Discord webhook) and an occasional friendly prompt.
+
 ## 2026-10-21
 - Added the case log, shift tab, mod exam with certificate, daily challenge, quick replies, compare rules, announcement builder, data import and a Spanish option.
 
