@@ -70,6 +70,12 @@ Anything in `[square brackets]`, like `[server code]` or `[appeals channel]`, is
 - Spanish for menus, Home and settings (the rules stay in English)
 - Light and dark mode, three views, controller support and offline install
 
+## Feedback
+
+Visitors can give feedback from the **Feedback** button in the footer, the search (Ctrl K), or the occasional small prompt. The prompt only shows to returning visitors who allowed Settings saving, after about five page views, at most every two weeks, and never again after **Do not ask again**.
+
+Feedback needs no account. By default a visitor can **Copy** it or **Open on GitHub** (a prefilled issue in your repo). To also get a **Send feedback** button that posts to a Discord channel, search `index.html` for `const FEEDBACK` and paste a Discord webhook URL into `discordWebhook`. Anyone who reads the page source can see that URL, so use a channel only your team can see and delete the webhook if it is ever abused.
+
 ## Shortcuts
 
 - Keys `1` to `0` open the first ten tabs of the current guide.
