@@ -2193,6 +2193,96 @@
           display: block;
         }
       }
+      #fbm {
+        position: fixed;
+        inset: 0;
+        z-index: 110;
+        background: rgba(5, 8, 14, 0.6);
+        -webkit-backdrop-filter: blur(6px);
+        backdrop-filter: blur(6px);
+        display: none;
+        align-items: center;
+        justify-content: center;
+      }
+      #fbm.on {
+        display: flex;
+        animation: fin 0.25s;
+      }
+      .stars {
+        display: flex;
+        gap: 0.2rem;
+        margin: 0.3rem 0;
+      }
+      .stars button {
+        background: none;
+        border: 0;
+        font-size: 2rem;
+        line-height: 1;
+        color: var(--ln);
+        cursor: pointer;
+        padding: 0.1rem 0.2rem;
+        transition:
+          color 0.15s,
+          transform 0.15s;
+      }
+      .stars button.on {
+        color: var(--or);
+      }
+      .stars button:hover {
+        transform: scale(1.15);
+      }
+      #fbp {
+        position: fixed;
+        right: 1rem;
+        bottom: 1rem;
+        width: min(340px, calc(100vw - 2rem));
+        z-index: 104;
+        background: var(--s1);
+        border: 1px solid var(--ln);
+        border-radius: 18px;
+        padding: 1rem 1.1rem;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+        display: none;
+      }
+      #fbp.on {
+        display: block;
+        animation: ckin2 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+      }
+      @keyframes ckin2 {
+        from {
+          opacity: 0;
+          transform: translateY(24px);
+        }
+      }
+      #fbp p {
+        color: var(--mut);
+        font-size: 0.9rem;
+        margin: 0.2rem 0;
+      }
+      #fbp .sact {
+        margin-top: 0.6rem;
+      }
+      [data-mode="console"] #fbp {
+        bottom: 5rem;
+      }
+      @media (max-width: 820px) {
+        #fbm {
+          align-items: flex-end;
+        }
+        #fbm .setbox {
+          width: 100%;
+          border-radius: 20px 20px 0 0;
+        }
+        #fbp {
+          bottom: calc(0.8rem + env(safe-area-inset-bottom));
+        }
+      }
+      @media print {
+        #fbm,
+        #fbp {
+          display: none !important;
+        }
+      }
       @media (max-width: 820px) {
         #keym {
           align-items: flex-end;
@@ -4844,7 +4934,7 @@
       Clementine County RP (CCRP) staff handbook. For staff only. Punishments are guidelines, so use judgement
       and always log your reason. Shortcuts: keys 1 to 0 switch the first ten tabs, / or Ctrl K searches. Last
       updated October 21, 2026.
-      <br /><button class="cb" id="fkeys">Shortcuts</button>
+      <br /><button class="cb" id="ffb">Feedback</button> <button class="cb" id="fkeys">Shortcuts</button>
       <button class="cb" id="fset">Cookies and settings</button>
       <button class="cb" id="inst" hidden>Install as an app</button>
       <label
@@ -4918,6 +5008,7 @@
         "ccrp-path": "progress",
         "ccrp-ra": "progress",
         "ccrp-pins": "progress",
+        "ccrp-fb": "prefs",
         "ccrp-cases": "progress",
         "ccrp-shift": "progress",
         "ccrp-streak": "progress",
@@ -7871,6 +7962,7 @@
         "ccrp-path": "Your role path",
         "ccrp-ra": "R/A checklist ticks",
         "ccrp-pins": "Pinned rules",
+        "ccrp-fb": "Feedback prompt choices",
         "ccrp-cases": "Your private case log",
         "ccrp-shift": "Shift checklist and timer",
         "ccrp-streak": "Daily challenge streak",
@@ -8898,6 +8990,191 @@
         new MutationObserver(() => {
           if (stLang === "es") trAll();
         }).observe(document.body, { childList: true, subtree: true });
+      }
+
+      /* feedback: form, and an occasional friendly prompt */
+      const FEEDBACK = {
+        discordWebhook: "",
+        repo: "https://github.com/Fluffytigerclaw/Clementine-County-RP-CCRP-Staff-handbook",
+      };
+      {
+        const fbM = document.createElement("div");
+        fbM.id = "fbm";
+        fbM.setAttribute("role", "dialog");
+        fbM.setAttribute("aria-modal", "true");
+        fbM.setAttribute("aria-labelledby", "fbt");
+        fbM.innerHTML =
+          '<div class="setbox"><div class="seth"><h3 id="fbt">Give feedback</h3><button class="ib" id="fbx">Close</button></div><p class="lead2">Tell us what works, what does not, and what you want next. No account needed.</p><small>How is the handbook?</small><div class="stars" id="fbStars" role="radiogroup" aria-label="Rating"></div><div class="cr"><select id="fbType" aria-label="Type"><option>Idea</option><option>Bug</option><option>Something is wrong or missing</option><option>Praise</option><option>Other</option></select><input class="fi" id="fbName" placeholder="Your name (optional)"></div><textarea class="fi" id="fbMsg" placeholder="Your feedback"></textarea><p class="warn" id="fbWarn"></p><div class="sact"><button class="btn" id="fbSend" style="border:0;cursor:pointer">Send feedback</button><button class="cb" id="fbCopy">Copy</button><a class="cb" id="fbGh" target="_blank" rel="noopener" style="text-decoration:none">Open on GitHub</a></div></div>';
+        document.body.appendChild(fbM);
+        let rating = 0,
+          fbSent = 0;
+        const stars = L("fbStars");
+        stars.innerHTML = [1, 2, 3, 4, 5]
+          .map(
+            (n) =>
+              `<button type="button" data-n="${n}" role="radio" aria-label="${n} star${n > 1 ? "s" : ""}">★</button>`,
+          )
+          .join("");
+        const paintStars = () =>
+          stars.querySelectorAll("button").forEach((b) => b.classList.toggle("on", +b.dataset.n <= rating));
+        stars.addEventListener("click", (e) => {
+          const b = e.target.closest("button");
+          if (b) {
+            rating = +b.dataset.n;
+            paintStars();
+          }
+        });
+        const fbText = () => {
+          const page = NAMES[root.dataset.v] || "Home";
+          return `Feedback on the CCRP handbook\nRating: ${rating ? rating + "/5" : "not given"}\nType: ${L("fbType").value}\nPage: ${page}\nView: ${root.dataset.mode || "auto"}\nFrom: ${L("fbName").value.trim() || "anonymous"}\n\n${L("fbMsg").value.trim()}`;
+        };
+        const fbCheck = () => {
+          if (!rating && L("fbMsg").value.trim().length < 5) {
+            L("fbWarn").textContent = "Pick a star rating or write a short message first.";
+            return false;
+          }
+          L("fbWarn").textContent = "";
+          return true;
+        };
+        const fbDraw = () => {
+          L("fbSend").style.display = FEEDBACK.discordWebhook ? "" : "none";
+          L("fbGh").href =
+            FEEDBACK.repo +
+            "/issues/new?title=" +
+            encodeURIComponent("Feedback: " + L("fbType").value) +
+            "&body=" +
+            encodeURIComponent(fbText());
+        };
+        document.querySelectorAll("#fbm .cr select").forEach(csEnhance);
+        ["fbType", "fbName", "fbMsg"].forEach((i) => L(i).addEventListener("input", fbDraw));
+        L("fbType").addEventListener("change", fbDraw);
+        const fbState = () => {
+          try {
+            return Object.assign(
+              { visits: 0, last: 0, asked: 0, stop: false, done: false },
+              JSON.parse(lsGet("ccrp-fb") || "{}"),
+            );
+          } catch (_) {
+            return { visits: 0, last: 0, asked: 0, stop: false, done: false };
+          }
+        };
+        const fbSave = (st) => lsSet("ccrp-fb", JSON.stringify(st));
+        let opener = null;
+        window.openFeedback = (r) => {
+          opener = document.activeElement;
+          if (r) {
+            rating = r;
+            paintStars();
+          }
+          fbDraw();
+          fbM.classList.add("on");
+          document.body.style.overflow = "hidden";
+          fbP.classList.remove("on");
+          L("fbx").focus();
+        };
+        const closeFb = () => {
+          fbM.classList.remove("on");
+          document.body.style.overflow = "";
+          if (opener && opener.focus) opener.focus({ preventScroll: true });
+        };
+        L("fbx").onclick = closeFb;
+        fbM.addEventListener("click", (e) => {
+          if (e.target === fbM) closeFb();
+        });
+        addEventListener("keydown", (e) => {
+          if (e.key === "Escape" && fbM.classList.contains("on") && !document.querySelector(".csm.on"))
+            closeFb();
+        });
+        L("fbCopy").onclick = () => {
+          if (fbCheck()) copyTo(fbText(), L("fbCopy"));
+        };
+        L("fbGh").addEventListener("click", (e) => {
+          if (!fbCheck()) e.preventDefault();
+        });
+        L("fbSend").onclick = async () => {
+          if (!fbCheck()) return;
+          if (Date.now() - fbSent < 60000) {
+            L("fbWarn").textContent = "Please wait a minute before sending another.";
+            return;
+          }
+          try {
+            const r = await fetch(FEEDBACK.discordWebhook, {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ username: "Handbook feedback", content: fbText().slice(0, 1900) }),
+            });
+            if (!r.ok) throw 0;
+            fbSent = Date.now();
+            const st = fbState();
+            st.done = true;
+            st.last = Date.now();
+            fbSave(st);
+            L("fbMsg").value = "";
+            rating = 0;
+            paintStars();
+            closeFb();
+            toast("Thank you for your feedback!");
+          } catch (_) {
+            L("fbWarn").textContent = "Could not send. Use Copy or GitHub instead.";
+          }
+        };
+        ["ffb"].forEach((id) => L(id).addEventListener("click", () => openFeedback()));
+        ALL.push({ t: "Give feedback", s: "Tool", f: () => openFeedback() });
+        /* the occasional prompt */
+        const fbP = document.createElement("div");
+        fbP.id = "fbp";
+        fbP.setAttribute("role", "region");
+        fbP.setAttribute("aria-label", "Quick feedback");
+        fbP.innerHTML =
+          '<b>How is the handbook working for you?</b><p>Tap a star. It takes a few seconds.</p><div class="stars" id="fbPs"></div><div class="sact"><button class="cb" id="fbLater">Not now</button><button class="cb" id="fbStop">Do not ask again</button></div>';
+        document.body.appendChild(fbP);
+        L("fbPs").innerHTML = [1, 2, 3, 4, 5]
+          .map(
+            (n) => `<button type="button" data-n="${n}" aria-label="${n} star${n > 1 ? "s" : ""}">★</button>`,
+          )
+          .join("");
+        L("fbPs").addEventListener("click", (e) => {
+          const b = e.target.closest("button");
+          if (b) openFeedback(+b.dataset.n);
+        });
+        L("fbLater").onclick = () => fbP.classList.remove("on");
+        L("fbStop").onclick = () => {
+          const st = fbState();
+          st.stop = true;
+          fbSave(st);
+          fbP.classList.remove("on");
+          toast("OK, we will not ask again");
+        };
+        const st0 = fbState();
+        if (!sessionStorage.getItem("ccrp-visit")) {
+          try {
+            sessionStorage.setItem("ccrp-visit", "1");
+          } catch (_) {}
+          st0.visits++;
+          fbSave(st0);
+        }
+        let views = 0,
+          asked = false;
+        function fbMaybe() {
+          const st = fbState();
+          if (asked || st.stop || st.done || st.asked >= 3 || st.visits < 2 || !ckOk("prefs")) return;
+          if (st.last && Date.now() - st.last < 12096e5) return;
+          if (
+            setM.classList.contains("on") ||
+            fbM.classList.contains("on") ||
+            document.getElementById("keym").classList.contains("on") ||
+            document.getElementById("pal").classList.contains("on")
+          )
+            return;
+          asked = true;
+          st.asked++;
+          st.last = Date.now();
+          fbSave(st);
+          fbP.classList.add("on");
+        }
+        new MutationObserver(() => {
+          if (++views >= 5) setTimeout(fbMaybe, 2000);
+        }).observe(root, { attributes: true, attributeFilter: ["data-v"] });
       }
 
       route();
