@@ -1,5 +1,8 @@
 # Changelog
 
+## 2026-10-22
+- Added an animated Discord logo button that opens the CCRP Discord invite (top bar, Home, menu and footer).
+
 ## 2026-10-21 (later)
 - Added a feedback form (copy, GitHub issue or optional Discord webhook) and an occasional friendly prompt.
 
