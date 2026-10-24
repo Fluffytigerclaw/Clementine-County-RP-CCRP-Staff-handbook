@@ -76,6 +76,10 @@ Visitors can give feedback from the **Feedback** button in the footer, the searc
 
 Feedback needs no account. By default a visitor can **Copy** it or **Open on GitHub** (a prefilled issue in your repo). To also get a **Send feedback** button that posts to a Discord channel, search `index.html` for `const FEEDBACK` and paste a Discord webhook URL into `discordWebhook`. Anyone who reads the page source can see that URL, so use a channel only your team can see and delete the webhook if it is ever abused.
 
+## Discord invite
+
+The animated Discord buttons open `https://discord.gg/UHQd6TMrEy`. To change the invite, search `index.html` for `discord.gg` and replace all four links.
+
 ## Shortcuts
 
 - Keys `1` to `0` open the first ten tabs of the current guide.
